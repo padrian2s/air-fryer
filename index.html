@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghid Air Fryer - Timp & Temperatura</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0f1117;--surface:#1a1d27;--surface2:#242836;--surface3:#2e3344;
+    --accent:#ff6b35;--accent2:#ff8c5a;--accent-glow:rgba(255,107,53,.15);
+    --green:#22c55e;--green-glow:rgba(34,197,94,.15);
+    --blue:#3b82f6;--blue-glow:rgba(59,130,246,.15);
+    --yellow:#eab308;--yellow-glow:rgba(234,179,8,.15);
+    --red:#ef4444;--purple:#a855f7;
+    --text:#e8eaed;--text2:#9ca3af;--text3:#6b7280;
+    --radius:12px;--radius-sm:8px;
+  }
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+  /* Header */
+  .header{background:linear-gradient(135deg,#1a1d27 0%,#242836 100%);border-bottom:1px solid var(--surface3);padding:1.5rem 2rem;text-align:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+  .header h1{font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem}
+  .header p{color:var(--text2);font-size:.9rem}
+
+  /* Search & Filters */
+  .controls{max-width:1200px;margin:1.5rem auto;padding:0 1.5rem}
+  .search-box{position:relative;margin-bottom:1rem}
+  .search-box input{width:100%;padding:14px 20px 14px 48px;background:var(--surface);border:2px solid var(--surface3);border-radius:var(--radius);color:var(--text);font-size:1rem;transition:all .3s}
+  .search-box input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-glow)}
+  .search-box input::placeholder{color:var(--text3)}
+  .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.2rem}
+
+  .filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+  .filter-btn{padding:8px 18px;border-radius:50px;border:1.5px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.85rem;transition:all .25s;white-space:nowrap}
+  .filter-btn:hover{border-color:var(--accent);color:var(--text)}
+  .filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;box-shadow:0 4px 15px var(--accent-glow)}
+
+  .view-toggle{display:flex;gap:.5rem;margin-bottom:1rem;justify-content:flex-end}
+  .view-btn{padding:6px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.85rem;transition:all .25s}
+  .view-btn.active{background:var(--surface3);color:var(--text);border-color:var(--text3)}
+
+  /* Quick Stats */
+  .quick-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.75rem;margin-bottom:1.5rem}
+  .stat-card{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius-sm);padding:1rem;text-align:center;cursor:pointer;transition:all .3s}
+  .stat-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .stat-card .stat-icon{font-size:1.5rem;margin-bottom:.3rem}
+  .stat-card .stat-num{font-size:1.4rem;font-weight:700;color:var(--accent)}
+  .stat-card .stat-label{font-size:.75rem;color:var(--text2)}
+
+  /* Grid */
+  .grid{max-width:1200px;margin:0 auto;padding:0 1.5rem 2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+  .grid.list-view{grid-template-columns:1fr}
+
+  /* Cards */
+  .card{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .3s}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+  .card-header{display:flex;align-items:center;gap:12px;padding:16px 18px 12px}
+  .card-emoji{font-size:2rem;min-width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:var(--radius-sm)}
+  .card-title{font-weight:600;font-size:1.05rem}
+  .card-cat{font-size:.75rem;color:var(--text3);margin-top:2px}
+  .card-body{padding:0 18px 16px}
+
+  .card-temps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .temp-box{background:var(--surface2);border-radius:var(--radius-sm);padding:10px 8px;text-align:center}
+  .temp-box .label{font-size:.65rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+  .temp-box .value{font-size:1.1rem;font-weight:700}
+  .temp-box .value.temp-val{color:var(--accent)}
+  .temp-box .value.time-val{color:var(--blue)}
+  .temp-box .value.flip-val{color:var(--yellow)}
+
+  .card-tip{font-size:.8rem;color:var(--text2);background:var(--surface2);border-radius:var(--radius-sm);padding:10px 12px;line-height:1.5;border-left:3px solid var(--accent)}
+
+  .difficulty{display:inline-flex;gap:3px;margin-top:4px}
+  .difficulty span{width:8px;height:8px;border-radius:50%;background:var(--surface3)}
+  .difficulty span.filled{background:var(--accent)}
+
+  /* List view card */
+  .list-view .card{display:grid;grid-template-columns:auto 1fr auto;align-items:center}
+  .list-view .card-header{padding:14px 18px}
+  .list-view .card-body{display:flex;gap:1rem;align-items:center;padding:14px 18px}
+  .list-view .card-temps{margin:0;display:flex;gap:.5rem}
+  .list-view .card-tip{display:none}
+
+  /* Modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay.show{opacity:1;pointer-events:all}
+  .modal{background:var(--surface);border:1px solid var(--surface3);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.95);transition:transform .3s}
+  .modal-overlay.show .modal{transform:scale(1)}
+  .modal-close{position:absolute;top:12px;right:12px;background:var(--surface3);border:none;color:var(--text);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .modal-close:hover{background:var(--red)}
+  .modal-inner{padding:2rem;position:relative}
+  .modal-emoji{font-size:3rem;margin-bottom:.75rem}
+  .modal-title{font-size:1.5rem;font-weight:700;margin-bottom:.25rem}
+  .modal-cat{color:var(--text3);font-size:.85rem;margin-bottom:1.5rem}
+
+  .modal-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
+  .modal-detail{background:var(--surface2);border-radius:var(--radius-sm);padding:14px;text-align:center}
+  .modal-detail .md-label{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+  .modal-detail .md-value{font-size:1.4rem;font-weight:700}
+
+  .modal-section{margin-bottom:1.25rem}
+  .modal-section h3{font-size:.9rem;font-weight:600;color:var(--accent);margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+  .modal-section p,.modal-section li{font-size:.88rem;color:var(--text2);line-height:1.6}
+  .modal-section ul{padding-left:1.2rem}
+  .modal-section li{margin-bottom:.3rem}
+
+  /* Timer */
+  .timer-section{background:var(--surface2);border-radius:var(--radius);padding:1.25rem;margin-top:1rem}
+  .timer-section h3{font-size:.9rem;font-weight:600;color:var(--green);margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
+  .timer-display{font-size:2.8rem;font-weight:700;font-family:'Courier New',monospace;text-align:center;margin:.5rem 0;letter-spacing:2px}
+  .timer-display.running{color:var(--green);text-shadow:0 0 20px var(--green-glow)}
+  .timer-display.paused{color:var(--yellow)}
+  .timer-display.done{color:var(--red);animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .timer-controls{display:flex;gap:.5rem;justify-content:center;margin-top:.75rem}
+  .timer-btn{padding:10px 24px;border:none;border-radius:var(--radius-sm);font-weight:600;cursor:pointer;font-size:.85rem;transition:all .2s}
+  .timer-btn.start{background:var(--green);color:#fff}
+  .timer-btn.start:hover{box-shadow:0 4px 15px var(--green-glow)}
+  .timer-btn.pause{background:var(--yellow);color:#000}
+  .timer-btn.reset{background:var(--surface3);color:var(--text)}
+  .timer-btn.reset:hover{background:var(--red);color:#fff}
+  .timer-presets{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-top:.75rem}
+  .timer-preset{padding:5px 12px;border-radius:50px;border:1px solid var(--surface3);background:transparent;color:var(--text2);cursor:pointer;font-size:.75rem;transition:all .2s}
+  .timer-preset:hover,.timer-preset.active{border-color:var(--green);color:var(--green)}
+
+  /* Conversion Tool */
+  .tool-bar{max-width:1200px;margin:0 auto 1rem;padding:0 1.5rem}
+  .tool-toggle{display:flex;gap:.5rem}
+  .tool-panel{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:1.25rem;margin-top:.75rem;display:none}
+  .tool-panel.show{display:block}
+  .tool-panel h3{font-size:1rem;font-weight:600;margin-bottom:1rem;color:var(--accent)}
+  .conv-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+  .conv-input{display:flex;flex-direction:column;gap:4px}
+  .conv-input label{font-size:.75rem;color:var(--text3)}
+  .conv-input input,.conv-input select{padding:10px 14px;background:var(--surface2);border:1.5px solid var(--surface3);border-radius:var(--radius-sm);color:var(--text);font-size:1rem;width:140px}
+  .conv-input input:focus,.conv-input select:focus{outline:none;border-color:var(--accent)}
+  .conv-result{font-size:1.3rem;font-weight:700;color:var(--green);padding:10px 20px;background:var(--green-glow);border-radius:var(--radius-sm);margin-top:.5rem}
+  .conv-arrow{font-size:1.5rem;color:var(--text3);margin-top:18px}
+
+  /* Cheat sheet */
+  .cheat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+  .cheat-item{background:var(--surface2);border-radius:var(--radius-sm);padding:12px;display:flex;align-items:center;gap:10px}
+  .cheat-item .ci-icon{font-size:1.3rem}
+  .cheat-item .ci-text{font-size:.8rem;color:var(--text2);line-height:1.4}
+  .cheat-item .ci-text strong{color:var(--text);display:block}
+
+  /* Comparison */
+  .compare-section{max-width:1200px;margin:0 auto 2rem;padding:0 1.5rem}
+  .compare-slots{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+  .compare-slot{background:var(--surface);border:2px dashed var(--surface3);border-radius:var(--radius);padding:1.25rem;text-align:center;min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .3s}
+  .compare-slot.filled{border-style:solid;border-color:var(--accent)}
+  .compare-slot .cs-emoji{font-size:2rem}
+  .compare-slot .cs-name{font-weight:600;margin-top:.3rem}
+  .compare-slot .cs-info{font-size:.8rem;color:var(--text2);margin-top:.3rem}
+  .compare-slot .cs-remove{margin-top:.5rem;padding:4px 12px;border-radius:50px;border:1px solid var(--red);background:transparent;color:var(--red);cursor:pointer;font-size:.75rem}
+  .compare-slot .cs-placeholder{color:var(--text3);font-size:.85rem}
+  .compare-result{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:1.25rem}
+  .compare-result h4{color:var(--accent);margin-bottom:.75rem}
+  .cr-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--surface2);font-size:.88rem}
+  .cr-row:last-child{border:none}
+  .cr-row .cr-label{color:var(--text3)}
+  .cr-row .cr-a,.cr-row .cr-b{font-weight:600}
+
+  /* Empty state */
+  .empty-state{text-align:center;padding:4rem 2rem;color:var(--text3)}
+  .empty-state .es-icon{font-size:3rem;margin-bottom:1rem}
+  .empty-state p{font-size:1rem}
+
+  /* Footer */
+  .footer{text-align:center;padding:2rem;color:var(--text3);font-size:.8rem;border-top:1px solid var(--surface2)}
+
+  /* Scroll to top */
+  .scroll-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);border:none;color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 20px var(--accent-glow);opacity:0;pointer-events:none;transition:all .3s;z-index:90;display:flex;align-items:center;justify-content:center}
+  .scroll-top.show{opacity:1;pointer-events:all}
+
+  /* Responsive */
+  @media(max-width:640px){
+    .header h1{font-size:1.4rem}
+    .grid{grid-template-columns:1fr}
+    .compare-slots{grid-template-columns:1fr}
+    .modal-detail-grid{grid-template-columns:1fr 1fr}
+    .conv-row{flex-direction:column;align-items:stretch}
+    .conv-input input{width:100%}
+    .conv-arrow{transform:rotate(90deg);text-align:center}
+  }
+
+  /* Recommended badge */
+  .card[data-cat="Recomandate"]{border-color:#22c55e33}
+  .card[data-cat="Recomandate"]:hover{border-color:var(--green);box-shadow:0 8px 30px rgba(34,197,94,.15)}
+  .badge-rec{display:inline-block;background:var(--green);color:#fff;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:50px;vertical-align:middle;margin-left:6px;letter-spacing:.3px}
+  .health-banner{background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(59,130,246,.1));border:1px solid rgba(34,197,94,.25);border-radius:var(--radius);padding:1.25rem;margin-bottom:1.5rem}
+  .health-banner h3{color:var(--green);font-size:1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:8px}
+  .health-banner p{font-size:.85rem;color:var(--text2);line-height:1.6}
+  .health-banner ul{margin-top:.5rem;padding-left:1.2rem}
+  .health-banner li{font-size:.82rem;color:var(--text2);margin-bottom:.25rem;line-height:1.5}
+  .health-banner li strong{color:var(--text)}
+  .filter-btn[data-cat="Recomandate"]{border-color:rgba(34,197,94,.4)}
+  .filter-btn[data-cat="Recomandate"].active{background:var(--green);border-color:var(--green)}
+
+  /* Animations */
+  .card{animation:fadeUp .4s ease both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+  .card:nth-child(2){animation-delay:.05s}
+  .card:nth-child(3){animation-delay:.1s}
+  .card:nth-child(4){animation-delay:.15s}
+  .card:nth-child(5){animation-delay:.2s}
+  .card:nth-child(6){animation-delay:.25s}
+
+  /* Toast */
+  .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface2);border:1px solid var(--surface3);color:var(--text);padding:12px 24px;border-radius:var(--radius);font-size:.88rem;opacity:0;pointer-events:none;transition:all .3s;z-index:300;white-space:nowrap}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* Tab nav */
+  .tab-nav{display:flex;gap:0;max-width:1200px;margin:1.5rem auto .5rem;padding:0 1.5rem}
+  .tab-btn{padding:10px 20px;border:1.5px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.85rem;transition:all .25s;border-bottom:none}
+  .tab-btn:first-child{border-radius:var(--radius-sm) 0 0 0}
+  .tab-btn:last-child{border-radius:0 var(--radius-sm) 0 0}
+  .tab-btn.active{background:var(--surface2);color:var(--accent);border-color:var(--accent);border-bottom-color:var(--surface2);font-weight:600}
+  .tab-content{display:none;max-width:1200px;margin:0 auto;padding:0 1.5rem 2rem}
+  .tab-content.active{display:block}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>&#x1F32C;&#xFE0F; Ghid Air Fryer</h1>
+  <p>Timp, temperatura si sfaturi pentru gatit perfect</p>
+</header>
+
+<!-- Tab Navigation -->
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="recipes">Retete</button>
+  <button class="tab-btn" data-tab="tools">Instrumente</button>
+  <button class="tab-btn" data-tab="compare">Compara</button>
+  <button class="tab-btn" data-tab="tips">Sfaturi</button>
+</nav>
+
+<!-- TAB: RECIPES -->
+<div id="tab-recipes" class="tab-content active">
+  <div class="controls">
+    <div class="search-box">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" id="searchInput" placeholder="Cauta aliment... (ex: cartofi, pui, somon)">
+    </div>
+    <div class="filters" id="filterBar"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem">
+      <div class="quick-stats" id="quickStats" style="display:flex;gap:.5rem;flex:1"></div>
+      <div class="view-toggle">
+        <button class="view-btn active" data-view="grid" title="Grila">&#9638;</button>
+        <button class="view-btn" data-view="list" title="Lista">&#9776;</button>
+      </div>
+    </div>
+  </div>
+  <div class="health-banner" id="healthBanner" style="display:none">
+    <h3>&#x1F49A; Retete personalizate - Profil medical</h3>
+    <p>Aceste retete sunt adaptate pentru urmatorul profil:</p>
+    <ul>
+      <li><strong>Fara sare adaugata</strong> - hipertensiune grad III (se folosesc ierburi, lamaie, usturoi, condimente)</li>
+      <li><strong>Grasimi saturate minime</strong> - hipercolesterolemie (ulei masline, peste, carne slaba)</li>
+      <li><strong>Proteine moderate (120-130g/portie)</strong> - boala cronica de rinichi G3a</li>
+      <li><strong>Potasiu controlat</strong> - CKD (se indica nivelul pt fiecare reteta)</li>
+      <li><strong>Fosfor redus</strong> - CKD (fara alimente procesate, fara mezeluri)</li>
+      <li><strong>Omega-3 si antiinflamatoare</strong> - post-AVC, ateromatoza (peste gras, turmeric, ierburi)</li>
+      <li><strong>Compatibil cu:</strong> Eliquis, Sortis, Carvedilol, Furosemid, Spironolactona</li>
+    </ul>
+    <p style="margin-top:.5rem;font-size:.75rem;color:var(--text3)">* Informatii orientative. Consulta medicul si nutritionistul pentru recomandari personalizate.</p>
+  </div>
+  <div class="grid" id="recipeGrid"></div>
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="es-icon">&#x1F50D;</div>
+    <p>Niciun rezultat gasit. Incearca alt termen de cautare.</p>
+  </div>
+</div>
+
+<!-- TAB: TOOLS -->
+<div id="tab-tools" class="tab-content">
+  <div style="max-width:800px;margin:0 auto">
+    <!-- Oven to Air Fryer Converter -->
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3>&#x1F321;&#xFE0F; Convertor Cuptor &rarr; Air Fryer</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Converteste temperatura si timpul din retete de cuptor traditional pentru air fryer.</p>
+      <div class="conv-row">
+        <div class="conv-input">
+          <label>Temperatura cuptor (&deg;C)</label>
+          <input type="number" id="convTemp" value="200" min="100" max="300">
+        </div>
+        <div class="conv-input">
+          <label>Timp cuptor (min)</label>
+          <input type="number" id="convTime" value="30" min="1" max="180">
+        </div>
+        <div class="conv-arrow">&rarr;</div>
+        <div class="conv-input">
+          <label>Air Fryer</label>
+          <div class="conv-result" id="convResult">180&deg;C / 24 min</div>
+        </div>
+      </div>
+      <p style="font-size:.75rem;color:var(--text3);margin-top:.75rem">* Regula generala: scade 20&deg;C si 20% din timp fata de cuptorul traditional.</p>
+    </div>
+
+    <!-- Portion Calculator -->
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3>&#x2696;&#xFE0F; Calculator Portii</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Ajusteaza timpul in functie de cantitatea de aliment.</p>
+      <div class="conv-row">
+        <div class="conv-input">
+          <label>Portii (persoane)</label>
+          <input type="range" id="portionSlider" min="1" max="6" value="2" style="width:200px;accent-color:var(--accent)">
+          <span id="portionNum" style="font-size:1.2rem;font-weight:700;color:var(--accent);text-align:center">2</span>
+        </div>
+        <div class="conv-input">
+          <label>Timp baza (min)</label>
+          <input type="number" id="portionTime" value="15" min="1" max="120">
+        </div>
+        <div class="conv-arrow">&rarr;</div>
+        <div class="conv-input">
+          <label>Timp ajustat</label>
+          <div class="conv-result" id="portionResult">15 min</div>
+        </div>
+      </div>
+      <p style="font-size:.75rem;color:var(--text3);margin-top:.75rem">* Pentru portii duble+, se adauga ~20% timp si se recomanda gatirea in serii.</p>
+    </div>
+
+    <!-- Standalone Timer -->
+    <div class="tool-panel show">
+      <h3>&#x23F1;&#xFE0F; Cronometru Air Fryer</h3>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1rem">
+        <button class="timer-preset" onclick="setStandaloneTimer(5)">5 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(8)">8 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(10)">10 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(12)">12 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(15)">15 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(20)">20 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(25)">25 min</button>
+        <button class="timer-preset" onclick="setStandaloneTimer(30)">30 min</button>
+      </div>
+      <div class="conv-row" style="justify-content:center;margin-bottom:.5rem">
+        <div class="conv-input">
+          <label>Minute</label>
+          <input type="number" id="standaloneMin" value="10" min="0" max="120" style="width:80px;text-align:center">
+        </div>
+        <span style="margin-top:18px;font-size:1.5rem;font-weight:700">:</span>
+        <div class="conv-input">
+          <label>Secunde</label>
+          <input type="number" id="standaloneSec" value="0" min="0" max="59" style="width:80px;text-align:center">
+        </div>
+      </div>
+      <div class="timer-display" id="standaloneDisplay">10:00</div>
+      <div class="timer-controls">
+        <button class="timer-btn start" id="standaloneStart" onclick="toggleStandaloneTimer()">Start</button>
+        <button class="timer-btn reset" onclick="resetStandaloneTimer()">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: COMPARE -->
+<div id="tab-compare" class="tab-content">
+  <div class="compare-section" style="padding:0;margin:0 auto;max-width:800px">
+    <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Selecteaza 2 alimente din tab-ul Retete (click dreapta sau butonul "Compara") pentru a le compara.</p>
+    <div class="compare-slots" id="compareSlots">
+      <div class="compare-slot" id="slot0"><span class="cs-placeholder">Slot 1 - gol</span></div>
+      <div class="compare-slot" id="slot1"><span class="cs-placeholder">Slot 2 - gol</span></div>
+    </div>
+    <div class="compare-result" id="compareResult" style="display:none"></div>
+  </div>
+</div>
+
+<!-- TAB: TIPS -->
+<div id="tab-tips" class="tab-content">
+  <div style="max-width:800px;margin:0 auto">
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3>&#x1F4A1; Sfaturi Esentiale</h3>
+      <div class="cheat-grid">
+        <div class="cheat-item"><span class="ci-icon">&#x1F321;&#xFE0F;</span><div class="ci-text"><strong>Preincalzire</strong>3-5 minute la temperatura dorita inainte de gatit</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F4A8;</span><div class="ci-text"><strong>Nu supraaglomera</strong>Lasa spatiu intre alimente pentru circulatia aerului</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F4A7;</span><div class="ci-text"><strong>Pulverizeaza ulei</strong>Un strat subtire de ulei face mancarea crocanta</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F504;</span><div class="ci-text"><strong>Intoarce la jumatate</strong>Intoarce alimentele la jumatatea timpului</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F9F9;</span><div class="ci-text"><strong>Curata regulat</strong>Curata cosul dupa fiecare utilizare</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F9C8;</span><div class="ci-text"><strong>Hartie de copt</strong>Foloseste hartie perforata pentru alimente lipicioase</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x2744;&#xFE0F;</span><div class="ci-text"><strong>Alimente congelate</strong>Nu e nevoie de dezghetare, adauga 3-5 min</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F50A;</span><div class="ci-text"><strong>Scutura cosul</strong>La fiecare 5 min pentru gatire uniforma</div></div>
+      </div>
+    </div>
+
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3>&#x1F525; Ghid Temperatura</h3>
+      <div class="cheat-grid">
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--blue)">&#x1F535;</span><div class="ci-text"><strong>120-150&deg;C - Scazuta</strong>Deshidratare, uscare fructe/legume</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x1F7E2;</span><div class="ci-text"><strong>150-170&deg;C - Medie</strong>Pui, peste delicat, legume moi</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--yellow)">&#x1F7E1;</span><div class="ci-text"><strong>170-190&deg;C - Medie-inalta</strong>Cartofi, carne, legume tari</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">&#x1F7E0;</span><div class="ci-text"><strong>190-200&deg;C - Inalta</strong>Cartofi prajiti, aripioare, crocante</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">&#x1F534;</span><div class="ci-text"><strong>200-230&deg;C - Foarte inalta</strong>Steak, gratinare rapida</div></div>
+      </div>
+    </div>
+
+    <div class="tool-panel show">
+      <h3>&#x26A0;&#xFE0F; Ce sa NU faci</h3>
+      <div class="cheat-grid">
+        <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Aluat lichid</strong>Clatite, gogosi neformate - se scurg</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Ulei in exces</strong>Pericol de fum si incendiu</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Cos plin ochi</strong>Gatire neuniforma, alimente crude</div></div>
+        <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Alimente prea usoare</strong>Hartia de copt fara greutate zboara</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+
+<footer class="footer">
+  Ghid Air Fryer &middot; Timpii sunt orientativi &middot; Verifica mereu mancarea inainte de servire
+</footer>
+
+<script>
+// ══════════════════════════════════════
+// DATA
+// ══════════════════════════════════════
+const recipes = [
+  // CARTOFI & LEGUME
+  {id:1,name:"Cartofi prajiti",emoji:"\u{1F35F}",cat:"Legume",temp:200,time:"18-22",flip:"Da, la 10 min",difficulty:1,
+   tip:"Taie uniform, usuca bine, adauga un strop de ulei. Scutura cosul la jumatate.",
+   steps:["Spala si taie cartofii in batoane de 1cm","Usuca-i bine cu un prosop","Adauga 1 lingurita ulei si condimente","Gateste la 200°C, 18-22 min","Scutura cosul la jumatatea timpului"],
+   notes:"Pentru extra crocant, pune cartofii in apa rece 30 min inainte si usuca-i bine."},
+  {id:2,name:"Cartofi wedges",emoji:"\u{1F954}",cat:"Legume",temp:190,time:"20-25",flip:"Da, la 12 min",difficulty:1,
+   tip:"Lasa coaja, taie in sferturi, condimenteaza cu usturoi praf si boia.",
+   steps:["Taie cartofii in sferturi (wedges)","Amesteca cu ulei, sare, boia, usturoi praf","Asaza intr-un singur strat","Gateste la 190°C, 20-25 min","Intoarce la jumatate"],
+   notes:"Cartofii noi sau rosii functioneaza cel mai bine."},
+  {id:3,name:"Cartofi dulci",emoji:"\u{1F360}",cat:"Legume",temp:190,time:"15-20",flip:"Da, la 10 min",difficulty:1,
+   tip:"Taie mai subtire decat cartofii normali, se gatesc mai repede.",
+   steps:["Curata si taie in batoane/rondele","Unge cu putin ulei de cocos","Condimenteaza cu scortisoara sau boia afumata","Gateste la 190°C, 15-20 min"],
+   notes:"Se caramelizeaza frumos datorita zaharurilor naturale."},
+  {id:4,name:"Broccoli",emoji:"\u{1F966}",cat:"Legume",temp:180,time:"8-10",flip:"Da, la 5 min",difficulty:1,
+   tip:"Buchete mici, putin ulei si usturoi. Nu supragati - trebuie sa ramana crocant.",
+   steps:["Taie in buchete mici, egale","Amesteca cu ulei, usturoi, sare","Asaza intr-un strat","Gateste la 180°C, 8-10 min"],
+   notes:"Perfect ca garnitura rapida. Adauga parmezan in ultimele 2 minute."},
+  {id:5,name:"Vinete",emoji:"\u{1F346}",cat:"Legume",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:2,
+   tip:"Sareaza feliile 15 min inainte si sterge umezeala pentru textura mai buna.",
+   steps:["Taie rondele de 1cm grosime","Sareaza si lasa 15 min, apoi sterge","Unge cu ulei de masline pe ambele parti","Gateste la 190°C, 12-15 min"],
+   notes:"Excelente pentru babaganoush sau ca baza pentru bruschete."},
+  {id:6,name:"Dovlecei / Zucchini",emoji:"\u{1F952}",cat:"Legume",temp:185,time:"10-12",flip:"Da, la 6 min",difficulty:1,
+   tip:"Rondele sau batoane, nu prea subtiri ca se usuca.",
+   steps:["Taie rondele de 1.5cm sau batoane","Unge usor cu ulei","Condimenteaza cu oregano si parmezan","Gateste la 185°C, 10-12 min"],
+   notes:"Pot fi trecuti prin pesmet pentru varianta crocanta."},
+  {id:7,name:"Conopida",emoji:"\u{1F33D}",cat:"Legume",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:1,
+   tip:"Buchete medii cu ulei si turmeric pentru culoare si gust.",
+   steps:["Rupe in buchete medii, egale","Amesteca cu ulei, turmeric, sare","Asaza intr-un strat","Gateste la 190°C, 12-15 min"],
+   notes:"Alternativa low-carb la aripioare cand e trecuta prin aluat."},
+  {id:8,name:"Ciuperci",emoji:"\u{1F344}",cat:"Legume",temp:180,time:"8-12",flip:"Da, la 5 min",difficulty:1,
+   tip:"Nu spala, sterge cu un servet. Condimenteaza simplu cu sare si usturoi.",
+   steps:["Curata cu servet umed, taie in sferturi sau lasa intregi","Amesteca cu ulei, usturoi, sare","Gateste la 180°C, 8-12 min","Presara patrunjel proaspat"],
+   notes:"Ciupercile champignon intregi ies grozav."},
+  {id:9,name:"Ardei grasi",emoji:"\u{1F336}\uFE0F",cat:"Legume",temp:185,time:"8-10",flip:"Da, la 5 min",difficulty:1,
+   tip:"Taie in fasii groase. Se pot umple cu branza si gatiti 12-15 min.",
+   steps:["Taie in fasii late sau sferturi","Unge usor cu ulei","Condimenteaza cu sare si oregano","Gateste la 185°C, 8-10 min"],
+   notes:"Amestec de culori pentru prezentare frumoasa."},
+  {id:10,name:"Rosii cherry",emoji:"\u{1F345}",cat:"Legume",temp:180,time:"8-10",flip:"Scutura cosul la 5 min",difficulty:1,
+   tip:"Se concentreaza aromele. Perfecte pentru paste sau bruschete.",
+   steps:["Spala si usuca rosiile","Amesteca cu ulei, usturoi, sare","Gateste la 180°C, 8-10 min","Presara busuioc proaspat"],
+   notes:"La 120°C timp de 45-60 min obtii rosii semi-deshidratate."},
+
+  // CARNE
+  {id:20,name:"Piept de pui",emoji:"\u{1F357}",cat:"Carne",temp:180,time:"18-22",flip:"Da, la 10 min",difficulty:2,
+   tip:"Bate pieptul la grosime egala. Temp interna: 74°C. Lasa sa se odihneasca 5 min.",
+   steps:["Bate pieptul la grosime uniforma (2cm)","Unge cu ulei, condimenteaza","Preincalzeste air fryer-ul 3 min","Gateste la 180°C, 18-22 min","Verifica temp interna: 74°C"],
+   notes:"Marinarea peste noapte face diferenta enorma. Nu supragati!"},
+  {id:21,name:"Aripioare de pui",emoji:"\u{1F357}",cat:"Carne",temp:200,time:"22-28",flip:"Da, la 12 min",difficulty:1,
+   tip:"Usuca bine cu servetele, adauga baking powder pentru extra crocant.",
+   steps:["Usuca aripioarele foarte bine","Optional: adauga 1 lingurita baking powder","Condimenteaza dupa gust","Gateste la 200°C, 22-28 min","Glazureaza in ultimele 5 min daca doresti"],
+   notes:"Baking powder (nu baking soda!) face pielea incredibil de crocanta."},
+  {id:22,name:"Pulpe de pui",emoji:"\u{1F357}",cat:"Carne",temp:190,time:"22-28",flip:"Da, la 12 min",difficulty:1,
+   tip:"Cu piele, la temperatura mai mare pentru crocant. Temp interna: 74°C.",
+   steps:["Usuca pulpele, condimenteaza si sub piele","Asaza cu pielea in sus","Gateste la 190°C, 22-28 min","Verifica temp interna: 74°C"],
+   notes:"Incizeaza pielea pentru a se gati uniform."},
+  {id:23,name:"Steak (vita)",emoji:"\u{1F969}",cat:"Carne",temp:200,time:"8-14",flip:"Da, la jumatate",difficulty:3,
+   tip:"Scoate steakul din frigider cu 30 min inainte. Medium-rare: 55°C intern.",
+   steps:["Scoate carnea la temp camerei 30 min","Usuca, unge cu ulei, sare si piper","Preincalzeste la 200°C","Gateste: 8min(rare), 10min(medium), 14min(well)","Odihna 5 min pe platou"],
+   notes:"Grosime ideala: 2.5cm. Pentru crusta, creste la 220°C ultimele 2 min."},
+  {id:24,name:"Burger (vita)",emoji:"\u{1F354}",cat:"Carne",temp:190,time:"10-14",flip:"Da, la 6 min",difficulty:2,
+   tip:"Fa o adancitura in centru sa nu se umfle. Nu apasa pe chiftea!",
+   steps:["Formeaza chiftele de 2cm grosime","Fa o adancitura in centru","Condimenteaza cu sare si piper","Gateste la 190°C, 10-14 min","Adauga branza in ultimele 2 min"],
+   notes:"Carne cu 20% grasime da cele mai suculente burgeri."},
+  {id:25,name:"Cotlet de porc",emoji:"\u{1F356}",cat:"Carne",temp:190,time:"12-16",flip:"Da, la 7 min",difficulty:2,
+   tip:"Temp interna: 63°C. Nu supragati, se usuca repede.",
+   steps:["Scoate la temp camerei 15 min","Unge cu ulei si condimente","Gateste la 190°C, 12-16 min","Verifica temp interna: 63°C","Odihna 3 min"],
+   notes:"Grosime 2-2.5cm ideala. Marinarea ajuta la suculenta."},
+  {id:26,name:"Carnati / Mici",emoji:"\u{1F32D}",cat:"Carne",temp:180,time:"10-15",flip:"Da, la 5-7 min",difficulty:1,
+   tip:"Inteapa carnatii in cateva locuri. Micii nu necesita ulei.",
+   steps:["Inteapa carnatii cu furculita","Asaza fara sa se atinga","Gateste la 180°C, 10-15 min","Intoarce o data sau de doua ori"],
+   notes:"Micii ies perfect la air fryer, nu au nevoie de gratarul traditional."},
+
+  // PESTE & FRUCTE DE MARE
+  {id:40,name:"Somon",emoji:"\u{1F41F}",cat:"Peste",temp:180,time:"10-12",flip:"Nu",difficulty:2,
+   tip:"Cu pielea in jos. Nu intoarce. Temp interna: 63°C. Unge cu miere+soia pentru glazura.",
+   steps:["Tamponeaza fileul uscat","Condimenteaza: sare, lamaie, marar","Asaza cu pielea in jos","Gateste la 180°C, 10-12 min","Pielea devine crocanta fara intoarcere"],
+   notes:"Grosime 2.5cm. Glazura miere-soia: unge la 5 min ramase."},
+  {id:41,name:"Cod / Peste alb",emoji:"\u{1F41F}",cat:"Peste",temp:180,time:"10-12",flip:"Cu grija la 6 min",difficulty:2,
+   tip:"Peste delicat - foloseste hartie de copt perforata. Temp interna: 63°C.",
+   steps:["Usuca fileul si condimenteaza","Asaza pe hartie de copt perforata","Unge cu ulei de masline si lamaie","Gateste la 180°C, 10-12 min"],
+   notes:"Functioneaza si cu pangasius, tilapia, dorada."},
+  {id:42,name:"Creveti",emoji:"\u{1F990}",cat:"Peste",temp:190,time:"6-8",flip:"Da, la 4 min",difficulty:2,
+   tip:"Se gatesc foarte repede! Sunt gata cand devin roz si se curbează in C (nu O).",
+   steps:["Curata si devineaza crevetii","Amesteca cu ulei, usturoi, lamaie","Asaza intr-un strat","Gateste la 190°C, 6-8 min"],
+   notes:"Forma C = perfect. Forma O = supragatit. Verifica des!"},
+  {id:43,name:"Fish fingers",emoji:"\u{1F41F}",cat:"Peste",temp:200,time:"8-12",flip:"Da, la 5 min",difficulty:1,
+   tip:"Din congelator direct in air fryer. Pulverizeaza ulei pentru crocant.",
+   steps:["Nu dezgheta","Pulverizeaza ulei pe ambele parti","Asaza intr-un strat","Gateste la 200°C, 8-12 min"],
+   notes:"Functioneaza excelent cu toate brandurile congelate."},
+
+  // CONGELATE
+  {id:60,name:"Nuggets pui (congelati)",emoji:"\u{1F419}",cat:"Congelate",temp:190,time:"10-12",flip:"Da, la 6 min",difficulty:1,
+   tip:"Direct din congelator, fara ulei. Scutura cosul la jumatate.",
+   steps:["Nu dezgheta","Asaza intr-un singur strat","Gateste la 190°C, 10-12 min","Scutura cosul la jumatate"],
+   notes:"Ies mult mai crocanti decat la cuptor."},
+  {id:61,name:"Pizza congelata",emoji:"\u{1F355}",cat:"Congelate",temp:180,time:"8-10",flip:"Nu",difficulty:1,
+   tip:"Foloseste o pizza ce incape in cos. Preincalzeste air fryer-ul.",
+   steps:["Preincalzeste la 180°C, 3 min","Pune pizza direct (fara tava)","Gateste 8-10 min","Verifica branza sa fie topita"],
+   notes:"Pentru pizza proaspata: 200°C, 6-8 min."},
+  {id:62,name:"Mozzarella sticks",emoji:"\u{1F9C0}",cat:"Congelate",temp:190,time:"6-8",flip:"Da, la 4 min",difficulty:1,
+   tip:"Direct din congelator! Daca se dezgheata, branza curge.",
+   steps:["Scoate din congelator direct in cos","NU dezgheta niciodata","Pulverizeaza ulei","Gateste la 190°C, 6-8 min"],
+   notes:"Verifica sa nu se sparga - crosta trebuie sa ramana intacta."},
+  {id:63,name:"Snitzel congelat",emoji:"\u{1F356}",cat:"Congelate",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:1,
+   tip:"Pulverizeaza ulei pentru crusta aurie. Nu suprapune.",
+   steps:["Asaza intr-un singur strat","Pulverizeaza ulei pe ambele parti","Gateste la 190°C, 12-15 min","Intoarce la jumatate"],
+   notes:"Mult mai sanatos decat prajeala clasica."},
+  {id:64,name:"Cartofi congelati",emoji:"\u{1F35F}",cat:"Congelate",temp:200,time:"15-20",flip:"Scutura la 8 min",difficulty:1,
+   tip:"Cel mai popular aliment la air fryer! Scutura cosul de 2 ori.",
+   steps:["Nu dezgheta","Asaza max 2/3 din cos","Optional: pulverizeaza ulei","Gateste la 200°C, 15-20 min","Scutura cosul de 2-3 ori"],
+   notes:"Creste la 205°C pentru ultimele 3 min pentru extra crocant."},
+
+  // PATISERIE & DULCIURI
+  {id:80,name:"Croissante (congelate)",emoji:"\u{1F950}",cat:"Patiserie",temp:160,time:"10-13",flip:"Nu",difficulty:2,
+   tip:"Lasa spatiu sa creasca. Temp scazuta pentru interior pufos.",
+   steps:["Scoate din congelator si dezgheata 30 min","Asaza cu spatiu intre ele","Gateste la 160°C, 10-13 min","Ung cu ou batut pentru luciu (optional)"],
+   notes:"Functioneaza si cu aluat de foietaj."},
+  {id:81,name:"Placinta cu mere",emoji:"\u{1F34E}",cat:"Patiserie",temp:170,time:"15-18",flip:"Nu",difficulty:2,
+   tip:"Aluat foietaj cu umplutura de mere, scortisoara si zahar.",
+   steps:["Intinde aluatul si taie in patrate","Adauga umplutura de mere condimentate","Impatureste si sigileaza marginile","Unge cu ou batut","Gateste la 170°C, 15-18 min"],
+   notes:"Presara zahar pudra la servire."},
+  {id:82,name:"Banana bread / Briosa",emoji:"\u{1F34C}",cat:"Patiserie",temp:160,time:"15-20",flip:"Nu",difficulty:2,
+   tip:"Foloseste forme mici de silicon. Temp mai scazuta decat cuptorul.",
+   steps:["Pregateste aluatul clasic","Toarna in forme de silicon","Umple 2/3 din forma","Gateste la 160°C, 15-20 min","Testeaza cu scobitoarea"],
+   notes:"Reduc temperatura cu 20°C fata de reteta originala."},
+  {id:83,name:"Gogosi (donuts)",emoji:"\u{1F369}",cat:"Patiserie",temp:175,time:"8-10",flip:"Da, la 5 min",difficulty:2,
+   tip:"Aluat simplu sau din conserva de biscuiti. Glazureaza la final.",
+   steps:["Formeaza gogosile cu gaura","Asaza cu spatiu intre ele","Gateste la 175°C, 8-10 min","Intoarce la jumatate","Glazureaza imediat"],
+   notes:"90% mai putin ulei decat metoda traditionala!"},
+
+  // ALTELE
+  {id:100,name:"Oua fierte",emoji:"\u{1F95A}",cat:"Altele",temp:130,time:"10-15",flip:"Nu",difficulty:1,
+   tip:"Fara apa! 10min=moi, 12min=medii, 15min=tari. Pune in apa rece dupa.",
+   steps:["Pune ouale direct in cos","Gateste la 130°C","10 min = oua moi, 12 = medii, 15 = tari","Transfera imediat in apa cu gheata"],
+   notes:"Metoda revolutionara - fara apa, fara fierbere."},
+  {id:101,name:"Toast cu branza",emoji:"\u{1F9C0}",cat:"Altele",temp:180,time:"5-7",flip:"Nu",difficulty:1,
+   tip:"Pune branza intre felii si fixeaza cu scobitori.",
+   steps:["Asambleaza sandwich-ul","Fixeaza cu scobitori","Unge exteriorul cu unt","Gateste la 180°C, 5-7 min"],
+   notes:"Adauga rosii, sunca sau orice doresti inauntru."},
+  {id:102,name:"Bacon",emoji:"\u{1F953}",cat:"Altele",temp:190,time:"6-10",flip:"Da, la 4 min",difficulty:1,
+   tip:"Cel mai curat mod de a face bacon. Nu e nevoie de ulei.",
+   steps:["Asaza feliile fara sa se suprapuna","Gateste la 190°C, 6-10 min","6min=flexibil, 8min=crocant, 10min=extra crocant"],
+   notes:"Grasimea curge in tava - mult mai sanatos."},
+  {id:103,name:"Paine cu usturoi",emoji:"\u{1F956}",cat:"Altele",temp:175,time:"5-8",flip:"Nu",difficulty:1,
+   tip:"Bagheta taiata, unsa cu unt cu usturoi. Rapid si delicios!",
+   steps:["Taie bagheta in doua pe lung","Amesteca unt moale cu usturoi pisat si patrunjel","Intinde pe paine","Gateste la 175°C, 5-8 min"],
+   notes:"Adauga branza rasa in ultimele 2 minute."},
+  {id:104,name:"Tortilla chips",emoji:"\u{1F944}",cat:"Altele",temp:180,time:"5-7",flip:"Scutura la 3 min",difficulty:1,
+   tip:"Taie tortilla in triunghiuri, ulei, sare. Ieftin si delicios.",
+   steps:["Taie tortilla in triunghiuri","Pulverizeaza ulei si sare","Asaza intr-un strat","Gateste la 180°C, 5-7 min"],
+   notes:"Functioneaza si cu tortilla ramase de la taco night."},
+  {id:105,name:"Halloumi",emoji:"\u{1F9C0}",cat:"Altele",temp:200,time:"8-10",flip:"Da, la 5 min",difficulty:1,
+   tip:"Felii de 1cm, nu are nevoie de ulei. Exterior crocant, interior moale.",
+   steps:["Taie felii de 1cm","Nu adauga ulei - branza are destul","Gateste la 200°C, 8-10 min","Serveste imediat cu lamaie"],
+   notes:"Se serveste fierbinte - se intareste la racire."},
+  {id:106,name:"Tofu crocant",emoji:"\u{1FAD8}",cat:"Altele",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:2,
+   tip:"Preseaza tofu-ul 20 min. Cuburi mici + amidon de porumb = magic.",
+   steps:["Preseaza tofu-ul 20 min in prosoape","Taie cuburi de 2cm","Amesteca cu amidon de porumb si soia","Gateste la 190°C, 12-15 min"],
+   notes:"Secret: amidonul de porumb creeaza crusta incredibila."},
+
+  // ═══════════════════════════════════════════════════
+  // RECOMANDATE - Profil medical personalizat
+  // Conditii: CKD G3a, hipertensiune gr.III, hipercolesterolemie,
+  // post-AVC ischemic, ateromatoza carotidiana, trombofilie
+  // Medicamente: Eliquis, Sortis, Carvedilol, Furosemid, Spironolactona
+  // Principii: sodiu scazut, grasimi saturate minime, proteine moderate,
+  // potasiu controlat, fosfor redus, omega-3, antiinflamator
+  // ═══════════════════════════════════════════════════
+
+  // PESTE & OMEGA-3 (excelent pt inima, creier, antiinflamator)
+  {id:200,name:"Somon cu lamaie si marar (fara sare)",emoji:"\u{1F41F}",cat:"Recomandate",temp:175,time:"10-12",flip:"Nu",difficulty:2,
+   tip:"Omega-3 excelent pt inima si creier. FARA sare - foloseste lamaie, marar si usturoi.",
+   steps:["Tamponeaza fileul uscat","Condimenteaza cu zeama de lamaie, marar proaspat, usturoi praf","Strop de ulei de masline extravirgin","Asaza cu pielea in jos","Gateste la 175°C, 10-12 min"],
+   notes:"Omega-3 reduce inflamatia si colesterolul. Ideal 2-3 portii/saptamana. Portie: 120-130g (proteine moderate pt CKD)."},
+  {id:201,name:"Pastrav cu ierburi",emoji:"\u{1F41F}",cat:"Recomandate",temp:175,time:"12-14",flip:"Nu",difficulty:2,
+   tip:"Peste bogat in omega-3, sarac in sodiu natural. Ierburi proaspete in loc de sare.",
+   steps:["Curata pastravul, tamponeaza uscat","Umple cu felii de lamaie, cimbru si rozmarin","Unge cu ulei de masline","Gateste la 175°C, 12-14 min"],
+   notes:"Pastravul romanesc e excelent - omega-3 si proteine de calitate. Portie 120-130g."},
+  {id:202,name:"Macrou cu turmeric",emoji:"\u{1F41F}",cat:"Recomandate",temp:180,time:"10-12",flip:"Da, cu grija la 6 min",difficulty:2,
+   tip:"Macrou = cel mai bogat peste in omega-3. Turmeric = antiinflamator puternic.",
+   steps:["Fileuri de macrou, tamponate uscat","Amestec: turmeric, piper negru (activeaza curcumina), usturoi praf","Unge cu ulei de masline","Gateste la 180°C, 10-12 min"],
+   notes:"Combinatia turmeric+piper creste absorbtia de 2000%. Excelent anti-inflamator post-AVC."},
+  {id:203,name:"Cod cu crusta de ierburi",emoji:"\u{1F41F}",cat:"Recomandate",temp:180,time:"10-12",flip:"Nu",difficulty:2,
+   tip:"Peste alb slab, usor de digerat. Fosfor mai scazut decat pestele gras.",
+   steps:["Fileuri de cod, tamponate uscat","Amestec: pesmet integral + patrunjel + usturoi + zeama lamaie","Presara pe fileu, apasa usor","Strop ulei masline","Gateste la 180°C, 10-12 min"],
+   notes:"Codul are fosfor mai scazut decat somonul - bun pentru CKD. Proteine de calitate."},
+
+  // LEGUME (antiinflamatoare, sarace in sodiu, bogate in fibre)
+  {id:210,name:"Broccoli cu usturoi (fara sare)",emoji:"\u{1F966}",cat:"Recomandate",temp:180,time:"8-10",flip:"Da, la 5 min",difficulty:1,
+   tip:"Bogat in vitamina C si fibre, potasiu moderat. Usturoi in loc de sare!",
+   steps:["Buchete mici, egale","Amesteca cu 1 lingurita ulei masline si usturoi pisat","Optional: fulgi de ardei iute","Gateste la 180°C, 8-10 min"],
+   notes:"Broccoli are potasiu moderat (OK pt CKD G3a). Fibrele ajuta la colesterol."},
+  {id:211,name:"Dovlecei cu oregano si lamaie",emoji:"\u{1F952}",cat:"Recomandate",temp:185,time:"10-12",flip:"Da, la 6 min",difficulty:1,
+   tip:"Dovleceii au potasiu scazut si sunt excelenti pentru rinichi.",
+   steps:["Taie rondele de 1.5cm","Unge cu ulei masline, oregano uscat, zeama lamaie","Piper negru dupa gust","Gateste la 185°C, 10-12 min"],
+   notes:"Potasiu scazut (~260mg/150g) - printre cele mai bune legume pt CKD. Zero sodiu adaugat."},
+  {id:212,name:"Ardei grasi cu busuioc",emoji:"\u{1F336}\uFE0F",cat:"Recomandate",temp:185,time:"8-10",flip:"Da, la 5 min",difficulty:1,
+   tip:"Vitamina C bogata, potasiu moderat, antiinflamator. Coloreaza farfuria!",
+   steps:["Taie in fasii late","Unge cu ulei masline","Presara busuioc uscat si usturoi granulat","Gateste la 185°C, 8-10 min","Zeama de lamaie la servire"],
+   notes:"Ardeii rosii au cel mai mult vitamina C. Ajuta absorbtia fierului si imunitatea."},
+  {id:213,name:"Conopida cu turmeric si chimion",emoji:"\u{1F33D}",cat:"Recomandate",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:1,
+   tip:"Conopida = potasiu scazut, fibre bune, versatila. Turmeric = antiinflamator.",
+   steps:["Buchete medii, egale","Amestec: ulei masline, turmeric, chimion, piper negru","Amesteca bine sa acopere uniform","Gateste la 190°C, 12-15 min"],
+   notes:"Conopida are doar ~175mg potasiu/100g - excelenta pt CKD. Turmeric-ul protejeaza vasele."},
+  {id:214,name:"Varza rosie caramelizata",emoji:"\u{1F96C}",cat:"Recomandate",temp:185,time:"12-15",flip:"Scutura la 7 min",difficulty:1,
+   tip:"Fibre excelente pt colesterol. Antocianine = antioxidanti puternici pt vase.",
+   steps:["Taie fasii subtiri","Amesteca cu 1 lingurita ulei masline si otet balsamic","Optional: putin miere (1/2 lingurita)","Gateste la 185°C, 12-15 min","Scutura de 2 ori"],
+   notes:"Antocianinele din varza rosie protejeaza vasele de sange. Fibrele reduc colesterolul LDL."},
+  {id:215,name:"Vinete cu usturoi si cimbru",emoji:"\u{1F346}",cat:"Recomandate",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:1,
+   tip:"Antioxidanti (nasunina) protectori vasculari. Fara sare - cimbru si usturoi dau gust.",
+   steps:["Taie rondele de 1cm","NU sara - doar tamponeaza cu prosop","Unge cu ulei masline, usturoi pisat, cimbru","Gateste la 190°C, 12-15 min"],
+   notes:"Nasunina din vinete protejeaza membranele celulare. Nu mai e nevoie de sarare prealabila."},
+  {id:216,name:"Morcovi cu scortisoara",emoji:"\u{1F955}",cat:"Recomandate",temp:185,time:"12-15",flip:"Da, la 7 min",difficulty:1,
+   tip:"Beta-caroten excelent. Scortisoara ajuta la controlul glicemiei.",
+   steps:["Taie batoane de 1cm sau rondele","Amesteca cu ulei masline si scortisoara","Optional: o picatura de miere","Gateste la 185°C, 12-15 min"],
+   notes:"Potasiu moderat (~320mg/150g) - OK in cantitati normale pt CKD G3a. Beta-carotenul e cardioprotector."},
+  {id:217,name:"Sparanghel cu lamaie",emoji:"\u{1F33F}",cat:"Recomandate",temp:190,time:"8-10",flip:"Da, la 5 min",difficulty:1,
+   tip:"Diuretic natural, suplimenteaza actiunea Furosemidului. Folat bogat.",
+   steps:["Rupe capetele lemnoase","Unge cu ulei masline si zeama lamaie","Piper negru","Gateste la 190°C, 8-10 min"],
+   notes:"Diuretic natural bun. Atentie: are potasiu moderat-ridicat, limiteaza la 100-150g/portie."},
+
+  // PEPT PUI & PROTEINE SLABE (moderate pt CKD)
+  {id:220,name:"Piept pui cu ierburi provensale",emoji:"\u{1F357}",cat:"Recomandate",temp:175,time:"18-22",flip:"Da, la 10 min",difficulty:2,
+   tip:"Proteine slabe, fara sare. Ierburi provensale dau gust extraordinar.",
+   steps:["Bate pieptul la 2cm grosime uniforma","Marinare: ulei masline, ierburi provensale, usturoi, lamaie","Lasa sa se marineze 30 min","Gateste la 175°C, 18-22 min","Temp interna: 74°C. Odihna 5 min"],
+   notes:"Portie 120-130g (proteine moderate pt CKD). ZERO sare - ierburile dau tot gustul necesar."},
+  {id:221,name:"Piept pui tandoori (fara sare)",emoji:"\u{1F357}",cat:"Recomandate",temp:180,time:"18-22",flip:"Da, la 10 min",difficulty:2,
+   tip:"Iaurt + condimente = marinada perfecta fara sare. Turmeric antiinflamator.",
+   steps:["Bate pieptul, taie incizii adanci","Marinada: 2 linguri iaurt, turmeric, chimion, boia, ghimbir, usturoi","Marina min 2h (ideal peste noapte)","Gateste la 180°C, 18-22 min"],
+   notes:"Iaurtul inmoaie carnea natural. Condimentele inlocuiesc complet sarea. Portie 120-130g."},
+  {id:222,name:"Chiftele de pui cu dovlecei",emoji:"\u{1F357}",cat:"Recomandate",temp:185,time:"12-15",flip:"Da, la 7 min",difficulty:2,
+   tip:"Dovleceii ras fac chiftelele moi fara paine (reduce fosforul). Fara sare.",
+   steps:["Toca pieptul de pui sau foloseste carne tocata slaba","Amesteca cu dovlecei rasi (stoarsi bine), usturoi, patrunjel","Formeaza chiftele mici (4cm)","Unge cu ulei masline","Gateste la 185°C, 12-15 min"],
+   notes:"Dovlecei in loc de paine = mai putin fosfor (important pt CKD). Proteine moderate."},
+  {id:223,name:"Curcan cu rozmarin si lamaie",emoji:"\u{1F983}",cat:"Recomandate",temp:175,time:"18-22",flip:"Da, la 10 min",difficulty:2,
+   tip:"Mai slab decat puiul, excelent pt colesterol. Rozmarin = antiinflamator.",
+   steps:["Fileuri de curcan, batute la 2cm","Marinare: ulei masline, rozmarin proaspat, zeama lamaie, usturoi","Lasa 30 min sa se marineze","Gateste la 175°C, 18-22 min","Temp interna: 74°C"],
+   notes:"Curcanul are mai putine grasimi saturate decat puiul. Portie 120-130g pt CKD."},
+
+  // COMBINATII COMPLETE (o masa intr-un cos)
+  {id:230,name:"Somon + sparanghel (one-pot)",emoji:"\u{1F371}",cat:"Recomandate",temp:180,time:"10-12",flip:"Nu",difficulty:2,
+   tip:"Masa completa: omega-3 + legume. Totul intr-un cos, gata in 12 min.",
+   steps:["Fileul de somon in centrul cosului","Sparanghel in jurul somonului","Unge totul cu ulei masline si zeama lamaie","Piper negru si marar","Gateste la 180°C, 10-12 min"],
+   notes:"Masa completa ideala: omega-3, proteine moderate (120g somon), legume. Fara sare."},
+  {id:231,name:"Pui + legume mediteraneene",emoji:"\u{1F371}",cat:"Recomandate",temp:180,time:"18-22",flip:"Da, la 10 min",difficulty:2,
+   tip:"Piept pui mic + dovlecei, ardei, ceapa rosie. Dieta mediteraneana = inima sanatoasa.",
+   steps:["Piept pui (120g) taiat cuburi 2cm","Dovlecei, ardei, ceapa rosie - cuburi","Amesteca totul cu ulei masline, oregano, usturoi","Gateste la 180°C, 18-22 min","Amesteca la jumatate"],
+   notes:"Dieta mediteraneana e #1 recomandata pt boli cardiovasculare. Zero sare, gust maxim."},
+  {id:232,name:"Peste alb + conopida (one-pot)",emoji:"\u{1F371}",cat:"Recomandate",temp:180,time:"12-15",flip:"Nu pestele, scutura legumele la 7 min",difficulty:2,
+   tip:"Cod/pangasius + conopida - ambele cu potasiu scazut. Perfect pt rinichi.",
+   steps:["Buchete mici de conopida cu turmeric si ulei, pune in cos","Gateste conopida singura 5 min","Adauga fileul de peste deasupra","Continua inca 10 min","Zeama lamaie la servire"],
+   notes:"Combinatie ideala CKD-friendly: ambele au potasiu si fosfor scazut. Proteine de calitate."},
+
+  // GUSTARI SANATOASE
+  {id:240,name:"Chips de dovlecei (fara sare)",emoji:"\u{1F952}",cat:"Recomandate",temp:175,time:"10-14",flip:"Da, la 6 min",difficulty:1,
+   tip:"Alternativa sanatoasa la chipsuri. Potasiu scazut, zero sodiu adaugat.",
+   steps:["Taie dovlecei rondele foarte subtiri (2mm)","Tamponeaza cu prosop","Strop minim de ulei masline","Optional: boia dulce sau usturoi praf","Gateste la 175°C, 10-14 min pana sunt crocanti"],
+   notes:"Inlocuitor perfect de chipsuri - fara sodiu, fara grasimi trans, potasiu scazut."},
+  {id:241,name:"Chips de sfecla (portie mica)",emoji:"\u{1F341}",cat:"Recomandate",temp:170,time:"15-18",flip:"Scutura la 8 min",difficulty:1,
+   tip:"Antioxidanti puternici. Portie mica (80g) din cauza potasiului mai ridicat.",
+   steps:["Taie sfecla rondele de 1-2mm (mandolina)","Tamponeaza bine","Strop ulei masline","Gateste la 170°C, 15-18 min","Verifica des dupa min 12"],
+   notes:"Sfecla are potasiu ridicat - limiteaza la 80g/portie pt CKD. Dar betainele sunt excelente pt ficat si vase."},
+  {id:242,name:"Naut crocant cu condimente",emoji:"\u{1FAD8}",cat:"Recomandate",temp:190,time:"12-15",flip:"Scutura la 5 min de 2 ori",difficulty:1,
+   tip:"Fibre excelente pt colesterol. Proteine vegetale. Gustare perfecta.",
+   steps:["Scurge si usuca foarte bine nautul din conserva","Amesteca cu ulei masline, boia, chimion, usturoi praf","Asaza intr-un strat","Gateste la 190°C, 12-15 min, scutura des"],
+   notes:"Fibrele solubile din naut reduc LDL-colesterolul. Fara sare adaugata - condimentele sunt suficiente."},
+  {id:243,name:"Mere coapte cu scortisoara",emoji:"\u{1F34E}",cat:"Recomandate",temp:170,time:"12-15",flip:"Nu",difficulty:1,
+   tip:"Desert sanatos, fara zahar adaugat. Scortisoara ajuta circulatia.",
+   steps:["Taie merele in sferturi, scoate cotorul","Presara scortisoara si o picatura de miere","Asaza cu coaja in jos","Gateste la 170°C, 12-15 min"],
+   notes:"Pectina din mere reduce colesterolul. Scortisoara imbunatateste circulatia periferica. Desert fara vinovatie."},
+];
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+let activeFilter = "Toate";
+let viewMode = "grid";
+let compareSlots = [null, null];
+let timerInterval = null;
+let timerSeconds = 0;
+let timerRunning = false;
+let standaloneInterval = null;
+let standaloneSeconds = 600;
+let standaloneRunning = false;
+
+const categories = ["Toate", ...new Set(recipes.map(r => r.cat))];
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+document.addEventListener("DOMContentLoaded", () => {
+  renderFilters();
+  renderRecipes();
+  setupEvents();
+  updateConversion();
+  updatePortion();
+});
+
+// ══════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════
+function renderFilters() {
+  const bar = document.getElementById("filterBar");
+  bar.innerHTML = categories.map(c =>
+    `<button class="filter-btn ${c===activeFilter?'active':''}" data-cat="${c}">${c === "Toate" ? "Toate" : c} <span style="opacity:.5;font-size:.75rem">(${c==="Toate"?recipes.length:recipes.filter(r=>r.cat===c).length})</span></button>`
+  ).join("");
+}
+
+function renderRecipes(query = "") {
+  const grid = document.getElementById("recipeGrid");
+  const empty = document.getElementById("emptyState");
+  const banner = document.getElementById("healthBanner");
+  let filtered = recipes;
+
+  if (activeFilter !== "Toate") filtered = filtered.filter(r => r.cat === activeFilter);
+  if (query) {
+    const q = query.toLowerCase();
+    filtered = filtered.filter(r =>
+      r.name.toLowerCase().includes(q) ||
+      r.cat.toLowerCase().includes(q) ||
+      r.tip.toLowerCase().includes(q) ||
+      (r.notes && r.notes.toLowerCase().includes(q))
+    );
+  }
+
+  // Show health banner when Recomandate is active or results contain recommended recipes
+  const showBanner = activeFilter === "Recomandate" || (!query && activeFilter === "Toate");
+  banner.style.display = (activeFilter === "Recomandate") ? "block" : "none";
+
+  if (filtered.length === 0) {
+    grid.innerHTML = "";
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+
+  grid.className = `grid ${viewMode === "list" ? "list-view" : ""}`;
+  grid.innerHTML = filtered.map((r, i) => `
+    <div class="card" data-id="${r.id}" data-cat="${r.cat}" style="animation-delay:${Math.min(i*.04,.3)}s">
+      <div class="card-header">
+        <div class="card-emoji">${r.emoji}</div>
+        <div>
+          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}</div>
+          <div class="card-cat">${r.cat}${renderDifficulty(r.difficulty)}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-temps">
+          <div class="temp-box"><div class="label">Temp</div><div class="value temp-val">${r.temp}&deg;C</div></div>
+          <div class="temp-box"><div class="label">Timp</div><div class="value time-val">${r.time} min</div></div>
+          <div class="temp-box"><div class="label">Intoarce</div><div class="value flip-val" style="font-size:.8rem">${r.flip}</div></div>
+        </div>
+        <div class="card-tip">${r.cat === "Recomandate" ? '<span style="color:var(--green);font-weight:600">&#x1F49A; </span>' : ''}${r.tip}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function renderDifficulty(level) {
+  let dots = "";
+  for (let i = 0; i < 3; i++) dots += `<span class="${i < level ? 'filled' : ''}"></span>`;
+  return ` <span class="difficulty">${dots}</span>`;
+}
+
+// ══════════════════════════════════════
+// MODAL
+// ══════════════════════════════════════
+function openModal(recipe) {
+  const r = recipe;
+  const minTime = parseInt(r.time);
+  document.getElementById("modalInner").innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-emoji">${r.emoji}</div>
+    <div class="modal-title">${r.name}</div>
+    <div class="modal-cat">${r.cat} ${renderDifficulty(r.difficulty)}</div>
+
+    <div class="modal-detail-grid">
+      <div class="modal-detail"><div class="md-label">Temperatura</div><div class="md-value" style="color:var(--accent)">${r.temp}&deg;C</div></div>
+      <div class="modal-detail"><div class="md-label">Timp</div><div class="md-value" style="color:var(--blue)">${r.time} min</div></div>
+      <div class="modal-detail"><div class="md-label">Intoarce</div><div class="md-value" style="color:var(--yellow);font-size:1rem">${r.flip}</div></div>
+      <div class="modal-detail"><div class="md-label">Dificultate</div><div class="md-value">${["","Usor","Mediu","Avansat"][r.difficulty]}</div></div>
+    </div>
+
+    <div class="modal-section">
+      <h3>&#x1F4CB; Pasi</h3>
+      <ol style="padding-left:1.2rem">${r.steps.map(s => `<li>${s}</li>`).join("")}</ol>
+    </div>
+
+    <div class="modal-section">
+      <h3>&#x1F4A1; Sfat</h3>
+      <p>${r.tip}</p>
+    </div>
+
+    ${r.notes ? `<div class="modal-section"><h3>&#x1F4DD; Note</h3><p>${r.notes}</p></div>` : ""}
+
+    <button style="width:100%;padding:10px;border:1.5px solid var(--purple);background:transparent;color:var(--purple);border-radius:var(--radius-sm);cursor:pointer;font-size:.85rem;margin-top:.5rem;transition:all .2s" onclick="addToCompare(${r.id})" onmouseover="this.style.background='var(--purple)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--purple)'">
+      + Adauga la comparatie
+    </button>
+
+    <div class="timer-section">
+      <h3>&#x23F1;&#xFE0F; Cronometru</h3>
+      <div class="timer-presets">
+        ${r.time.split("-").map(t => `<button class="timer-preset" onclick="setTimer(${parseInt(t)*60})">${t} min</button>`).join("")}
+      </div>
+      <div class="timer-display" id="timerDisplay">${formatTime(minTime * 60)}</div>
+      <div class="timer-controls">
+        <button class="timer-btn start" id="timerStartBtn" onclick="toggleTimer()">Start</button>
+        <button class="timer-btn reset" onclick="resetTimer(${minTime * 60})">Reset</button>
+      </div>
+    </div>
+  `;
+
+  timerSeconds = minTime * 60;
+  timerRunning = false;
+  clearInterval(timerInterval);
+
+  document.getElementById("modal").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("show");
+  document.body.style.overflow = "";
+  clearInterval(timerInterval);
+  timerRunning = false;
+}
+
+// ══════════════════════════════════════
+// TIMER (in-modal)
+// ══════════════════════════════════════
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return `${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+
+function setTimer(sec) {
+  clearInterval(timerInterval);
+  timerRunning = false;
+  timerSeconds = sec;
+  const el = document.getElementById("timerDisplay");
+  el.textContent = formatTime(sec);
+  el.className = "timer-display";
+  document.getElementById("timerStartBtn").textContent = "Start";
+  document.getElementById("timerStartBtn").className = "timer-btn start";
+  document.querySelectorAll(".timer-section .timer-preset").forEach(b => {
+    b.classList.toggle("active", parseInt(b.textContent) * 60 === sec);
+  });
+}
+
+function toggleTimer() {
+  if (timerRunning) {
+    clearInterval(timerInterval);
+    timerRunning = false;
+    document.getElementById("timerDisplay").className = "timer-display paused";
+    document.getElementById("timerStartBtn").textContent = "Continua";
+    document.getElementById("timerStartBtn").className = "timer-btn start";
+  } else {
+    timerRunning = true;
+    document.getElementById("timerDisplay").className = "timer-display running";
+    document.getElementById("timerStartBtn").textContent = "Pauza";
+    document.getElementById("timerStartBtn").className = "timer-btn pause";
+    timerInterval = setInterval(() => {
+      timerSeconds--;
+      document.getElementById("timerDisplay").textContent = formatTime(Math.max(0, timerSeconds));
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        document.getElementById("timerDisplay").className = "timer-display done";
+        document.getElementById("timerDisplay").textContent = "GATA!";
+        document.getElementById("timerStartBtn").textContent = "Start";
+        document.getElementById("timerStartBtn").className = "timer-btn start";
+        showToast("Timpul s-a terminat! Mancarea e gata!");
+        try { new Audio("data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdH2Jk5eLfHB0eYaRk41/c3R8iJOTjH5xc3yIk5OMfnFze4iTk4x+cXN7iJGRi35yc3uIk5OMfnFzfIiTk4x+cXN8iJGRi35yc3yIk5OMfnFzfIiRkYt+cnN7h5GRi35xc3uHkZGLfnJze4eRkYt+cXN7h5GRi35xc3uHkZGLfnJze4eRkYt+cXN7iJGRi35yc3uIkZGLfnJze4iRkYt+cnN8iJGRi35yc3yIkZGLfnJzfIiRkYt+cnN8iJGRi35yc3yIkZGLfnJze4eRkYt+cnN7h5GRi35yc3uHkZGLfnFze4eRkYt+cnN7h5CQin5yc3uHkJCKfnFze4eQkIp+cXN7h5CQin5xc3uHkJCKfnFze4eQkIp+cXN7h5CQin5xc3uHkJCKfnFze4eQj4l+cXJ7h4+PiX5xcnuHj4+JfnBye4ePj4l+cHJ7h4+PiX5wcnuHj4+JfnBye4ePj4l+cHJ7h4+PiX5wcnuHj4+JfnBye4ePj4l+cHJ6h4+PiX5wcnqHjo6JfnBxeoaOjol+cHF6ho6OiX5wcXqGjo6JfnBxeYWNjYh+b3F5hY2NiH5vcXmFjY2Ifm9xeYWNjYh+b3F5hYyMiH5vcXmFjIyIfm9xeYWMjIh+b3F5hYyMiH5vcXiFjIyIfm5xeIWMjIh+bnF4hYuLh35ucXiFi4uHfm5xeIWLi4d+bnF4hYuLh35ucXiFi4uHfm5xeIWLi4d+bnB4hYuLh35ucHiFi4uHfm5weIWLi4d+bnB4hYqKh35ucHiEioqHfm5weISKiod+bnB4hIqKh35tb3iEioqGfm1veISKioZ+bW94hImJhn5tb3iEiYmGfm1veISJiYZ+bW94hImJhn5tb3iEiYmGfm1veISJiYZ+bW94hImJhn5tbniEiYmGfm1ueIKIiIV+bW54goiIhX5tbXiCh4eFfm1teIKHh4V+bW14goeHhX5tbXiCh4eFfm1teIKHh4V+bG14goeHhX5sbXiChoaFfmxteIKGhoV+bG14goaGhX5sbXiChoaFfmxteIKGhoV+bGx4goaGhH5sbHiChoaEfmxseIKGhoR+bGx4goWFhH5sbHiChYWEfmxseIKFhYR+bGx4goWFhH5sbHiChYWEfmxseIKFhYR+a2x4goWFhH5rbHiChYWEfmtseIKFhYR+a2x3goWFhH5rbHeBhISEfmtsdw==").play(); } catch(e) {}
+      }
+    }, 1000);
+  }
+}
+
+function resetTimer(sec) {
+  clearInterval(timerInterval);
+  timerRunning = false;
+  timerSeconds = sec || parseInt(document.getElementById("timerDisplay").textContent) * 60 || 600;
+  const el = document.getElementById("timerDisplay");
+  el.textContent = formatTime(timerSeconds);
+  el.className = "timer-display";
+  document.getElementById("timerStartBtn").textContent = "Start";
+  document.getElementById("timerStartBtn").className = "timer-btn start";
+}
+
+// ══════════════════════════════════════
+// STANDALONE TIMER
+// ══════════════════════════════════════
+function updateStandaloneDisplay() {
+  document.getElementById("standaloneDisplay").textContent = formatTime(standaloneSeconds);
+}
+
+function setStandaloneTimer(min) {
+  clearInterval(standaloneInterval);
+  standaloneRunning = false;
+  standaloneSeconds = min * 60;
+  document.getElementById("standaloneMin").value = min;
+  document.getElementById("standaloneSec").value = 0;
+  updateStandaloneDisplay();
+  document.getElementById("standaloneDisplay").className = "timer-display";
+  document.getElementById("standaloneStart").textContent = "Start";
+  document.getElementById("standaloneStart").className = "timer-btn start";
+}
+
+function toggleStandaloneTimer() {
+  if (standaloneRunning) {
+    clearInterval(standaloneInterval);
+    standaloneRunning = false;
+    document.getElementById("standaloneDisplay").className = "timer-display paused";
+    document.getElementById("standaloneStart").textContent = "Continua";
+    document.getElementById("standaloneStart").className = "timer-btn start";
+  } else {
+    if (!standaloneRunning && document.getElementById("standaloneDisplay").className.includes("done")) {
+      standaloneSeconds = parseInt(document.getElementById("standaloneMin").value) * 60 + parseInt(document.getElementById("standaloneSec").value);
+    }
+    if (standaloneSeconds <= 0) {
+      standaloneSeconds = parseInt(document.getElementById("standaloneMin").value) * 60 + parseInt(document.getElementById("standaloneSec").value);
+    }
+    standaloneRunning = true;
+    document.getElementById("standaloneDisplay").className = "timer-display running";
+    document.getElementById("standaloneStart").textContent = "Pauza";
+    document.getElementById("standaloneStart").className = "timer-btn pause";
+    standaloneInterval = setInterval(() => {
+      standaloneSeconds--;
+      updateStandaloneDisplay();
+      if (standaloneSeconds <= 0) {
+        clearInterval(standaloneInterval);
+        standaloneRunning = false;
+        document.getElementById("standaloneDisplay").className = "timer-display done";
+        document.getElementById("standaloneDisplay").textContent = "GATA!";
+        document.getElementById("standaloneStart").textContent = "Start";
+        document.getElementById("standaloneStart").className = "timer-btn start";
+        showToast("Timpul s-a terminat!");
+      }
+    }, 1000);
+  }
+}
+
+function resetStandaloneTimer() {
+  clearInterval(standaloneInterval);
+  standaloneRunning = false;
+  standaloneSeconds = parseInt(document.getElementById("standaloneMin").value) * 60 + parseInt(document.getElementById("standaloneSec").value || 0);
+  updateStandaloneDisplay();
+  document.getElementById("standaloneDisplay").className = "timer-display";
+  document.getElementById("standaloneStart").textContent = "Start";
+  document.getElementById("standaloneStart").className = "timer-btn start";
+}
+
+// ══════════════════════════════════════
+// CONVERSION TOOLS
+// ══════════════════════════════════════
+function updateConversion() {
+  const temp = parseInt(document.getElementById("convTemp").value) || 200;
+  const time = parseInt(document.getElementById("convTime").value) || 30;
+  const afTemp = temp - 20;
+  const afTime = Math.round(time * 0.8);
+  document.getElementById("convResult").textContent = `${afTemp}°C / ${afTime} min`;
+}
+
+function updatePortion() {
+  const portions = parseInt(document.getElementById("portionSlider").value);
+  const baseTime = parseInt(document.getElementById("portionTime").value) || 15;
+  document.getElementById("portionNum").textContent = portions;
+  let adjustedTime;
+  if (portions <= 2) adjustedTime = baseTime;
+  else if (portions <= 4) adjustedTime = Math.round(baseTime * 1.2);
+  else adjustedTime = Math.round(baseTime * 1.4);
+  const note = portions > 3 ? " (in serii)" : "";
+  document.getElementById("portionResult").textContent = `${adjustedTime} min${note}`;
+}
+
+// ══════════════════════════════════════
+// COMPARE
+// ══════════════════════════════════════
+function addToCompare(id) {
+  const r = recipes.find(x => x.id === id);
+  if (!r) return;
+  if (compareSlots[0] && compareSlots[0].id === id) { showToast("Deja in Slot 1"); return; }
+  if (compareSlots[1] && compareSlots[1].id === id) { showToast("Deja in Slot 2"); return; }
+
+  if (!compareSlots[0]) compareSlots[0] = r;
+  else if (!compareSlots[1]) compareSlots[1] = r;
+  else { compareSlots[0] = compareSlots[1]; compareSlots[1] = r; }
+
+  renderCompare();
+  showToast(`${r.name} adaugat la comparatie`);
+}
+
+function removeFromCompare(slot) {
+  compareSlots[slot] = null;
+  renderCompare();
+}
+
+function renderCompare() {
+  for (let i = 0; i < 2; i++) {
+    const el = document.getElementById(`slot${i}`);
+    const r = compareSlots[i];
+    if (r) {
+      el.className = "compare-slot filled";
+      el.innerHTML = `
+        <div class="cs-emoji">${r.emoji}</div>
+        <div class="cs-name">${r.name}</div>
+        <div class="cs-info">${r.temp}°C / ${r.time} min</div>
+        <button class="cs-remove" onclick="removeFromCompare(${i})">Elimina</button>
+      `;
+    } else {
+      el.className = "compare-slot";
+      el.innerHTML = `<span class="cs-placeholder">Slot ${i+1} - gol</span>`;
+    }
+  }
+
+  const res = document.getElementById("compareResult");
+  if (compareSlots[0] && compareSlots[1]) {
+    const a = compareSlots[0], b = compareSlots[1];
+    const aTime = parseInt(a.time), bTime = parseInt(b.time);
+    const timeDiff = Math.abs(aTime - bTime);
+    const tempDiff = Math.abs(a.temp - b.temp);
+    res.style.display = "block";
+    res.innerHTML = `
+      <h4>Comparatie</h4>
+      <div class="cr-row"><span class="cr-label">Aliment</span><span class="cr-a">${a.emoji} ${a.name}</span><span class="cr-b">${b.emoji} ${b.name}</span></div>
+      <div class="cr-row"><span class="cr-label">Categoria</span><span class="cr-a">${a.cat}</span><span class="cr-b">${b.cat}</span></div>
+      <div class="cr-row"><span class="cr-label">Temperatura</span><span class="cr-a" style="color:var(--accent)">${a.temp}°C</span><span class="cr-b" style="color:var(--accent)">${b.temp}°C</span></div>
+      <div class="cr-row"><span class="cr-label">Timp</span><span class="cr-a" style="color:var(--blue)">${a.time} min</span><span class="cr-b" style="color:var(--blue)">${b.time} min</span></div>
+      <div class="cr-row"><span class="cr-label">Intoarce</span><span class="cr-a">${a.flip}</span><span class="cr-b">${b.flip}</span></div>
+      <div class="cr-row"><span class="cr-label">Dificultate</span><span class="cr-a">${["","Usor","Mediu","Avansat"][a.difficulty]}</span><span class="cr-b">${["","Usor","Mediu","Avansat"][b.difficulty]}</span></div>
+      <div class="cr-row"><span class="cr-label">Diferenta temp</span><span colspan="2" style="color:var(--yellow)">${tempDiff}°C</span><span></span></div>
+      <div class="cr-row"><span class="cr-label">Diferenta timp</span><span colspan="2" style="color:var(--yellow)">~${timeDiff} min</span><span></span></div>
+    `;
+  } else {
+    res.style.display = "none";
+  }
+}
+
+// ══════════════════════════════════════
+// EVENTS
+// ══════════════════════════════════════
+function setupEvents() {
+  // Search
+  document.getElementById("searchInput").addEventListener("input", e => {
+    renderRecipes(e.target.value.trim());
+  });
+
+  // Filters
+  document.getElementById("filterBar").addEventListener("click", e => {
+    const btn = e.target.closest(".filter-btn");
+    if (!btn) return;
+    activeFilter = btn.dataset.cat;
+    renderFilters();
+    renderRecipes(document.getElementById("searchInput").value.trim());
+  });
+
+  // View toggle
+  document.querySelectorAll(".view-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      viewMode = btn.dataset.view;
+      document.querySelectorAll(".view-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderRecipes(document.getElementById("searchInput").value.trim());
+    });
+  });
+
+  // Card click -> modal
+  document.getElementById("recipeGrid").addEventListener("click", e => {
+    const card = e.target.closest(".card");
+    if (!card) return;
+    const r = recipes.find(x => x.id === parseInt(card.dataset.id));
+    if (r) openModal(r);
+  });
+
+  // Close modal
+  document.getElementById("modal").addEventListener("click", e => {
+    if (e.target === document.getElementById("modal")) closeModal();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // Tab nav
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(`tab-${btn.dataset.tab}`).classList.add("active");
+    });
+  });
+
+  // Convertor
+  document.getElementById("convTemp").addEventListener("input", updateConversion);
+  document.getElementById("convTime").addEventListener("input", updateConversion);
+
+  // Portions
+  document.getElementById("portionSlider").addEventListener("input", updatePortion);
+  document.getElementById("portionTime").addEventListener("input", updatePortion);
+
+  // Standalone timer inputs
+  document.getElementById("standaloneMin").addEventListener("input", () => {
+    standaloneSeconds = parseInt(document.getElementById("standaloneMin").value || 0) * 60 + parseInt(document.getElementById("standaloneSec").value || 0);
+    updateStandaloneDisplay();
+  });
+  document.getElementById("standaloneSec").addEventListener("input", () => {
+    standaloneSeconds = parseInt(document.getElementById("standaloneMin").value || 0) * 60 + parseInt(document.getElementById("standaloneSec").value || 0);
+    updateStandaloneDisplay();
+  });
+
+  // Scroll to top
+  window.addEventListener("scroll", () => {
+    document.getElementById("scrollTop").classList.toggle("show", window.scrollY > 400);
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener("keydown", e => {
+    if (e.key === "/" && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== "INPUT") {
+      e.preventDefault();
+      document.getElementById("searchInput").focus();
+    }
+  });
+}
+
+// ══════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 2500);
+}
+</script>
+</body>
+</html>
