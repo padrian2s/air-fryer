@@ -198,6 +198,17 @@
   .filter-btn[data-cat="Recomandate"]{border-color:rgba(34,197,94,.4)}
   .filter-btn[data-cat="Recomandate"].active{background:var(--green);border-color:var(--green)}
 
+  /* Soups */
+  .card[data-cat="Supe"]{border-color:rgba(168,85,247,.2)}
+  .card[data-cat="Supe"]:hover{border-color:var(--purple);box-shadow:0 8px 30px rgba(168,85,247,.12)}
+  .badge-method{display:inline-block;font-size:.6rem;font-weight:600;padding:2px 7px;border-radius:50px;vertical-align:middle;margin-left:6px;letter-spacing:.3px}
+  .badge-method.m-aragaz{background:var(--accent);color:#fff}
+  .badge-method.m-cuptor{background:var(--yellow);color:#000}
+  .badge-method.m-microunde{background:var(--purple);color:#fff}
+  .badge-method.m-mix{background:linear-gradient(135deg,var(--accent),var(--yellow));color:#fff}
+  .filter-btn[data-cat="Supe"]{border-color:rgba(168,85,247,.4)}
+  .filter-btn[data-cat="Supe"].active{background:var(--purple);border-color:var(--purple)}
+
   /* Animations */
   .card{animation:fadeUp .4s ease both}
   @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
@@ -698,6 +709,82 @@ const recipes = [
    tip:"Desert sanatos, fara zahar adaugat. Scortisoara ajuta circulatia.",
    steps:["Taie merele in sferturi, scoate cotorul","Presara scortisoara si o picatura de miere","Asaza cu coaja in jos","Gateste la 170°C, 12-15 min"],
    notes:"Pectina din mere reduce colesterolul. Scortisoara imbunatateste circulatia periferica. Desert fara vinovatie."},
+
+  // ═══════════════════════════════════════════════════
+  // SUPE - Aragaz, cuptor, microunde
+  // Adaptate pt profil: fara sare, sodiu scazut, potasiu controlat,
+  // grasimi saturate minime, proteine moderate, antiinflamator
+  // ═══════════════════════════════════════════════════
+
+  // SUPE ARAGAZ (foc clasic)
+  {id:300,name:"Supa crema de dovlecei",emoji:"\u{1F35C}",cat:"Supe",temp:"Mediu",time:"25-30",flip:"Amesteca ocazional",difficulty:1,method:"Aragaz",
+   tip:"Potasiu scazut, fibre bune, textura catifelata. FARA sare - nucsoara si cimbru dau gust.",
+   steps:["Caleste 1 ceapa mica in 1 lingura ulei masline (foc mic)","Adauga 500g dovlecei cuburi si 1 cartof mic (pt textura)","Acopera cu 500ml apa sau supa de pui fara sare","Fierbe 20-25 min pana sunt moi","Adauga nucsoara, cimbru, piper. Mixeaza cu blenderul","Optional: 1 lingura smantana de gatit light"],
+   notes:"Dovleceii au potasiu scazut (~260mg/150g) - ideali pt CKD. Nucsooara si cimbrul inlocuiesc sarea perfect. Portie 300ml."},
+  {id:301,name:"Supa crema de conopida",emoji:"\u{1F35C}",cat:"Supe",temp:"Mediu",time:"25-30",flip:"Amesteca ocazional",difficulty:1,method:"Aragaz",
+   tip:"Conopida = potasiu scazut + fibre. Cu usturoi copt devine incredibila.",
+   steps:["Caleste 1 ceapa mica si 3 catei usturoi in ulei masline","Adauga 1 conopida mare (buchete) si 1 cartof mic","Acopera cu 600ml apa","Fierbe 20-25 min","Adauga piper, cimbru, o frunza dafin. Mixeaza","Optional: strop de ulei masline la servire"],
+   notes:"Conopida: ~175mg potasiu/100g - printre cele mai CKD-friendly legume. Usturoiul protejeaza vasele."},
+  {id:302,name:"Supa de pui cu taitei (fara sare)",emoji:"\u{1F372}",cat:"Supe",temp:"Mic-Mediu",time:"45-60",flip:"Amesteca din cand in cand",difficulty:2,method:"Aragaz",
+   tip:"Clasica supa reconfortanta. Fierbe incet pe foc mic pt fond clar. ZERO sare.",
+   steps:["250g piept pui + 1.5L apa rece, pune pe foc","Cand fierbe, spumeaza si redu la foc mic","Adauga: 1 morcov, 1 pastarnac, 1/2 telina mica, patrunjel radacina","Fierbe incet 40 min","Scoate puiul, taie fasii. Strecoara supa","Adauga taitei (50g), fierbe 8 min. Pune puiul inapoi","Condimenteaza: lamaie, marar, piper, leustean"],
+   notes:"Proteine moderate din pui (120g/portie). Leusteanul si lamaia inlocuiesc sarea. Supa reconfortanta fara compromis."},
+  {id:303,name:"Supa crema de linte rosie",emoji:"\u{1F35C}",cat:"Supe",temp:"Mediu",time:"25-30",flip:"Amesteca des",difficulty:1,method:"Aragaz",
+   tip:"Lintea rosie se dizolva singura - nu trebuie mixer. Fibre excelente pt colesterol.",
+   steps:["Caleste 1 ceapa + 2 catei usturoi in ulei masline","Adauga 150g linte rosie spalata, 1 morcov ras, 1 lingurita turmeric","700ml apa, aduce la fierbere","Reduce la foc mic, fierbe 20-25 min (lintea se dizolva)","Adauga chimion, piper negru, zeama de lamaie","Serveste cu patrunjel proaspat"],
+   notes:"Lintea rosie: fibre solubile reduc LDL. Turmeric = antiinflamator. Atentie: potasiu moderat - portie 250ml. Proteine vegetale bune."},
+  {id:304,name:"Ciorba de legume (fara sare)",emoji:"\u{1F372}",cat:"Supe",temp:"Mediu",time:"35-40",flip:"Amesteca ocazional",difficulty:1,method:"Aragaz",
+   tip:"Legume cu potasiu controlat. Acrita cu lamaie, nu cu borș (care are sodiu).",
+   steps:["Caleste 1 ceapa in ulei masline","Adauga: dovlecei, fasole verde, ardei gras, 1 morcov - toate cuburi","1.2L apa, aduce la fierbere","Fierbe 25-30 min pe foc mediu","Adauga: leustean, marar, patrunjel, piper","Acreala: zeama de 1 lamaie mare (in loc de bors)"],
+   notes:"Lamaie in loc de bors = zero sodiu adaugat. Dovlecei + fasole verde = potasiu scazut. Evita rosii excesive (potasiu ridicat)."},
+  {id:305,name:"Supa crema de morcovi cu ghimbir",emoji:"\u{1F955}",cat:"Supe",temp:"Mediu",time:"30-35",flip:"Amesteca ocazional",difficulty:1,method:"Aragaz",
+   tip:"Ghimbirul e antiinflamator puternic si ajuta circulatia. Beta-caroten bogat.",
+   steps:["Caleste 1 ceapa mica in ulei masline","Adauga 500g morcovi rondele si 2cm ghimbir proaspat ras","Acopera cu 600ml apa","Fierbe 25-30 min pana sunt moi","Mixeaza. Adauga piper, un strop de lamaie","Optional: seminte de dovleac la servire"],
+   notes:"Ghimbirul imbunatateste circulatia si reduce inflamatia. Morcovii: potasiu moderat - OK in portie de 300ml."},
+  {id:306,name:"Supa de peste (fara sare)",emoji:"\u{1F41F}",cat:"Supe",temp:"Mic-Mediu",time:"30-35",flip:"Amesteca delicat",difficulty:2,method:"Aragaz",
+   tip:"Omega-3 din peste + legume. Fierbe incet sa nu se sfarame pestele.",
+   steps:["Caleste 1 ceapa + 2 catei usturoi in ulei masline","Adauga: 1 morcov, 1 ardei gras, 2 rosii curatate - cuburi","800ml apa, fierbe 15 min","Adauga 300g peste alb (cod/pangasius) cuburi mari","Fierbe INCET 10 min (sa nu se sfarame)","Zeama lamaie, marar proaspat, piper"],
+   notes:"Pestele alb: fosfor mai scazut, perfect pt CKD. Omega-3 din fond. Proteine moderate - 120g peste/portie."},
+  {id:307,name:"Supa crema de telina cu mere",emoji:"\u{1F33F}",cat:"Supe",temp:"Mediu",time:"30-35",flip:"Amesteca ocazional",difficulty:2,method:"Aragaz",
+   tip:"Telina = diuretic natural, complementeaza Furosemidul. Marul da o dulceata subtila.",
+   steps:["Caleste 1 ceapa in ulei masline","Adauga 400g telina radacina cuburi + 1 mar curatat cuburi","500ml apa, fierbe 25-30 min","Mixeaza pana e cremoasa","Piper, nucsoarna, strop de lamaie","Optional: crutoane din paine integrala la cuptor"],
+   notes:"Atentie: telina are potasiu moderat-ridicat. Portie mica 200-250ml. Efectul diuretic complementeaza tratamentul."},
+  {id:308,name:"Minestrone usor (fara sare)",emoji:"\u{1F372}",cat:"Supe",temp:"Mediu",time:"35-40",flip:"Amesteca ocazional",difficulty:2,method:"Aragaz",
+   tip:"Supa italiana cu legume si paste mici. Dieta mediteraneana intr-un bol.",
+   steps:["Caleste ceapa + usturoi + telina apio in ulei masline","Adauga: dovlecei, fasole verde, morcov - cuburi mici","1L apa, fierbe 20 min","Adauga 80g paste mici (ditalini/orzo), fierbe 10 min","Busuioc proaspat, oregano, piper, zeama lamaie","Strop ulei masline extravirgin la servire"],
+   notes:"Varianta fara rosii (sau max 1 rosie) pt a controla potasiul. Pastele adauga energie fara proteine excesive."},
+
+  // SUPE CUPTOR
+  {id:320,name:"Supa de dovleac copt",emoji:"\u{1F383}",cat:"Supe",temp:200,time:"40-50",flip:"Nu",difficulty:2,method:"Cuptor + Aragaz",
+   tip:"Dovleacul copt la cuptor are aroma mult mai intensa decat fiert. Potasiu moderat.",
+   steps:["Taie dovleacul in jumatati, scoate semintele","Unge cu ulei masline, pune cu fata in jos pe tava","Coace la 200°C, 30-35 min pana e moale","Scoate pulpa cu lingura intr-o oala","Adauga 500ml apa calda, usturoi copt, nucsooara","Mixeaza, incalzeste pe aragaz. Piper, cimbru"],
+   notes:"Coacerea concentreaza zaharurile naturale - gust incredibil fara sare. Dovleacul: potasiu moderat, OK in portie 300ml."},
+  {id:321,name:"Supa de ceapa gratinata (light)",emoji:"\u{1F9C5}",cat:"Supe",temp:200,time:"50-60",flip:"Amesteca la caramelizare",difficulty:3,method:"Aragaz + Cuptor",
+   tip:"Ceapa caramelizata 30 min pe aragaz + gratinare la cuptor. Fara sare, gust maxim.",
+   steps:["Taie 4 cepe mari in semiinele subtiri","Caramelizeaza in ulei masline pe foc mic, 30 min (amesteca des)","Adauga 1 cana apa + cimbru + dafin, fierbe 15 min","Toarna in boluri de cuptor","Pune o felie paine integrala si putin parmezan ras","Gratineaza la 200°C, 8-10 min"],
+   notes:"Ceapa caramelizata dezvolta dulceata naturala incredibila. Parmezan: putin (10g) pt aroma fara exces de fosfor."},
+  {id:322,name:"Supa crema de ardei copti",emoji:"\u{1F336}\uFE0F",cat:"Supe",temp:220,time:"35-45",flip:"Intoarce ardeii o data",difficulty:2,method:"Cuptor + Aragaz",
+   tip:"Ardeii copti au aroma afumata naturala. Vitamina C bogata.",
+   steps:["Coace 4 ardei grasi rosii la 220°C, 20-25 min (pana se innegresc)","Pune in punga 10 min, apoi curata coaja","Caleste 1 ceapa + usturoi pe aragaz in ulei masline","Adauga ardeii curatati + 400ml apa","Fierbe 10 min, mixeaza","Piper, busuioc, strop de otet balsamic"],
+   notes:"Ardeii rosii copti: vitamina C maxima. Aroma afumata inlocuieste nevoia de sare. Potasiu moderat - portie 300ml."},
+
+  // SUPE MICROUNDE (rapide)
+  {id:340,name:"Supa rapida de dovlecei (microunde)",emoji:"\u{26A1}",cat:"Supe",temp:"800W",time:"8-10",flip:"Amesteca la jumatate",difficulty:1,method:"Microunde",
+   tip:"Gata in 10 min! Perfect cand nu ai timp. Dovlecei = potasiu scazut.",
+   steps:["300g dovlecei cuburi + 1 catel usturoi in castron de microunde","Adauga 300ml apa calda","Acopera cu capac/folie perforata","Microunde 800W: 5 min","Amesteca, inca 3-5 min","Mixeaza cu blenderul vertical. Piper, nucsooara, marar"],
+   notes:"Cea mai rapida supa posibila. Dovlecei: potasiu scazut, perfect pt CKD. Ideal pt pranz rapid la birou."},
+  {id:341,name:"Supa crema de broccoli (microunde)",emoji:"\u{26A1}",cat:"Supe",temp:"800W",time:"8-10",flip:"Amesteca la jumatate",difficulty:1,method:"Microunde",
+   tip:"Broccoli la microunde pastreaza mai multe vitamine decat fierberea!",
+   steps:["300g broccoli buchete + 1 cartof mic cuburi in castron","Adauga 350ml apa calda si usturoi praf","Acopera, microunde 800W: 5 min","Amesteca, inca 3-4 min","Mixeaza. Adauga piper, cimbru, strop lamaie","Optional: 1 lingura iaurt la servire"],
+   notes:"Studiile arata ca microunde-le pastreaza 90% din vitamina C vs 66% la fierbere. Broccoli: potasiu moderat, OK pt CKD G3a."},
+  {id:342,name:"Supa de morcovi cu turmeric (microunde)",emoji:"\u{26A1}",cat:"Supe",temp:"800W",time:"10-12",flip:"Amesteca la jumatate",difficulty:1,method:"Microunde",
+   tip:"Turmeric antiinflamator + beta-caroten. Rapid si sanatos.",
+   steps:["350g morcovi rondele subtiri in castron de microunde","Adauga 300ml apa, 1/2 lingurita turmeric, piper negru","Acopera, microunde 800W: 6 min","Amesteca, inca 4-5 min pana sunt moi","Mixeaza. Adauga ghimbir ras, zeama lamaie"],
+   notes:"Turmeric + piper = absorbtie curcumina x2000. Morcovii se gatesc excelent la microunde. Portie 300ml."},
+  {id:343,name:"Supa instant de oua (microunde)",emoji:"\u{26A1}",cat:"Supe",temp:"600W",time:"3-4",flip:"Amesteca dupa 2 min",difficulty:1,method:"Microunde",
+   tip:"Cea mai rapida supa: 3 minute! Ou + apa calda + condimente.",
+   steps:["350ml apa calda (sau supa de pui fara sare) in cana mare","Microunde 600W: 2 min sa fiarba","Bate 1 ou, toarna in fir subtire amestecand cu furculita","Microunde 600W: 1 min","Adauga: ceapa verde, ghimbir ras, un strop de ulei susan","Piper, strop lamaie"],
+   notes:"Inspirata din egg drop soup chinezeasca. 1 ou = proteine moderate. Gata in 3 minute literal."},
 ];
 
 // ══════════════════════════════════════
@@ -765,25 +852,41 @@ function renderRecipes(query = "") {
   empty.style.display = "none";
 
   grid.className = `grid ${viewMode === "list" ? "list-view" : ""}`;
-  grid.innerHTML = filtered.map((r, i) => `
+  grid.innerHTML = filtered.map((r, i) => {
+    const methodBadge = r.method ? getMethodBadge(r.method) : '';
+    const tempDisplay = typeof r.temp === 'number' ? `${r.temp}&deg;C` : r.temp;
+    const thirdLabel = r.cat === "Supe" ? "Amesteca" : "Intoarce";
+    const thirdColor = r.cat === "Supe" ? "color:var(--purple)" : "";
+    const tipPrefix = r.cat === "Recomandate" ? '<span style="color:var(--green);font-weight:600">&#x1F49A; </span>'
+                    : r.cat === "Supe" ? '<span style="color:var(--purple);font-weight:600">&#x1F35C; </span>' : '';
+    return `
     <div class="card" data-id="${r.id}" data-cat="${r.cat}" style="animation-delay:${Math.min(i*.04,.3)}s">
       <div class="card-header">
         <div class="card-emoji">${r.emoji}</div>
         <div>
-          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}</div>
+          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}${methodBadge}</div>
           <div class="card-cat">${r.cat}${renderDifficulty(r.difficulty)}</div>
         </div>
       </div>
       <div class="card-body">
         <div class="card-temps">
-          <div class="temp-box"><div class="label">Temp</div><div class="value temp-val">${r.temp}&deg;C</div></div>
+          <div class="temp-box"><div class="label">${r.method ? 'Foc/Putere' : 'Temp'}</div><div class="value temp-val">${tempDisplay}</div></div>
           <div class="temp-box"><div class="label">Timp</div><div class="value time-val">${r.time} min</div></div>
-          <div class="temp-box"><div class="label">Intoarce</div><div class="value flip-val" style="font-size:.8rem">${r.flip}</div></div>
+          <div class="temp-box"><div class="label">${thirdLabel}</div><div class="value flip-val" style="font-size:.8rem;${thirdColor}">${r.flip}</div></div>
         </div>
-        <div class="card-tip">${r.cat === "Recomandate" ? '<span style="color:var(--green);font-weight:600">&#x1F49A; </span>' : ''}${r.tip}</div>
+        <div class="card-tip">${tipPrefix}${r.tip}</div>
       </div>
-    </div>
-  `).join("");
+    </div>`;
+  }).join("");
+}
+
+function getMethodBadge(method) {
+  if (!method) return '';
+  let cls = 'm-aragaz';
+  if (method.toLowerCase().includes('microunde')) cls = 'm-microunde';
+  else if (method.toLowerCase().includes('+') || method.toLowerCase().includes('aragaz + cuptor') || method.toLowerCase().includes('cuptor + aragaz')) cls = 'm-mix';
+  else if (method.toLowerCase().includes('cuptor')) cls = 'm-cuptor';
+  return ` <span class="badge-method ${cls}">${method}</span>`;
 }
 
 function renderDifficulty(level) {
@@ -805,9 +908,10 @@ function openModal(recipe) {
     <div class="modal-cat">${r.cat} ${renderDifficulty(r.difficulty)}</div>
 
     <div class="modal-detail-grid">
-      <div class="modal-detail"><div class="md-label">Temperatura</div><div class="md-value" style="color:var(--accent)">${r.temp}&deg;C</div></div>
+      ${r.method ? `<div class="modal-detail" style="grid-column:1/-1;background:var(--surface3)"><div class="md-label">Metoda</div><div class="md-value" style="font-size:1.1rem">${getMethodBadge(r.method)}</div></div>` : ''}
+      <div class="modal-detail"><div class="md-label">${r.method ? 'Foc / Putere' : 'Temperatura'}</div><div class="md-value" style="color:var(--accent)">${typeof r.temp === 'number' ? r.temp + '&deg;C' : r.temp}</div></div>
       <div class="modal-detail"><div class="md-label">Timp</div><div class="md-value" style="color:var(--blue)">${r.time} min</div></div>
-      <div class="modal-detail"><div class="md-label">Intoarce</div><div class="md-value" style="color:var(--yellow);font-size:1rem">${r.flip}</div></div>
+      <div class="modal-detail"><div class="md-label">${r.cat === 'Supe' ? 'Amesteca' : 'Intoarce'}</div><div class="md-value" style="color:var(--yellow);font-size:1rem">${r.flip}</div></div>
       <div class="modal-detail"><div class="md-label">Dificultate</div><div class="md-value">${["","Usor","Mediu","Avansat"][r.difficulty]}</div></div>
     </div>
 
