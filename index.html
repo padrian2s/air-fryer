@@ -231,6 +231,57 @@
   .ing-recipes a:hover{border-color:var(--accent);background:var(--accent-glow)}
   .ing-highlight{background:var(--yellow-glow);color:var(--yellow);font-weight:600;padding:0 2px;border-radius:2px}
 
+  /* Simulator */
+  .sim-container{max-width:900px;margin:0 auto}
+  .sim-panel{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem}
+  .sim-panel h3{font-size:1.1rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+  .sim-thermometer{position:relative;width:60px;height:280px;background:var(--surface2);border-radius:30px;border:2px solid var(--surface3);margin:0 auto;overflow:hidden}
+  .sim-mercury{position:absolute;bottom:0;width:100%;background:linear-gradient(to top,var(--red),var(--accent));border-radius:0 0 28px 28px;transition:height .5s ease}
+  .sim-temp-label{position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-size:1.8rem;font-weight:700;color:var(--accent);font-family:'Courier New',monospace;white-space:nowrap}
+  .sim-slider{width:100%;accent-color:var(--accent);margin:1rem 0}
+  .sim-zones{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+  .sim-zone{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--surface3);transition:all .3s}
+  .sim-zone.active{border-color:var(--accent);background:var(--accent-glow);transform:scale(1.02)}
+  .sim-zone .sz-color{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+  .sim-zone .sz-range{font-family:'Courier New',monospace;font-weight:700;font-size:.85rem;min-width:100px}
+  .sim-zone .sz-desc{font-size:.82rem;color:var(--text2)}
+  .sim-food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.5rem;margin-top:.75rem}
+  .sim-food{padding:10px;background:var(--surface2);border:1.5px solid var(--surface3);border-radius:var(--radius-sm);text-align:center;cursor:pointer;transition:all .25s;font-size:.82rem}
+  .sim-food:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .sim-food.correct{border-color:var(--green);background:var(--green-glow);animation:popIn .3s ease}
+  .sim-food.wrong{border-color:var(--red);background:rgba(239,68,68,.1);animation:shake .4s ease}
+  .sim-food .sf-emoji{font-size:1.5rem;display:block;margin-bottom:4px}
+  .sim-food .sf-name{font-weight:600;color:var(--text)}
+  .sim-food .sf-temp{font-size:.75rem;color:var(--text3);margin-top:2px}
+  @keyframes popIn{0%{transform:scale(.9)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  .sim-progress{height:8px;background:var(--surface3);border-radius:4px;overflow:hidden;margin:1rem 0 .5rem}
+  .sim-progress-bar{height:100%;background:linear-gradient(90deg,var(--green),var(--accent));border-radius:4px;transition:width .4s ease}
+  .sim-score{display:flex;justify-content:space-between;font-size:.85rem;color:var(--text2)}
+  .sim-score .ss-val{font-weight:700;color:var(--green)}
+  .sim-visual{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;justify-content:center}
+  .sim-oven{width:200px;height:200px;background:var(--surface2);border:2px solid var(--surface3);border-radius:var(--radius);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .sim-oven-heat{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,107,53,.3),transparent 70%);opacity:0;transition:opacity .5s}
+  .sim-oven-food{font-size:3rem;z-index:1;transition:all 1s ease}
+  .sim-oven-food.cooking{animation:sizzle 1s infinite}
+  @keyframes sizzle{0%,100%{transform:scale(1) rotate(0deg)}25%{transform:scale(1.03) rotate(-1deg)}75%{transform:scale(.97) rotate(1deg)}}
+  .sim-timeline{flex:1;min-width:250px}
+  .sim-time-bar{display:flex;align-items:center;gap:8px;margin-bottom:.5rem}
+  .sim-time-bar .stb-label{font-size:.75rem;color:var(--text3);min-width:50px}
+  .sim-time-bar .stb-bar{flex:1;height:24px;background:var(--surface3);border-radius:12px;overflow:hidden;position:relative}
+  .sim-time-bar .stb-fill{height:100%;border-radius:12px;transition:width .3s}
+  .sim-time-bar .stb-text{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:.7rem;font-weight:600}
+  .sim-doneness{display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+  .sim-done-btn{padding:8px 16px;border-radius:50px;border:1.5px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.82rem;transition:all .25s}
+  .sim-done-btn.active{border-color:var(--accent);background:var(--accent);color:#fff}
+  .sim-done-btn:hover{border-color:var(--accent)}
+  .sim-result{margin-top:1rem;padding:1rem;background:var(--surface2);border-radius:var(--radius-sm);border-left:3px solid var(--green);font-size:.88rem;color:var(--text2);line-height:1.6;display:none}
+  .sim-result.show{display:block}
+  .sim-result.warn{border-left-color:var(--red)}
+
+  /* Greseli embed */
+  .greseli-frame{width:100%;border:none;border-radius:var(--radius);min-height:calc(100vh - 140px)}
+
   /* Animations */
   .card{animation:fadeUp .4s ease both}
   @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
@@ -267,6 +318,8 @@
   <button class="tab-btn" data-tab="tools">Instrumente</button>
   <button class="tab-btn" data-tab="compare">Compara</button>
   <button class="tab-btn" data-tab="ingredients">Ingrediente</button>
+  <button class="tab-btn" data-tab="simulator">Simulator</button>
+  <button class="tab-btn" data-tab="greseli">Greseli</button>
   <button class="tab-btn" data-tab="tips">Sfaturi</button>
 </nav>
 
@@ -412,6 +465,127 @@
       <span id="ingredientCount" style="color:var(--accent);font-weight:600"></span>
     </p>
     <div id="ingredientList"></div>
+  </div>
+</div>
+
+<!-- TAB: SIMULATOR -->
+<div id="tab-simulator" class="tab-content">
+  <div class="sim-container">
+
+    <!-- Simulator 1: Interactive Temperature Explorer -->
+    <div class="sim-panel">
+      <h3>&#x1F321;&#xFE0F; Explorator de Temperatura</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Misca sliderul pentru a vedea ce se gateste la fiecare temperatura si cum arata zona de caldura.</p>
+      <div class="sim-visual">
+        <div style="text-align:center">
+          <div class="sim-thermometer" id="simThermo">
+            <div class="sim-mercury" id="simMercury" style="height:50%"></div>
+            <div class="sim-temp-label" id="simTempLabel">180&deg;C</div>
+          </div>
+          <input type="range" class="sim-slider" id="simTempSlider" min="100" max="230" value="180" step="5">
+        </div>
+        <div style="flex:1;min-width:280px">
+          <div class="sim-zones">
+            <div class="sim-zone" data-min="100" data-max="140"><span class="sz-color" style="background:var(--blue)"></span><span class="sz-range">100-140&deg;C</span><span class="sz-desc">Deshidratare, uscare fructe, oua fierte</span></div>
+            <div class="sim-zone" data-min="145" data-max="165"><span class="sz-color" style="background:var(--green)"></span><span class="sz-range">145-165&deg;C</span><span class="sz-desc">Patiserie, croissante, briose, gatit lent</span></div>
+            <div class="sim-zone" data-min="170" data-max="185"><span class="sz-color" style="background:var(--yellow)"></span><span class="sz-range">170-185&deg;C</span><span class="sz-desc">Pui, peste, legume, tofu, gogosi</span></div>
+            <div class="sim-zone" data-min="190" data-max="200"><span class="sz-color" style="background:var(--accent)"></span><span class="sz-range">190-200&deg;C</span><span class="sz-desc">Cartofi, aripioare, crocant, congelate</span></div>
+            <div class="sim-zone" data-min="205" data-max="230"><span class="sz-color" style="background:var(--red)"></span><span class="sz-range">205-230&deg;C</span><span class="sz-desc">Steak, gratinare rapida, crusta finala</span></div>
+          </div>
+          <div id="simFoodsAtTemp" style="margin-top:1rem"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulator 2: Cooking Quiz -->
+    <div class="sim-panel">
+      <h3>&#x1F3AF; Test: Ghiceste Temperatura</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-bottom:.5rem">Ce temperatura setezi pentru fiecare aliment? Click pe raspunsul corect.</p>
+      <div class="sim-progress"><div class="sim-progress-bar" id="quizProgress" style="width:0%"></div></div>
+      <div class="sim-score"><span>Intrebarea <span id="quizNum">1</span>/10</span><span>Scor: <span class="ss-val" id="quizScore">0</span>/10</span></div>
+      <div id="quizQuestion" style="text-align:center;padding:1.5rem 0">
+        <div style="font-size:2.5rem" id="quizEmoji"></div>
+        <div style="font-size:1.2rem;font-weight:600;margin:.5rem 0" id="quizFood"></div>
+      </div>
+      <div id="quizOptions" style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap"></div>
+      <div class="sim-result" id="quizResult"></div>
+      <div style="text-align:center;margin-top:1rem">
+        <button id="quizNextBtn" style="padding:10px 24px;border-radius:var(--radius-sm);border:1.5px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;font-weight:600;font-size:.85rem;display:none" onclick="nextQuizQuestion()">Urmatoarea &rarr;</button>
+        <button id="quizRestartBtn" style="padding:10px 24px;border-radius:var(--radius-sm);border:1.5px solid var(--green);background:var(--green);color:#fff;cursor:pointer;font-weight:600;font-size:.85rem;display:none" onclick="startQuiz()">Reincepe Testul</button>
+      </div>
+    </div>
+
+    <!-- Simulator 3: Cooking Timer Visualizer -->
+    <div class="sim-panel">
+      <h3>&#x1F373; Simulator Gatire Vizuala</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Selecteaza un aliment si urmareste cum se gateste in timp real (simulat accelerat x60).</p>
+      <div class="sim-food-grid" id="simCookFoods"></div>
+      <div id="simCookArea" style="display:none;margin-top:1.25rem">
+        <div class="sim-visual">
+          <div class="sim-oven" id="simOven">
+            <div class="sim-oven-heat" id="simOvenHeat"></div>
+            <div class="sim-oven-food" id="simOvenFood"></div>
+          </div>
+          <div class="sim-timeline" id="simTimeline">
+            <div style="font-weight:600;margin-bottom:.75rem" id="simCookTitle"></div>
+            <div class="sim-time-bar">
+              <span class="stb-label">Timp</span>
+              <div class="stb-bar"><div class="stb-fill" id="simTimeBar" style="width:0%;background:var(--accent)"></div><span class="stb-text" id="simTimeText">0:00</span></div>
+            </div>
+            <div class="sim-time-bar">
+              <span class="stb-label">Exterior</span>
+              <div class="stb-bar"><div class="stb-fill" id="simExtBar" style="width:0%;background:var(--yellow)"></div><span class="stb-text" id="simExtText">Crud</span></div>
+            </div>
+            <div class="sim-time-bar">
+              <span class="stb-label">Interior</span>
+              <div class="stb-bar"><div class="stb-fill" id="simIntBar" style="width:0%;background:var(--blue)"></div><span class="stb-text" id="simIntText">Rece</span></div>
+            </div>
+            <div class="sim-time-bar">
+              <span class="stb-label">Temp int.</span>
+              <div class="stb-bar"><div class="stb-fill" id="simTempBar" style="width:0%;background:var(--red)"></div><span class="stb-text" id="simTempText">20&deg;C</span></div>
+            </div>
+            <div id="simCookMsg" style="margin-top:.75rem;font-size:.85rem;color:var(--text2);min-height:3rem"></div>
+            <div style="display:flex;gap:.5rem;margin-top:.5rem">
+              <button id="simStartBtn" onclick="startCookSim()" style="padding:8px 20px;border-radius:var(--radius-sm);border:none;background:var(--green);color:#fff;cursor:pointer;font-weight:600;font-size:.82rem">Start Gatire</button>
+              <button onclick="stopCookSim()" style="padding:8px 20px;border-radius:var(--radius-sm);border:1px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.82rem">Stop</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulator 4: Oven-to-Air-Fryer Practice -->
+    <div class="sim-panel">
+      <h3>&#x1F504; Antrenament: Cuptor &rarr; Air Fryer</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Converteste retete de cuptor la air fryer. Regula: -20&deg;C temperatura, -20% timp. Exerseaza!</p>
+      <div id="convQuiz" style="text-align:center;padding:1rem 0">
+        <div style="font-size:.95rem;color:var(--text3);margin-bottom:.5rem">Reteta de cuptor spune:</div>
+        <div style="font-size:1.8rem;font-weight:700;color:var(--yellow)" id="convQuestion"></div>
+        <div style="margin-top:1.25rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+          <div>
+            <label style="font-size:.75rem;color:var(--text3);display:block;margin-bottom:4px">Temperatura Air Fryer (&deg;C)</label>
+            <input type="number" id="convAnswerTemp" style="padding:10px;width:120px;background:var(--surface2);border:1.5px solid var(--surface3);border-radius:var(--radius-sm);color:var(--text);font-size:1.1rem;text-align:center" placeholder="?">
+          </div>
+          <div>
+            <label style="font-size:.75rem;color:var(--text3);display:block;margin-bottom:4px">Timp Air Fryer (min)</label>
+            <input type="number" id="convAnswerTime" style="padding:10px;width:120px;background:var(--surface2);border:1.5px solid var(--surface3);border-radius:var(--radius-sm);color:var(--text);font-size:1.1rem;text-align:center" placeholder="?">
+          </div>
+          <div style="display:flex;align-items:flex-end">
+            <button onclick="checkConvAnswer()" style="padding:10px 24px;border-radius:var(--radius-sm);border:none;background:var(--accent);color:#fff;cursor:pointer;font-weight:600;font-size:.9rem">Verifica</button>
+          </div>
+        </div>
+        <div class="sim-result" id="convResult" style="margin-top:1rem;text-align:left"></div>
+        <button onclick="nextConvQuestion()" style="margin-top:.75rem;padding:8px 20px;border-radius:var(--radius-sm);border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;font-size:.82rem">Alta reteta &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: GRESELI -->
+<div id="tab-greseli" class="tab-content">
+  <div style="max-width:900px;margin:0 auto">
+    <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Infografic interactiv: cele 12 greseli frecvente cu air fryer-ul si cum sa le eviti.</p>
+    <iframe src="air-fryer-greseli.html" class="greseli-frame" id="greseliFrame" loading="lazy" title="12 Greseli cu Air Fryer-ul"></iframe>
   </div>
 </div>
 
@@ -1527,8 +1701,352 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     if (btn.dataset.tab === 'ingredients') {
       setTimeout(() => renderIngredients(document.getElementById('ingredientSearch')?.value || ''), 50);
     }
+    if (btn.dataset.tab === 'simulator') {
+      setTimeout(initSimulators, 50);
+    }
   });
 });
+
+// ==============================
+// SIMULATOR 1: Temperature Explorer
+// ==============================
+const tempFoods = [
+  {min:100,max:140,foods:['Mere deshidratate','Rosii uscate','Oua fierte','Chipsuri kale','Banane deshidratate','Tofu uscat']},
+  {min:145,max:165,foods:['Croissante','Briose','Chec','Somon la 150°C','Tofu marinat','Budinca de orez']},
+  {min:170,max:185,foods:['Piept de pui','File de peste','Legume mix','Dovlecei','Chiftele','Gogosi']},
+  {min:190,max:200,foods:['Cartofi wedges','Aripioare pui','Nuggets','Congelate','Crocante','Falafel']},
+  {min:205,max:230,foods:['Steak','Gratinare branza','Crusta pizza','Bacon crocant','Sparanghel gratinat','Paine prajita']}
+];
+const tempColors = ['var(--blue)','var(--green)','var(--yellow)','var(--accent)','var(--red)'];
+
+function updateTempExplorer(temp) {
+  const mercury = document.getElementById('simMercury');
+  const label = document.getElementById('simTempLabel');
+  const foodsEl = document.getElementById('simFoodsAtTemp');
+  if (!mercury) return;
+  const pct = ((temp - 100) / 130) * 100;
+  mercury.style.height = pct + '%';
+  let color = tempColors[0];
+  if (temp > 200) color = tempColors[4];
+  else if (temp > 185) color = tempColors[3];
+  else if (temp > 165) color = tempColors[2];
+  else if (temp > 140) color = tempColors[1];
+  mercury.style.background = color;
+  label.textContent = temp + '°C';
+  // Highlight active zone
+  document.querySelectorAll('.sim-zone').forEach(z => {
+    const mn = +z.dataset.min, mx = +z.dataset.max;
+    z.classList.toggle('active', temp >= mn && temp <= mx);
+  });
+  // Show foods at this temp
+  const match = tempFoods.find(g => temp >= g.min && temp <= g.max);
+  if (match && foodsEl) {
+    foodsEl.innerHTML = '<div style="font-size:.82rem;color:var(--text3);margin-bottom:6px">Alimente la ' + temp + '°C:</div>' +
+      '<div style="display:flex;flex-wrap:wrap;gap:6px">' +
+      match.foods.map(f => '<span style="padding:4px 10px;background:var(--surface2);border-radius:var(--radius-sm);font-size:.8rem">' + f + '</span>').join('') +
+      '</div>';
+  }
+}
+
+// ==============================
+// SIMULATOR 2: Temperature Quiz
+// ==============================
+const quizBank = [
+  {emoji:'🍗',food:'Piept de pui',correct:180,opts:[160,180,200,220]},
+  {emoji:'🍟',food:'Cartofi prajiti',correct:200,opts:[160,180,200,220]},
+  {emoji:'🐟',food:'File de somon',correct:180,opts:[150,170,180,200]},
+  {emoji:'🥦',food:'Broccoli',correct:180,opts:[160,180,200,220]},
+  {emoji:'🍕',food:'Pizza congelata',correct:200,opts:[170,185,200,220]},
+  {emoji:'🧁',food:'Briose/Muffins',correct:160,opts:[140,160,180,200]},
+  {emoji:'🥩',food:'Steak de vita',correct:200,opts:[180,190,200,220]},
+  {emoji:'🍤',food:'Creveti',correct:180,opts:[150,170,180,200]},
+  {emoji:'🌽',food:'Porumb copt',correct:200,opts:[170,185,200,220]},
+  {emoji:'🥚',food:'Oua fierte air fryer',correct:130,opts:[110,130,160,180]},
+  {emoji:'🧅',food:'Inele de ceapa',correct:200,opts:[170,185,200,220]},
+  {emoji:'🥕',food:'Morcovi caramelizati',correct:190,opts:[160,175,190,210]},
+  {emoji:'🍗',food:'Aripioare de pui',correct:200,opts:[170,185,200,220]},
+  {emoji:'🫓',food:'Falafel',correct:180,opts:[160,170,180,200]},
+  {emoji:'🥓',food:'Bacon crocant',correct:200,opts:[160,180,200,220]},
+  {emoji:'🍩',food:'Gogosi',correct:175,opts:[155,165,175,195]},
+  {emoji:'🧀',food:'Toast cu branza',correct:180,opts:[160,170,180,200]},
+  {emoji:'🥟',food:'Placinte congelate',correct:180,opts:[160,170,180,200]},
+  {emoji:'🍠',food:'Cartofi dulci',correct:200,opts:[170,185,200,220]},
+  {emoji:'🫑',food:'Ardei umpluti',correct:180,opts:[160,170,180,200]}
+];
+let quizQuestions = [], quizIdx = 0, quizScoreVal = 0, quizAnswered = false;
+
+function startQuiz() {
+  quizQuestions = [...quizBank].sort(() => Math.random() - .5).slice(0, 10);
+  quizIdx = 0; quizScoreVal = 0; quizAnswered = false;
+  document.getElementById('quizScore').textContent = '0';
+  document.getElementById('quizRestartBtn').style.display = 'none';
+  showQuizQuestion();
+}
+
+function showQuizQuestion() {
+  if (quizIdx >= quizQuestions.length) {
+    endQuiz(); return;
+  }
+  const q = quizQuestions[quizIdx];
+  quizAnswered = false;
+  document.getElementById('quizNum').textContent = quizIdx + 1;
+  document.getElementById('quizProgress').style.width = ((quizIdx) / 10 * 100) + '%';
+  document.getElementById('quizEmoji').textContent = q.emoji;
+  document.getElementById('quizFood').textContent = q.food;
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('quizResult').className = 'sim-result';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  const optsEl = document.getElementById('quizOptions');
+  optsEl.innerHTML = q.opts.map(o =>
+    '<button class="sim-done-btn" onclick="answerQuiz(' + o + ',' + q.correct + ',this)" style="min-width:80px;padding:12px 20px;font-size:1rem">' + o + '°C</button>'
+  ).join('');
+}
+
+function answerQuiz(chosen, correct, btn) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const res = document.getElementById('quizResult');
+  const allBtns = document.querySelectorAll('#quizOptions .sim-done-btn');
+  allBtns.forEach(b => {
+    const v = parseInt(b.textContent);
+    if (v === correct) { b.style.background = 'var(--green)'; b.style.color = '#fff'; b.style.borderColor = 'var(--green)'; }
+    else if (b === btn && v !== correct) { b.style.background = 'var(--red)'; b.style.color = '#fff'; b.style.borderColor = 'var(--red)'; }
+    else { b.style.opacity = '.5'; }
+  });
+  if (chosen === correct) {
+    quizScoreVal++;
+    document.getElementById('quizScore').textContent = quizScoreVal;
+    res.textContent = 'Corect! ' + quizQuestions[quizIdx].food + ' se gateste la ' + correct + '°C.';
+    res.className = 'sim-result';
+  } else {
+    res.innerHTML = 'Gresit! Temperatura corecta este <strong>' + correct + '°C</strong>, nu ' + chosen + '°C.';
+    res.className = 'sim-result warn';
+  }
+  res.style.display = 'block';
+  if (quizIdx < 9) {
+    document.getElementById('quizNextBtn').style.display = 'inline-block';
+  } else {
+    document.getElementById('quizProgress').style.width = '100%';
+    setTimeout(endQuiz, 800);
+  }
+}
+
+function nextQuizQuestion() {
+  quizIdx++;
+  showQuizQuestion();
+}
+
+function endQuiz() {
+  const res = document.getElementById('quizResult');
+  const emoji = quizScoreVal >= 9 ? '🏆' : quizScoreVal >= 7 ? '🎉' : quizScoreVal >= 5 ? '👍' : '📚';
+  res.innerHTML = emoji + ' <strong>Rezultat: ' + quizScoreVal + '/10</strong> — ' +
+    (quizScoreVal >= 9 ? 'Excelent! Esti expert la air fryer!' :
+     quizScoreVal >= 7 ? 'Foarte bine! Cunosti temperaturile.' :
+     quizScoreVal >= 5 ? 'Bine! Mai exerseaza putin.' :
+     'Mai ai de invatat. Revizuieste tabelele de temperatura!');
+  res.className = 'sim-result';
+  res.style.display = 'block';
+  document.getElementById('quizNextBtn').style.display = 'none';
+  document.getElementById('quizRestartBtn').style.display = 'inline-block';
+}
+
+// ==============================
+// SIMULATOR 3: Visual Cooking Simulator
+// ==============================
+const cookSimFoods = [
+  {emoji:'🍗',name:'Piept de pui',temp:180,time:22,targetInternal:75,stages:['Crud','Se incalzeste','Suprafata alba','Se auriu','Rumenit','Gata!'],extStages:['Palid','Se schimba culoarea','Auriu deschis','Auriu','Rumenit','Bine prajit'],flipMsg:'Intoarce la jumatate!'},
+  {emoji:'🍟',name:'Cartofi prajiti',temp:200,time:20,targetInternal:95,stages:['Crud','Se incalzeste','Se inmoaie','Crocant partial','Auriu','Crocanti!'],extStages:['Alb','Se usuca','Galben deschis','Auriu deschis','Auriu','Crocant perfect'],flipMsg:'Scutura cosul!'},
+  {emoji:'🐟',name:'Somon',temp:180,time:12,targetInternal:63,stages:['Crud','Se incalzeste','Suprafata opaca','Se coace','Flakey','Gata!'],extStages:['Lucios','Mat','Roz deschis','Auriu deschis','Crusta fina','Perfect'],flipMsg:'Nu e nevoie de intors!'},
+  {emoji:'🥦',name:'Broccoli',temp:180,time:10,targetInternal:85,stages:['Crud','Se incalzeste','Abur','Se coace','Crocant','Gata!'],extStages:['Verde crud','Verde intens','Puncte maronii','Margini crocante','Auriu pe margini','Perfect'],flipMsg:'Amesteca la jumatate!'},
+  {emoji:'🍤',name:'Creveti',temp:180,time:8,targetInternal:65,stages:['Crud','Se incalzeste','Roz partial','Roz','Se onduleaza','Gata!'],extStages:['Gri translucid','Roz deschis','Roz','Roz intens','Auriu-roz','Roz-auriu'],flipMsg:'Intoarce la jumatate!'},
+  {emoji:'🥕',name:'Morcovi',temp:190,time:15,targetInternal:88,stages:['Crud','Se incalzeste','Se inmoaie','Caramelizare','Auriu','Gata!'],extStages:['Portocaliu mat','Lucios','Margini inchise','Caramelizat','Auriu','Perfect caramelizat'],flipMsg:'Amesteca o data!'}
+];
+let cookSimInterval = null, cookSimData = null;
+
+function renderCookFoods() {
+  const el = document.getElementById('simCookFoods');
+  if (!el) return;
+  el.innerHTML = cookSimFoods.map((f, i) =>
+    '<button class="sim-food" onclick="selectCookFood(' + i + ')" data-idx="' + i + '">' + f.emoji + '<br><span style="font-size:.7rem">' + f.name + '</span></button>'
+  ).join('');
+}
+
+function selectCookFood(idx) {
+  stopCookSim();
+  const f = cookSimFoods[idx];
+  cookSimData = {food: f, elapsed: 0, totalSec: f.time * 60, running: false, flipped: false};
+  document.querySelectorAll('.sim-food').forEach((b, i) => b.classList.toggle('correct', i === idx));
+  document.getElementById('simCookArea').style.display = 'block';
+  document.getElementById('simCookTitle').textContent = f.emoji + ' ' + f.name + ' — ' + f.temp + '°C / ' + f.time + ' min';
+  document.getElementById('simOvenFood').textContent = f.emoji;
+  document.getElementById('simOvenFood').classList.remove('cooking');
+  document.getElementById('simOvenHeat').style.opacity = '0';
+  resetCookBars();
+}
+
+function resetCookBars() {
+  document.getElementById('simTimeBar').style.width = '0%';
+  document.getElementById('simTimeText').textContent = '0:00';
+  document.getElementById('simExtBar').style.width = '0%';
+  document.getElementById('simExtText').textContent = 'Crud';
+  document.getElementById('simIntBar').style.width = '0%';
+  document.getElementById('simIntText').textContent = 'Rece';
+  document.getElementById('simTempBar').style.width = '0%';
+  document.getElementById('simTempText').textContent = '20°C';
+  document.getElementById('simCookMsg').textContent = 'Apasa Start pentru a incepe gatirea.';
+}
+
+function startCookSim() {
+  if (!cookSimData) return;
+  stopCookSim();
+  cookSimData.elapsed = 0;
+  cookSimData.running = true;
+  cookSimData.flipped = false;
+  document.getElementById('simOvenFood').classList.add('cooking');
+  document.getElementById('simOvenHeat').style.opacity = '1';
+  document.getElementById('simStartBtn').disabled = true;
+  // Accelerated: 1 real second = 60 sim seconds (x60 speed)
+  cookSimInterval = setInterval(() => {
+    cookSimData.elapsed += 60;
+    if (cookSimData.elapsed >= cookSimData.totalSec) {
+      cookSimData.elapsed = cookSimData.totalSec;
+      finishCookSim();
+    }
+    updateCookBars();
+  }, 1000);
+}
+
+function updateCookBars() {
+  if (!cookSimData) return;
+  const f = cookSimData.food;
+  const pct = Math.min(cookSimData.elapsed / cookSimData.totalSec, 1);
+  const minutes = Math.floor(cookSimData.elapsed / 60);
+  const seconds = cookSimData.elapsed % 60;
+  // Time bar
+  document.getElementById('simTimeBar').style.width = (pct * 100) + '%';
+  document.getElementById('simTimeText').textContent = minutes + ':' + String(seconds).padStart(2, '0');
+  // Stage index
+  const stageIdx = Math.min(Math.floor(pct * f.stages.length), f.stages.length - 1);
+  // Exterior bar
+  document.getElementById('simExtBar').style.width = (pct * 100) + '%';
+  document.getElementById('simExtText').textContent = f.extStages[stageIdx];
+  // Interior bar
+  const intPct = Math.min(pct * 1.15, 1); // interior slightly behind
+  const intStageIdx = Math.min(Math.floor(Math.max(0, pct - 0.1) * f.stages.length), f.stages.length - 1);
+  document.getElementById('simIntBar').style.width = (Math.max(0, pct - 0.1) * 100) + '%';
+  document.getElementById('simIntText').textContent = f.stages[intStageIdx];
+  // Internal temp
+  const intTemp = Math.round(20 + (f.targetInternal - 20) * Math.min(pct * 1.1, 1));
+  document.getElementById('simTempBar').style.width = (intTemp / f.targetInternal * 100) + '%';
+  document.getElementById('simTempText').textContent = intTemp + '°C';
+  // Flip message at 50%
+  if (pct >= 0.45 && pct <= 0.55 && !cookSimData.flipped) {
+    cookSimData.flipped = true;
+    document.getElementById('simCookMsg').innerHTML = '🔄 <strong>' + f.flipMsg + '</strong>';
+  } else if (pct < 0.45) {
+    document.getElementById('simCookMsg').textContent = 'Se gateste... ' + f.stages[stageIdx];
+  } else if (pct >= 0.55 && pct < 1) {
+    document.getElementById('simCookMsg').textContent = 'Se gateste... ' + f.stages[stageIdx];
+  }
+}
+
+function finishCookSim() {
+  stopCookSim();
+  const f = cookSimData.food;
+  document.getElementById('simOvenHeat').style.opacity = '0';
+  document.getElementById('simCookMsg').innerHTML = '✅ <strong>' + f.name + ' este gata!</strong> Temperatura interna: ' + f.targetInternal + '°C. Scoate din air fryer si lasa 2-3 minute.';
+  document.getElementById('simStartBtn').disabled = false;
+}
+
+function stopCookSim() {
+  if (cookSimInterval) { clearInterval(cookSimInterval); cookSimInterval = null; }
+  if (cookSimData) { cookSimData.running = false; }
+  document.getElementById('simStartBtn') && (document.getElementById('simStartBtn').disabled = false);
+  const ovenFood = document.getElementById('simOvenFood');
+  if (ovenFood) ovenFood.classList.remove('cooking');
+  const ovenHeat = document.getElementById('simOvenHeat');
+  if (ovenHeat) ovenHeat.style.opacity = '0';
+}
+
+// ==============================
+// SIMULATOR 4: Oven-to-Air-Fryer Practice
+// ==============================
+const convRecipes = [
+  {name:'Pui intreg la cuptor',ovenTemp:200,ovenTime:60},
+  {name:'Cartofi la cuptor',ovenTemp:220,ovenTime:40},
+  {name:'Peste cu legume',ovenTemp:200,ovenTime:25},
+  {name:'Pizza congelata',ovenTemp:220,ovenTime:15},
+  {name:'Placinta cu branza',ovenTemp:200,ovenTime:35},
+  {name:'Friptura de porc',ovenTemp:200,ovenTime:50},
+  {name:'Legume gratinate',ovenTemp:200,ovenTime:30},
+  {name:'Muffins',ovenTemp:180,ovenTime:25},
+  {name:'Lasagna',ovenTemp:200,ovenTime:40},
+  {name:'Pulpe de pui',ovenTemp:200,ovenTime:45},
+  {name:'Chifle de casa',ovenTemp:200,ovenTime:20},
+  {name:'Sparanghel gratinat',ovenTemp:220,ovenTime:15},
+  {name:'Dovlecei umpluti',ovenTemp:200,ovenTime:30},
+  {name:'Tort de ciocolata',ovenTemp:180,ovenTime:35},
+  {name:'Somon in crusta',ovenTemp:200,ovenTime:20}
+];
+let convCurrent = null;
+
+function nextConvQuestion() {
+  convCurrent = convRecipes[Math.floor(Math.random() * convRecipes.length)];
+  document.getElementById('convQuestion').textContent = convCurrent.name + ': ' + convCurrent.ovenTemp + '°C / ' + convCurrent.ovenTime + ' min';
+  document.getElementById('convAnswerTemp').value = '';
+  document.getElementById('convAnswerTime').value = '';
+  document.getElementById('convResult').style.display = 'none';
+  document.getElementById('convResult').className = 'sim-result';
+}
+
+function checkConvAnswer() {
+  if (!convCurrent) return;
+  const userTemp = parseInt(document.getElementById('convAnswerTemp').value);
+  const userTime = parseInt(document.getElementById('convAnswerTime').value);
+  const correctTemp = convCurrent.ovenTemp - 20;
+  const correctTime = Math.round(convCurrent.ovenTime * 0.8);
+  const res = document.getElementById('convResult');
+  if (isNaN(userTemp) || isNaN(userTime)) {
+    res.textContent = 'Completeaza ambele campuri!';
+    res.className = 'sim-result warn';
+    res.style.display = 'block';
+    return;
+  }
+  const tempOk = Math.abs(userTemp - correctTemp) <= 5;
+  const timeOk = Math.abs(userTime - correctTime) <= 2;
+  if (tempOk && timeOk) {
+    res.innerHTML = '✅ <strong>Corect!</strong> ' + convCurrent.ovenTemp + '°C → ' + correctTemp + '°C, ' + convCurrent.ovenTime + ' min → ' + correctTime + ' min.';
+    res.className = 'sim-result';
+  } else {
+    let msg = '❌ <strong>Nu exact.</strong> ';
+    if (!tempOk) msg += 'Temperatura corecta: <strong>' + correctTemp + '°C</strong> (cuptor ' + convCurrent.ovenTemp + '°C - 20°C). ';
+    if (!timeOk) msg += 'Timpul corect: <strong>' + correctTime + ' min</strong> (cuptor ' + convCurrent.ovenTime + ' min × 0.8). ';
+    res.innerHTML = msg;
+    res.className = 'sim-result warn';
+  }
+  res.style.display = 'block';
+}
+
+// ==============================
+// Simulator Initialization
+// ==============================
+let simInitialized = false;
+function initSimulators() {
+  if (simInitialized) return;
+  simInitialized = true;
+  // Temp explorer
+  const slider = document.getElementById('simTempSlider');
+  if (slider) {
+    slider.addEventListener('input', e => updateTempExplorer(+e.target.value));
+    updateTempExplorer(180);
+  }
+  // Quiz
+  startQuiz();
+  // Cook simulator
+  renderCookFoods();
+  // Conversion
+  nextConvQuestion();
+}
 </script>
 </body>
 </html>
