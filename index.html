@@ -209,6 +209,28 @@
   .filter-btn[data-cat="Supe"]{border-color:rgba(168,85,247,.4)}
   .filter-btn[data-cat="Supe"].active{background:var(--purple);border-color:var(--purple)}
 
+  /* Ingredients */
+  .ing-category{margin-bottom:1.25rem}
+  .ing-category-title{font-size:.95rem;font-weight:600;padding:10px 14px;background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius-sm) var(--radius-sm) 0 0;display:flex;align-items:center;gap:8px;cursor:pointer;transition:all .2s}
+  .ing-category-title:hover{background:var(--surface2)}
+  .ing-category-title .ic-count{font-size:.75rem;color:var(--text3);margin-left:auto}
+  .ing-category-title .ic-arrow{transition:transform .2s;color:var(--text3)}
+  .ing-category.open .ic-arrow{transform:rotate(90deg)}
+  .ing-items{border:1px solid var(--surface3);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);overflow:hidden;max-height:0;transition:max-height .3s ease;overflow-y:auto}
+  .ing-category.open .ing-items{max-height:2000px}
+  .ing-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--surface2);cursor:pointer;transition:background .15s;font-size:.88rem}
+  .ing-item:last-child{border-bottom:none}
+  .ing-item:hover{background:var(--surface2)}
+  .ing-item.active{background:var(--accent-glow);border-left:3px solid var(--accent)}
+  .ing-item .ii-name{color:var(--text)}
+  .ing-item .ii-count{font-size:.75rem;color:var(--text3);background:var(--surface3);padding:2px 8px;border-radius:50px;min-width:24px;text-align:center}
+  .ing-item .ii-health{color:var(--green);font-size:.7rem;margin-left:6px}
+  .ing-recipes{background:var(--surface2);padding:10px 14px;border-bottom:1px solid var(--surface3);display:none}
+  .ing-recipes.show{display:block}
+  .ing-recipes a{color:var(--accent);text-decoration:none;font-size:.82rem;display:inline-block;padding:3px 10px;margin:2px;background:var(--surface);border-radius:50px;border:1px solid var(--surface3);transition:all .2s}
+  .ing-recipes a:hover{border-color:var(--accent);background:var(--accent-glow)}
+  .ing-highlight{background:var(--yellow-glow);color:var(--yellow);font-weight:600;padding:0 2px;border-radius:2px}
+
   /* Animations */
   .card{animation:fadeUp .4s ease both}
   @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
@@ -244,6 +266,7 @@
   <button class="tab-btn active" data-tab="recipes">Retete</button>
   <button class="tab-btn" data-tab="tools">Instrumente</button>
   <button class="tab-btn" data-tab="compare">Compara</button>
+  <button class="tab-btn" data-tab="ingredients">Ingrediente</button>
   <button class="tab-btn" data-tab="tips">Sfaturi</button>
 </nav>
 
@@ -374,6 +397,21 @@
       <div class="compare-slot" id="slot1"><span class="cs-placeholder">Slot 2 - gol</span></div>
     </div>
     <div class="compare-result" id="compareResult" style="display:none"></div>
+  </div>
+</div>
+
+<!-- TAB: INGREDIENTS -->
+<div id="tab-ingredients" class="tab-content">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="search-box" style="margin-bottom:1rem">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" id="ingredientSearch" placeholder="Cauta ingredient... (ex: usturoi, somon, turmeric)">
+    </div>
+    <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">
+      Lista completa a ingredientelor din toate retetele. Click pe un ingredient pentru a vedea retetele care il folosesc.
+      <span id="ingredientCount" style="color:var(--accent);font-weight:600"></span>
+    </p>
+    <div id="ingredientList"></div>
   </div>
 </div>
 
@@ -1266,6 +1304,231 @@ function showToast(msg) {
   t.classList.add("show");
   setTimeout(() => t.classList.remove("show"), 2500);
 }
+
+// ══════════════════════════════════════
+// INGREDIENTS
+// ══════════════════════════════════════
+const ingredientDB = [
+  {cat:"Legume & Fructe",icon:"\u{1F966}",items:[
+    {name:"Cartofi",health:""},
+    {name:"Cartofi dulci",health:"K moderat"},
+    {name:"Broccoli",health:"Vit C, fibre"},
+    {name:"Vinete",health:"Nasunina"},
+    {name:"Dovlecei / Zucchini",health:"K scazut"},
+    {name:"Conopida",health:"K scazut"},
+    {name:"Ciuperci champignon",health:""},
+    {name:"Ardei grasi (rosii, diverse)",health:"Vit C"},
+    {name:"Rosii cherry",health:"K ridicat"},
+    {name:"Rosii",health:"K ridicat"},
+    {name:"Morcovi",health:"Beta-caroten"},
+    {name:"Sparanghel",health:"Diuretic, folat"},
+    {name:"Varza rosie",health:"Antocianine"},
+    {name:"Ceapa",health:""},
+    {name:"Ceapa rosie",health:"Antioxidanti"},
+    {name:"Ceapa verde",health:""},
+    {name:"Usturoi",health:"Cardioprotector"},
+    {name:"Telina radacina",health:"K moderat-ridicat"},
+    {name:"Telina apio (tulpina)",health:""},
+    {name:"Pastarnac",health:""},
+    {name:"Patrunjel radacina",health:""},
+    {name:"Fasole verde",health:"K scazut"},
+    {name:"Dovleac",health:"K moderat"},
+    {name:"Sfecla",health:"K ridicat, betaine"},
+    {name:"Mere",health:"Pectina, fibre"},
+    {name:"Banane",health:"K ridicat"},
+    {name:"Lamaie / Zeama de lamaie",health:"Vit C, inlocuitor sare"},
+    {name:"Ghimbir proaspat",health:"Antiinflamator"},
+  ]},
+  {cat:"Carne",icon:"\u{1F357}",items:[
+    {name:"Piept de pui",health:"Proteine slabe"},
+    {name:"Aripioare de pui",health:""},
+    {name:"Pulpe de pui",health:""},
+    {name:"Carne tocata pui",health:"Proteine slabe"},
+    {name:"Curcan (fileuri)",health:"Grasimi f. scazute"},
+    {name:"Steak vita",health:""},
+    {name:"Carne tocata vita",health:""},
+    {name:"Cotlet de porc",health:""},
+    {name:"Carnati",health:"Sodiu ridicat"},
+    {name:"Mici",health:""},
+    {name:"Bacon",health:"Sodiu ridicat"},
+  ]},
+  {cat:"Peste & Fructe de mare",icon:"\u{1F41F}",items:[
+    {name:"Somon",health:"Omega-3"},
+    {name:"Pastrav",health:"Omega-3"},
+    {name:"Macrou",health:"Omega-3 maxim"},
+    {name:"Cod",health:"Fosfor scazut"},
+    {name:"Pangasius",health:"Fosfor scazut"},
+    {name:"Peste alb (generic)",health:"Proteine calitate"},
+    {name:"Creveti",health:""},
+    {name:"Fish fingers (congelati)",health:""},
+  ]},
+  {cat:"Lactate & Oua",icon:"\u{1F9C0}",items:[
+    {name:"Parmezan",health:"Fosfor - cantitate mica"},
+    {name:"Mozzarella",health:""},
+    {name:"Halloumi",health:"Sodiu ridicat"},
+    {name:"Branza (generica)",health:""},
+    {name:"Iaurt",health:"Calciu"},
+    {name:"Smantana de gatit light",health:""},
+    {name:"Unt",health:"Grasimi saturate"},
+    {name:"Oua",health:"Proteine moderate"},
+  ]},
+  {cat:"Cereale & Paste",icon:"\u{1F35E}",items:[
+    {name:"Paine (bagheta)",health:""},
+    {name:"Paine integrala",health:"Fibre"},
+    {name:"Tortilla",health:""},
+    {name:"Taitei",health:""},
+    {name:"Paste mici (ditalini/orzo)",health:""},
+    {name:"Pesmet / Pesmet integral",health:""},
+    {name:"Aluat foietaj",health:""},
+    {name:"Croissante congelate",health:""},
+  ]},
+  {cat:"Condimente & Ierburi",icon:"\u{1F33F}",items:[
+    {name:"Sare",health:"EVITA pt hipertensiune"},
+    {name:"Piper negru",health:"Activeaza curcumina"},
+    {name:"Boia dulce / afumata",health:""},
+    {name:"Turmeric",health:"Antiinflamator"},
+    {name:"Chimion",health:"Digestiv"},
+    {name:"Scortisoara",health:"Circulatie, glicemie"},
+    {name:"Nucsoara",health:"Inlocuitor sare"},
+    {name:"Oregano",health:"Antioxidant"},
+    {name:"Cimbru",health:"Inlocuitor sare"},
+    {name:"Rozmarin",health:"Antiinflamator"},
+    {name:"Busuioc (proaspat/uscat)",health:""},
+    {name:"Marar",health:""},
+    {name:"Patrunjel proaspat",health:"Vit C, K"},
+    {name:"Leustean",health:"Inlocuitor sare"},
+    {name:"Ierburi provensale",health:""},
+    {name:"Usturoi praf / granulat",health:""},
+    {name:"Dafin (frunza)",health:""},
+    {name:"Fulgi ardei iute",health:"Metabolism"},
+  ]},
+  {cat:"Uleiuri & Lichide",icon:"\u{1F4A7}",items:[
+    {name:"Ulei de masline / extravirgin",health:"Grasimi bune, cardioprotector"},
+    {name:"Ulei de cocos",health:""},
+    {name:"Ulei de susan",health:""},
+    {name:"Otet balsamic",health:""},
+    {name:"Miere",health:"Cantitate mica"},
+    {name:"Sos soia",health:"Sodiu ridicat"},
+  ]},
+  {cat:"Leguminoase & Proteina vegetala",icon:"\u{1FAD8}",items:[
+    {name:"Naut (conserva)",health:"Fibre, reduce LDL"},
+    {name:"Linte rosie",health:"Fibre solubile"},
+    {name:"Tofu",health:"Proteine vegetale"},
+    {name:"Amidon de porumb",health:""},
+  ]},
+  {cat:"Congelate & Altele",icon:"\u{2744}\uFE0F",items:[
+    {name:"Pizza congelata",health:"Sodiu ridicat"},
+    {name:"Nuggets pui congelati",health:""},
+    {name:"Snitzel congelat",health:""},
+    {name:"Cartofi congelati",health:""},
+    {name:"Mozzarella sticks congelate",health:""},
+    {name:"Baking powder",health:""},
+    {name:"Seminte de dovleac",health:"Magneziu"},
+    {name:"Zahar / Zahar pudra",health:"Cantitate minima"},
+  ]},
+];
+
+function findRecipesForIngredient(ingredientName) {
+  const lower = ingredientName.toLowerCase()
+    .replace(/ \/ .*/,'').replace(/ \(.*/,'').replace(/é/g,'e').trim();
+  const keywords = lower.split(/\s+/).filter(w => w.length > 2);
+  return recipes.filter(r => {
+    const text = [r.name, ...r.steps, r.tip, r.notes || ''].join(' ').toLowerCase();
+    return keywords.some(kw => text.includes(kw));
+  });
+}
+
+function renderIngredients(query = '') {
+  const container = document.getElementById('ingredientList');
+  const q = query.toLowerCase().trim();
+  let totalIngredients = 0;
+  let totalMatches = 0;
+
+  let html = '';
+  ingredientDB.forEach((cat, ci) => {
+    let items = cat.items;
+    if (q) {
+      items = items.filter(item =>
+        item.name.toLowerCase().includes(q) ||
+        item.health.toLowerCase().includes(q) ||
+        item.cat?.toLowerCase().includes(q)
+      );
+    }
+    if (items.length === 0) return;
+
+    totalIngredients += items.length;
+    const isOpen = q ? true : ci < 3;
+
+    html += `<div class="ing-category ${isOpen ? 'open' : ''}" data-ci="${ci}">
+      <div class="ing-category-title" onclick="this.parentElement.classList.toggle('open')">
+        <span>${cat.icon}</span>
+        <span>${cat.cat}</span>
+        <span class="ic-count">${items.length} ingrediente</span>
+        <span class="ic-arrow">&#x25B6;</span>
+      </div>
+      <div class="ing-items">`;
+
+    items.forEach(item => {
+      const matchedRecipes = findRecipesForIngredient(item.name);
+      totalMatches += matchedRecipes.length;
+      const highlightName = q ? item.name.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'), '<span class="ing-highlight">$1</span>') : item.name;
+
+      html += `<div>
+        <div class="ing-item" onclick="toggleIngRecipes(this)">
+          <span class="ii-name">${highlightName}${item.health ? `<span class="ii-health">${item.health}</span>` : ''}</span>
+          <span class="ii-count">${matchedRecipes.length}</span>
+        </div>
+        <div class="ing-recipes">${matchedRecipes.map(r =>
+          `<a href="#" onclick="event.preventDefault();openRecipeById(${r.id})">${r.emoji} ${r.name}</a>`
+        ).join('')}${matchedRecipes.length === 0 ? '<span style="font-size:.8rem;color:var(--text3)">Niciun ingredient gasit direct in retete (poate fi implicit)</span>' : ''}</div>
+      </div>`;
+    });
+
+    html += '</div></div>';
+  });
+
+  if (!html) {
+    html = '<div class="empty-state"><div class="es-icon">&#x1F50D;</div><p>Niciun ingredient gasit.</p></div>';
+  }
+
+  container.innerHTML = html;
+  document.getElementById('ingredientCount').textContent = `${totalIngredients} ingrediente`;
+}
+
+function toggleIngRecipes(el) {
+  const recipesEl = el.nextElementSibling;
+  const wasActive = el.classList.contains('active');
+  // Close all
+  document.querySelectorAll('.ing-item.active').forEach(i => {
+    i.classList.remove('active');
+    i.nextElementSibling.classList.remove('show');
+  });
+  if (!wasActive) {
+    el.classList.add('active');
+    recipesEl.classList.add('show');
+  }
+}
+
+function openRecipeById(id) {
+  const r = recipes.find(x => x.id === id);
+  if (r) openModal(r);
+}
+
+// Hook ingredient search
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('ingredientSearch')?.addEventListener('input', e => {
+    renderIngredients(e.target.value.trim());
+  });
+});
+
+// Render ingredients when tab is clicked
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.tab === 'ingredients') {
+      setTimeout(() => renderIngredients(document.getElementById('ingredientSearch')?.value || ''), 50);
+    }
+  });
+});
 </script>
 </body>
 </html>
