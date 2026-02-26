@@ -209,6 +209,15 @@
   .filter-btn[data-cat="Supe"]{border-color:rgba(168,85,247,.4)}
   .filter-btn[data-cat="Supe"].active{background:var(--purple);border-color:var(--purple)}
 
+  /* Sauces */
+  .card[data-cat="Sosuri"]{border-color:rgba(251,146,60,.2)}
+  .card[data-cat="Sosuri"]:hover{border-color:var(--yellow);box-shadow:0 8px 30px rgba(251,146,60,.12)}
+  .badge-sos{display:inline-block;background:linear-gradient(135deg,#fb923c,#f59e0b);color:#fff;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:50px;vertical-align:middle;margin-left:6px;letter-spacing:.3px}
+  .filter-btn[data-cat="Sosuri"]{border-color:rgba(251,146,60,.4)}
+  .filter-btn[data-cat="Sosuri"].active{background:linear-gradient(135deg,#fb923c,#f59e0b);border-color:#fb923c}
+  .sos-pairs{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+  .sos-pair{font-size:.7rem;padding:2px 8px;background:var(--surface2);border:1px solid var(--surface3);border-radius:50px;color:var(--text2)}
+
   /* Ingredients */
   .ing-category{margin-bottom:1.25rem}
   .ing-category-title{font-size:.95rem;font-weight:600;padding:10px 14px;background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius-sm) var(--radius-sm) 0 0;display:flex;align-items:center;gap:8px;cursor:pointer;transition:all .2s}
@@ -997,6 +1006,93 @@ const recipes = [
    tip:"Cea mai rapida supa: 3 minute! Ou + apa calda + condimente.",
    steps:["350ml apa calda (sau supa de pui fara sare) in cana mare","Microunde 600W: 2 min sa fiarba","Bate 1 ou, toarna in fir subtire amestecand cu furculita","Microunde 600W: 1 min","Adauga: ceapa verde, ghimbir ras, un strop de ulei susan","Piper, strop lamaie"],
    notes:"Inspirata din egg drop soup chinezeasca. 1 ou = proteine moderate. Gata in 3 minute literal."},
+
+  // ══════ SOSURI ══════
+  {id:400,name:"Sos de iaurt cu usturoi si marar",emoji:"🥣",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+   tip:"Clasicul sos rece, perfect langa orice carne sau legume din air fryer.",
+   pairs:["Piept de pui","Cartofi prajiti","Falafel","Dovlecei","Vinete"],
+   steps:["200g iaurt grecesc (2% grasime)","2 catei usturoi rasi fin","2 linguri marar proaspat tocat","1 lingurita zeama de lamaie","Piper dupa gust, fara sare","Amesteca totul si lasa la rece 15 min"],
+   notes:"Fara sare adaugata. Iaurtul e sursa buna de calciu si proteine. Potrivit pt dieta renala moderata."},
+  {id:401,name:"Sos chimichurri (fara sare)",emoji:"🌿",cat:"Sosuri",temp:"-",time:"10",flip:"-",difficulty:1,
+   tip:"Sos argentinian vibrant, plin de arome proaspete. Ideal cu steak sau legume gratar.",
+   pairs:["Steak","Piept de pui","Legume mix","Sparanghel","Ciuperci"],
+   steps:["1 legatura mare patrunjel proaspat, tocat fin","3-4 catei usturoi tocati","2 linguri otet de vin rosu","4 linguri ulei masline extravirgin","1/2 lingurita fulgi ardei iute (optional)","1 lingurita oregano uscat","Piper negru dupa gust","Amesteca, lasa 30 min sa se dezvolte aromele"],
+   notes:"Bogat in vitamina K si antioxidanti. Patrunjelul ajuta la detoxifiere. Zero sare, maxim aroma."},
+  {id:402,name:"Sos de rosii proaspete (salsa cruda)",emoji:"🍅",cat:"Sosuri",temp:"-",time:"10",flip:"-",difficulty:1,
+   tip:"Sos proaspat negatit, perfect vara. Merge cu orice - de la pui la peste.",
+   pairs:["Fish fingers","Creveti","Piept de pui","Cartofi wedges","Falafel"],
+   steps:["4 rosii coapte, tocate marunt","1/2 ceapa rosie tocata fin","1 catel usturoi ras","1 lingura ulei masline","Zeama de la 1/2 lamaie","Busuioc proaspat tocat","Piper negru, boia dulce"],
+   notes:"Licopenul din rosii e antioxidant puternic, protector cardiovascular. Fara sare, plin de vitamine."},
+  {id:403,name:"Sos tahini cu lamaie",emoji:"🫘",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+   tip:"Cremos, satios, cu gust de nuca. Complementul perfect pentru falafel si legume.",
+   pairs:["Falafel","Conopida","Broccoli","Morcovi","Dovlecei","Vinete"],
+   steps:["3 linguri tahini (pasta de susan)","Zeama de la 1 lamaie","2-3 linguri apa rece (ajusteaza consistenta)","1 catel usturoi ras","Piper, cimbru uscat","Amesteca energic pana devine cremos si omogen"],
+   notes:"Tahini = sursa excelenta de calciu, magneziu si grasimi sanatoase. Moderat in fosfor, OK in portii mici."},
+  {id:404,name:"Sos pesto de busuioc (fara parmezan)",emoji:"🌱",cat:"Sosuri",temp:"-",time:"10",flip:"-",difficulty:2,
+   tip:"Varianta fara branza, mai usoara dar la fel de aromata. Perfect cu paste sau pui.",
+   pairs:["Piept de pui","Somon","Paste","Legume mix","Toast"],
+   steps:["2 legaturi busuioc proaspat (doar frunzele)","30g nuci (sau pin)","2 catei usturoi","4 linguri ulei masline extravirgin","Zeama de 1/2 lamaie","Piper negru","Mixeaza totul in blender pana la consistenta dorita"],
+   notes:"Busuiocul are proprietati antiinflamatorii. Nucile adauga omega-3 si proteine vegetale. Fara sare sau branza."},
+  {id:405,name:"Sos de avocado cremos",emoji:"🥑",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+   tip:"Ultra-cremos si satios. Grasimile bune din avocado protejeaza inima.",
+   pairs:["Cartofi prajiti","Piept de pui","Creveti","Fish fingers","Falafel"],
+   steps:["1 avocado copt, decojit","Zeama de la 1 lime/lamaie","1 catel usturoi ras","2 linguri iaurt grecesc","Piper, cimbru","Optional: 1/4 ardei iute","Mixeaza pana devine cremos, ajusteaza cu apa"],
+   notes:"Avocado = grasimi monoinsaturate excelente pt colesterol. Potasiu moderat - o portie e OK pt CKD G3a."},
+  {id:406,name:"Sos de mustar si miere (fara sare)",emoji:"🍯",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+   tip:"Dulce-acrisor, irezistibil cu aripioare, nuggets sau legume crocante.",
+   pairs:["Aripioare","Nuggets","Piept de pui","Cartofi prajiti","Morcovi"],
+   steps:["2 linguri mustar Dijon (verifica sa fie fara sare adaugata)","1 lingura miere de albine","1 lingura ulei masline","1 lingurita otet de mere","Piper negru, turmeric (optional)","Amesteca bine pana se emulsioneaza"],
+   notes:"Mustarul contine compusi antiinflamatori (sinigrina). Mierea in cantitati mici e OK. Fara sare adaugata."},
+  {id:407,name:"Sos tzatziki romanesc",emoji:"🥒",cat:"Sosuri",temp:"-",time:"10",flip:"-",difficulty:1,
+   tip:"Varianta romaneasca a clasicului grecesc. Racoritor si usor, perfect pe canicula.",
+   pairs:["Piept de pui","Falafel","Cartofi wedges","Dovlecei","Chiftele"],
+   steps:["200g iaurt grecesc gros","1 castravete ras si stors bine de apa","2 catei usturoi rasi","1 lingura marar proaspat","1 lingurita ulei masline","Zeama de 1/2 lamaie","Piper dupa gust"],
+   notes:"Castravetele hidrateaza. Iaurtul aduce probiotice benefice. Fara sare, aromele fac toata treaba."},
+  {id:408,name:"Sos de ardei copti (ajvar de casa)",emoji:"🫑",cat:"Sosuri",temp:180,time:"25-30",flip:"La 15 min",difficulty:2,method:"Air Fryer",
+   tip:"Ajvar facut direct in air fryer! Sosul balcanic perfect cu orice gratar.",
+   pairs:["Steak","Piept de pui","Chiftele","Paste","Paine prajita"],
+   steps:["3 ardei kapia in air fryer la 180°C, 25-30 min, intoarce la jumatate","Scoate, pune in punga sa se abure 10 min","Curata de coaja si seminte","Mixeaza cu: 1 catel usturoi, 1 lingura ulei masline, piper, boia afumata","Optional: 1 rosie coapta pentru textura","Ajusteaza consistenta dupa preferinta"],
+   notes:"Ardeii copti sunt bogati in vitamina C (de 2x vs cei cruzi). Licopenul se absoarbe mai bine dupa gatire."},
+  {id:409,name:"Sos de lamaie si ierburi",emoji:"🍋",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+   tip:"Sos light, perfect pentru peste si fructe de mare din air fryer.",
+   pairs:["Somon","Cod / Peste alb","Creveti","Legume mix","Sparanghel"],
+   steps:["Zeama de la 1 lamaie mare","2 linguri ulei masline extravirgin","1 lingurita mustar","Marar + patrunjel proaspat tocat","1 catel usturoi ras fin","Piper negru, cimbru","Emulsioneaza bine cu o furculita"],
+   notes:"Lamaie + ierburi = alternativa perfecta la sare. Vitamina C din lamaie ajuta absorbtia fierului."},
+  {id:410,name:"Sos BBQ sanatos (fara zahar)",emoji:"🔥",cat:"Sosuri",temp:"Foc mic",time:"15-20",flip:"Amesteca des",difficulty:2,method:"Aragaz",
+   tip:"BBQ de casa fara zaharuri adaugate sau sare. Aromele condimentelor fac diferenta.",
+   pairs:["Aripioare","Piept de pui","Steak","Coaste","Legume gratar"],
+   steps:["200g passata de rosii (fara sare)","1 lingura otet de mere","1 lingurita boia afumata","1/2 lingurita usturoi pudra","1/2 lingurita ceapa pudra","Piper negru, chimion, oregano","1 lingurita mustar","Optional: cateva picaturi stevia pt dulceata","Fierbe la foc mic 15-20 min amestecand"],
+   notes:"BBQ comercial are ~300mg sodiu/portie. Aceasta varianta: ~15mg. La fel de gustos cu condimentele potrivite."},
+  {id:411,name:"Sos de hrean proaspat",emoji:"🌶️",cat:"Sosuri",temp:"-",time:"10",flip:"-",difficulty:2,
+   tip:"Puternic si racoritor, merge excelent cu carne de vita si peste afumat.",
+   pairs:["Steak","Somon","Cod / Peste alb","Cartofi","Sfecla coapta"],
+   steps:["50g hrean proaspat, curatat si ras fin (atentie la ochi!)","2 linguri iaurt grecesc","1 lingurita otet de mere","1/2 lingurita mustar","Piper negru","Optional: 1 lingurita marar tocat","Amesteca si serveste imediat pentru maxim de iuteala"],
+   notes:"Hreanul are proprietati antibacteriene si stimuleaza digestia. Compusii sinigrina si isotiocianati sunt antiinflamatori."},
+  {id:412,name:"Sos de rosii si ardei pentru paste",emoji:"🍝",cat:"Sosuri",temp:"Foc mic-mediu",time:"20-25",flip:"Amesteca la 5 min",difficulty:2,method:"Aragaz",
+   tip:"Sos de paste clasic romanesc, fara sare, cu legume caramelizate natural.",
+   pairs:["Paste","Chiftele","Dovlecei umpluti","Vinete","Legume mix"],
+   steps:["1 ceapa tocata fin + 1 ardei gras, calite in 1 lingura ulei masline","2 catei usturoi, caliti 30 sec","400g rosii pasate (fara sare)","1 lingurita oregano, busuioc uscat","Piper, boia dulce, 1 frunza dafin","Fierbe la foc mic 20 min descoperit","Scoate dafinul, mixeaza partial daca preferi"],
+   notes:"Gatirea lenta caramelizeaza zaharurile naturale din ceapa si rosii - nu ai nevoie de sare sau zahar adaugat."},
+  {id:413,name:"Sos alb de iaurt si mustar",emoji:"🥛",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+   tip:"Cremos si picant, ideal ca dressing pentru salate sau langa cartofi.",
+   pairs:["Cartofi prajiti","Cartofi wedges","Piept de pui","Nuggets","Salata"],
+   steps:["150g iaurt grecesc","1 lingura mustar Dijon","1 lingurita miere","Zeama de 1/2 lamaie","1 lingurita marar uscat","Piper negru","Amesteca bine, raceste 10 min inainte de servire"],
+   notes:"Alternativa sanatoasa la maioneza. Mai putin de jumatate din calorii, plus probiotice din iaurt."},
+  {id:414,name:"Sos dulce-acrisor de ananas",emoji:"🍍",cat:"Sosuri",temp:"Foc mic",time:"10-15",flip:"Amesteca constant",difficulty:2,method:"Aragaz",
+   tip:"Inspiratie asiatica, perfect cu pui sau creveti din air fryer.",
+   pairs:["Piept de pui","Creveti","Nuggets","Legume mix","Orez"],
+   steps:["200g ananas proaspat (sau conservat in suc propriu), tocat marunt","2 linguri otet de orez","1 lingurita sos de soia cu sodiu redus","1 lingurita amidon de porumb dizolvat in 2 linguri apa","1/2 lingurita ghimbir ras","Piper, fulgi de ardei iute","Fierbe la foc mic 10 min pana se ingroasa"],
+   notes:"Ananasul contine bromelaina - enzima antiinflamatorie. Atentie: portie mica de sos soia (sodiu redus)."},
+  {id:415,name:"Sos de smantana si ciuperci",emoji:"🍄",cat:"Sosuri",temp:"Foc mic-mediu",time:"15",flip:"Amesteca des",difficulty:2,method:"Aragaz",
+   tip:"Cremos si aromat, transforma orice piept de pui intr-un fel principal elegant.",
+   pairs:["Piept de pui","Steak","Paste","Cartofi","Orez"],
+   steps:["200g ciuperci champignon feliate, calite in 1 lingurita ulei masline","1 ceapa mica tocata fin, adaugata peste ciuperci","2 catei usturoi, caliti 30 sec","150ml smantana de gatit 10% (sau iaurt grecesc pentru varianta mai light)","Piper negru, cimbru, nucsoara","Gateste la foc mic 5 min sa se ingroase"],
+   notes:"Ciupercile sunt sursa excelenta de seleniu, vitamina D si potasiu moderat. Smantana 10% = varianta mai usoara."},
+  {id:416,name:"Vinegreta clasica cu lamaie",emoji:"🫒",cat:"Sosuri",temp:"-",time:"3",flip:"-",difficulty:1,
+   tip:"Cel mai simplu si sanatos dressing. 3 ingrediente, 3 minute, gust extraordinar.",
+   pairs:["Salata","Legume mix","Sparanghel","Broccoli","Morcovi"],
+   steps:["3 linguri ulei masline extravirgin","1 lingura zeama de lamaie proaspata","1 lingurita mustar (optional)","Piper negru proaspat macinat","Agita intr-un borcan cu capac sau emulsioneaza cu furculita"],
+   notes:"Raportul clasic 3:1 (ulei:acid). Uleiul de masline e baza dietei mediteraneene - protector cardiovascular dovedit."},
 ];
 
 // ══════════════════════════════════════
@@ -1067,26 +1163,28 @@ function renderRecipes(query = "") {
   grid.innerHTML = filtered.map((r, i) => {
     const methodBadge = r.method ? getMethodBadge(r.method) : '';
     const tempDisplay = typeof r.temp === 'number' ? `${r.temp}&deg;C` : r.temp;
-    const thirdLabel = r.cat === "Supe" ? "Amesteca" : "Intoarce";
-    const thirdColor = r.cat === "Supe" ? "color:var(--purple)" : "";
+    const thirdLabel = r.cat === "Supe" ? "Amesteca" : r.cat === "Sosuri" ? "Prep" : "Intoarce";
+    const thirdColor = r.cat === "Supe" ? "color:var(--purple)" : r.cat === "Sosuri" ? "color:#fb923c" : "";
     const tipPrefix = r.cat === "Recomandate" ? '<span style="color:var(--green);font-weight:600">&#x1F49A; </span>'
-                    : r.cat === "Supe" ? '<span style="color:var(--purple);font-weight:600">&#x1F35C; </span>' : '';
+                    : r.cat === "Supe" ? '<span style="color:var(--purple);font-weight:600">&#x1F35C; </span>'
+                    : r.cat === "Sosuri" ? '<span style="color:#fb923c;font-weight:600">&#x1F962; </span>' : '';
+    const pairsHtml = r.pairs ? '<div class="sos-pairs">' + r.pairs.map(p => '<span class="sos-pair">' + p + '</span>').join('') + '</div>' : '';
     return `
     <div class="card" data-id="${r.id}" data-cat="${r.cat}" style="animation-delay:${Math.min(i*.04,.3)}s">
       <div class="card-header">
         <div class="card-emoji">${r.emoji}</div>
         <div>
-          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}${methodBadge}</div>
+          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}${r.cat === "Sosuri" ? '<span class="badge-sos">SOS</span>' : ''}${methodBadge}</div>
           <div class="card-cat">${r.cat}${renderDifficulty(r.difficulty)}</div>
         </div>
       </div>
       <div class="card-body">
         <div class="card-temps">
-          <div class="temp-box"><div class="label">${r.method ? 'Foc/Putere' : 'Temp'}</div><div class="value temp-val">${tempDisplay}</div></div>
+          <div class="temp-box"><div class="label">${r.method ? 'Foc/Putere' : r.cat === 'Sosuri' && r.temp === '-' ? 'Prep' : 'Temp'}</div><div class="value temp-val">${tempDisplay}</div></div>
           <div class="temp-box"><div class="label">Timp</div><div class="value time-val">${r.time} min</div></div>
           <div class="temp-box"><div class="label">${thirdLabel}</div><div class="value flip-val" style="font-size:.8rem;${thirdColor}">${r.flip}</div></div>
         </div>
-        <div class="card-tip">${tipPrefix}${r.tip}</div>
+        <div class="card-tip">${tipPrefix}${r.tip}</div>${pairsHtml}
       </div>
     </div>`;
   }).join("");
@@ -1123,9 +1221,11 @@ function openModal(recipe) {
       ${r.method ? `<div class="modal-detail" style="grid-column:1/-1;background:var(--surface3)"><div class="md-label">Metoda</div><div class="md-value" style="font-size:1.1rem">${getMethodBadge(r.method)}</div></div>` : ''}
       <div class="modal-detail"><div class="md-label">${r.method ? 'Foc / Putere' : 'Temperatura'}</div><div class="md-value" style="color:var(--accent)">${typeof r.temp === 'number' ? r.temp + '&deg;C' : r.temp}</div></div>
       <div class="modal-detail"><div class="md-label">Timp</div><div class="md-value" style="color:var(--blue)">${r.time} min</div></div>
-      <div class="modal-detail"><div class="md-label">${r.cat === 'Supe' ? 'Amesteca' : 'Intoarce'}</div><div class="md-value" style="color:var(--yellow);font-size:1rem">${r.flip}</div></div>
+      <div class="modal-detail"><div class="md-label">${r.cat === 'Supe' ? 'Amesteca' : r.cat === 'Sosuri' ? 'Prep' : 'Intoarce'}</div><div class="md-value" style="color:var(--yellow);font-size:1rem">${r.flip}</div></div>
       <div class="modal-detail"><div class="md-label">Dificultate</div><div class="md-value">${["","Usor","Mediu","Avansat"][r.difficulty]}</div></div>
     </div>
+
+    ${r.pairs ? `<div class="modal-section"><h3>&#x1F37D;&#xFE0F; Merge cu</h3><div class="sos-pairs" style="gap:6px">${r.pairs.map(p => '<span class="sos-pair" style="padding:5px 12px;font-size:.82rem;cursor:pointer" onclick="findAndOpenRecipe(\'' + p.replace(/'/g,"\\'") + '\')">' + p + '</span>').join('')}</div></div>` : ''}
 
     <div class="modal-section">
       <h3>&#x1F4CB; Pasi</h3>
@@ -1138,6 +1238,8 @@ function openModal(recipe) {
     </div>
 
     ${r.notes ? `<div class="modal-section"><h3>&#x1F4DD; Note</h3><p>${r.notes}</p></div>` : ""}
+
+    ${r.cat !== 'Sosuri' ? getSauceSuggestions(r.name) : ''}
 
     <button style="width:100%;padding:10px;border:1.5px solid var(--purple);background:transparent;color:var(--purple);border-radius:var(--radius-sm);cursor:pointer;font-size:.85rem;margin-top:.5rem;transition:all .2s" onclick="addToCompare(${r.id})" onmouseover="this.style.background='var(--purple)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--purple)'">
       + Adauga la comparatie
@@ -1686,6 +1788,17 @@ function toggleIngRecipes(el) {
 function openRecipeById(id) {
   const r = recipes.find(x => x.id === id);
   if (r) openModal(r);
+}
+
+function findAndOpenRecipe(name) {
+  const r = recipes.find(x => x.name.toLowerCase().includes(name.toLowerCase()));
+  if (r) openModal(r);
+}
+
+function getSauceSuggestions(recipeName) {
+  const sauces = recipes.filter(r => r.cat === 'Sosuri' && r.pairs && r.pairs.some(p => recipeName.toLowerCase().includes(p.toLowerCase()) || p.toLowerCase().includes(recipeName.toLowerCase().split(' ')[0])));
+  if (sauces.length === 0) return '';
+  return `<div class="modal-section"><h3 style="color:#fb923c">&#x1F962; Sosuri recomandate</h3><div class="sos-pairs" style="gap:6px">${sauces.map(s => '<span class="sos-pair" style="padding:5px 12px;font-size:.82rem;cursor:pointer;border-color:#fb923c44" onclick="openRecipeById(' + s.id + ')">' + s.emoji + ' ' + s.name + '</span>').join('')}</div></div>`;
 }
 
 // Hook ingredient search
