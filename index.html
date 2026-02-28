@@ -354,13 +354,17 @@
     <ul>
       <li><strong>Fara sare adaugata</strong> - hipertensiune grad III (se folosesc ierburi, lamaie, usturoi, condimente)</li>
       <li><strong>Grasimi saturate minime</strong> - hipercolesterolemie (ulei masline, peste, carne slaba)</li>
-      <li><strong>Proteine moderate (120-130g/portie)</strong> - boala cronica de rinichi G3a</li>
-      <li><strong>Potasiu controlat</strong> - CKD (se indica nivelul pt fiecare reteta)</li>
-      <li><strong>Fosfor redus</strong> - CKD (fara alimente procesate, fara mezeluri)</li>
-      <li><strong>Omega-3 si antiinflamatoare</strong> - post-AVC, ateromatoza (peste gras, turmeric, ierburi)</li>
+      <li><strong>Proteine moderate (60-80g/zi)</strong> - CKD G3a: eGFR 45-60 ml/min (Dr. Ekberg: nu elimina, dar nu exagera - proteina de calitate inalta produce mai putine deseuri azotate)</li>
+      <li><strong>Potasiu: inca se filtreaza OK in G3a</strong> - nu trebuie restrictionat drastic inca (doar daca analizele arata acumulare); se restrictioneaza sub 3000mg in G3b</li>
+      <li><strong>Fosfor sub 1000mg/zi</strong> - CKD (fara alimente procesate, fara mezeluri, fara fosfati anorganici care se absorb 90%)</li>
+      <li><strong>Omega-3 si antiinflamatoare naturale</strong> - post-AVC, ateromatoza (peste gras, turmeric, ghimbir, usturoi)</li>
+      <li><strong>Fara fructoza/zahar</strong> - fructoza produce acid uric care deterioreaza rinichii; fara sucuri, dulciuri, agave, sirop porumb</li>
+      <li><strong>Low-carb, whole food</strong> - rezistenta la insulina = cauza #1 a bolii renale; carbohidrati din legume non-amidonoase, nu cereale</li>
+      <li><strong>Hidratare inteligenta</strong> - apa + electroliti echilibrati (nu doar sodiu), evita deshidratarea cronica</li>
+      <li><strong>Evita</strong>: AINS (ibuprofen, naproxen), uleiuri de seminte (canola, soia, porumb), indulcitori artificiali (aspartam, sucraloza)</li>
       <li><strong>Compatibil cu:</strong> Eliquis, Sortis, Carvedilol, Furosemid, Spironolactona</li>
     </ul>
-    <p style="margin-top:.5rem;font-size:.75rem;color:var(--text3)">* Informatii orientative. Consulta medicul si nutritionistul pentru recomandari personalizate.</p>
+    <p style="margin-top:.5rem;font-size:.75rem;color:var(--text3)">* Bazat pe recomandarile Dr. Sten Ekberg pentru CKD stadiu 3a. Consulta medicul nefrologul si nutritionistul pentru recomandari personalizate.</p>
   </div>
   <div class="grid" id="recipeGrid"></div>
   <div class="empty-state" id="emptyState" style="display:none">
@@ -626,13 +630,69 @@
       </div>
     </div>
 
-    <div class="tool-panel show">
-      <h3>&#x26A0;&#xFE0F; Ce sa NU faci</h3>
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3 style="color:var(--green)">&#x1F9EC; Ghid Rinichi - CKD G3a (Dr. Ekberg)</h3>
+      <p style="font-size:.82rem;color:var(--text2);margin-bottom:.75rem;line-height:1.5">Informatii adaptate pentru boala cronica de rinichi stadiu 3a (eGFR 45-60 ml/min). Cauza principala: rezistenta la insulina si hipertensiunea.</p>
+      <div class="cheat-grid">
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">&#x1F6D1;</span><div class="ci-text"><strong>Cauza #1: Rezistenta la insulina</strong>Zaharul si carbohidratii procesati provoaca micro-leziuni vasculare renale. Dieta low-carb, whole food = prima linie de aparare.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">&#x1F6D1;</span><div class="ci-text"><strong>Fructoza = pericol ascuns</strong>Se metabolizeaza doar in ficat, produce acid uric (cristale abrazive care deterioreaza rinichii). Evita: sucuri fructe, miere in exces, agave, sirop porumb.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">&#x26A0;&#xFE0F;</span><div class="ci-text"><strong>Sodiu: context, nu demonizare</strong>Sodiul nu e rau in sine - problema e lipsa potasiului pt echilibru. Sareaza mancarea reala cu moderatie, evita procesatele (sodiu fara K).</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x2705;</span><div class="ci-text"><strong>Potasiu in G3a: inca OK</strong>La eGFR 45-60 rinichii inca filtreaza potasiul. Nu restrictioneaza excesiv. Se limiteaza sub 3000mg doar in G3b (sub 45).</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">&#x26A0;&#xFE0F;</span><div class="ci-text"><strong>Fosfor sub 1000mg/zi</strong>Fosfatii anorganici (procesate, mezeluri, branza topita, sucuri) se absorb 90% vs 30-40% din alimente naturale. Cauzeaza calcifiere renala.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x2705;</span><div class="ci-text"><strong>Proteina de calitate, nu cantitate</strong>60-80g/zi. Proteina buna (ou intreg, peste, carne cu grasime) = mai putine deseuri azotate. Proteina slaba fara grasime = mai mult azot toxic.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x2705;</span><div class="ci-text"><strong>Grasimi bune, nu uleiuri seminte</strong>Ulei masline, unt, ulei cocos = OK. Evita: ulei canola, soia, porumb (procesare industriala cu aldehide toxice pt rinichi).</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--blue)">&#x1F4A7;</span><div class="ci-text"><strong>Hidratare inteligenta</strong>Apa curata regulat + electroliti echilibrati (K, Mg, Ca, nu doar NaCl). Deshidratarea concentreaza toxinele si creste riscul de pietre.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">&#x1F6D1;</span><div class="ci-text"><strong>Evita AINS (ibuprofen, naproxen)</strong>Reduc fluxul sanguin renal = rinichii primesc mai putin oxigen si nutrienti pt reparare. Foloseste turmeric, omega-3, magneziu ca antiinflamatoare naturale.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">&#x1F6D1;</span><div class="ci-text"><strong>Indulcitori artificiali = toxici</strong>Aspartam (se descompune in metanol + formaldehida), sucraloza (altereaza tubulii renali), acesulfam-K (se acumuleaza in rinichi).</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x2705;</span><div class="ci-text"><strong>Alimente prietenoase rinichi</strong>Ardei gras, zmeura, varza/varza murata, conopida, salata verde, ceapa (sulfur pt glutation), usturoi, ghimbir, turmeric.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">&#x26A0;&#xFE0F;</span><div class="ci-text"><strong>Oxalati: atentie la smoothie-uri</strong>Spanacul, migdalele, sfecla = oxalati mari. Cu microbiom sanatos + calciu/magneziu + citrat (lamaie) se neutralizeaza. Altfel, risc de pietre.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--blue)">&#x1F3AF;</span><div class="ci-text"><strong>Monitorizare: HOMA-IR</strong>Glucoza x Insulina / 405 = ideal 0.5-1.5. Prinde rezistenta la insulina cu 15-20 ani inainte de diabet. A1C sub 5.4.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--blue)">&#x1F3AF;</span><div class="ci-text"><strong>Glicemie post-masa sub 110</strong>Dupa masa: sub 110 mg/dL (6.1 mmol/L) = OK. 110-130 = borderline. Peste 130 = prea mult, reduce carbohidratii.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x2705;</span><div class="ci-text"><strong>Tensiune: sub 140 fara medicamente</strong>Exercitii respiratie scad TA cu 20 puncte. Magneziul + potasiul ajuta. TA peste 160 = daune vasculare clare la microvasele renale.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">&#x2705;</span><div class="ci-text"><strong>99% din CKD precoce e reversibil</strong>Stadiile 1-3a se pot inversa prin dieta low-carb, whole food, hidratare, reducere stres, exercitiu. Nu e o condamnare permanenta.</div></div>
+      </div>
+      <p style="font-size:.72rem;color:var(--text3);margin-top:.75rem">Sursa: Dr. Sten Ekberg - Kidney Detox Foods, First Sign of Kidney Disease, Kidney Disease Warning, Never Sabotage Your Kidneys, 10 Foods That Destroy Kidneys.</p>
+    </div>
+
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3 style="color:var(--red)">&#x1F480; Top 10 Alimente Daunatoare Rinichilor (Dr. Ekberg)</h3>
+      <div class="cheat-grid">
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">1&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Zahar si fructoza</strong>Fructoza produce acid uric (cristale abrazive), distruge ficatul si rinichii. Sucuri, dulciuri, agave, miere in exces, sirop de porumb.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">2&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Uleiuri de seminte</strong>Canola, soia, porumb - procesate industrial cu temperatura, presiune, solventi. Aldehidele rezultate sunt direct toxice pt celulele renale.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">3&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>AINS (ibuprofen, naproxen)</strong>Reduc fluxul sanguin renal. Rinichii primesc mai putin oxigen si nutrienti. Folosire cronica = pierdere permanenta de tesut.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">4&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Alimente cu fosfati adaugati</strong>Branza topita, sucuri, congelate procesate, fast food. Fosfatii anorganici se absorb 90% (vs 30-40% din alimente naturale). Cauzeaza calcifiere renala.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">5&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Carne procesata (mezeluri)</strong>Conservanti cu fosfati, nitrati, nitriti + produse de glicatie avansata (AGE). Toate dauneaza tesutului renal si cresc aciditatea.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--red)">6&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Indulcitori artificiali</strong>Aspartam = metanol + formaldehida. Sucraloza altereaza tubulii renali. Acesulfam-K se acumuleaza in rinichi si distruge mitocondriile.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">7&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Smoothie-uri cu oxalati</strong>Spanac, migdale, sfecla in cantitati mari = cristale si pietre renale. Neutralizeaza cu calciu, magneziu, citrat (lamaie).</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">8&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Alcool</strong>Deshidrateaza, produce acid uric (cristale abrazive), stres toxic pe toate tesuturile. Mai rau combinat cu zahar sau indulcitori.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">9&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Creme de cafea non-dairy</strong>Dioxid de titan, emulsificatori, coloranti artificiali. Pot cauza membrane renale permeabile = proteina in urina pe termen lung.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--accent)">10&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Sodiu din procesate (fara potasiu)</strong>Nu sarea in sine e problema - ci lipsa potasiului pt echilibru. Mancarea procesata = sodiu imens + zero potasiu/magneziu.</div></div>
+      </div>
+    </div>
+
+    <div class="tool-panel show" style="margin-bottom:1rem">
+      <h3>&#x26A0;&#xFE0F; Ce sa NU faci (Air Fryer)</h3>
       <div class="cheat-grid">
         <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Aluat lichid</strong>Clatite, gogosi neformate - se scurg</div></div>
         <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Ulei in exces</strong>Pericol de fum si incendiu</div></div>
         <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Cos plin ochi</strong>Gatire neuniforma, alimente crude</div></div>
         <div class="cheat-item"><span class="ci-icon">&#x1F6AB;</span><div class="ci-text"><strong>Alimente prea usoare</strong>Hartia de copt fara greutate zboara</div></div>
+      </div>
+    </div>
+
+    <div class="tool-panel show">
+      <h3 style="color:var(--green)">&#x2705; 10 Obiceiuri pentru Rinichi Sanatosi</h3>
+      <div class="cheat-grid">
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">1&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Low-carb, whole food</strong>Reduce rezistenta la insulina (cauza #1 CKD). Carbohidrati din legume non-amidonoase, nu cereale/paste/paine.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">2&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Gateste acasa cu alimente reale</strong>Valoare nutritionala complet diferita fata de procesate. Controlezi tot ce intra in mancare.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">3&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Proteina de calitate cu grasime</strong>Ou intreg (nu doar albus!), peste gras, carne cu grasime = mai putine deseuri azotate. 60-80g/zi pt CKD G3a.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">4&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Grasimi bune</strong>Ulei masline extravirgin, unt, ulei cocos, avocado. Evita uleiuri de seminte procesate.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">5&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Hidratare inteligenta</strong>Apa curata + electroliti echilibrati (K, Mg, Ca, nu doar NaCl). Deshidratarea concentreaza toxinele si creste riscul de pietre.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">6&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Antiinflamatoare naturale</strong>Turmeric (cu piper pt absorbtie), omega-3 (peste gras 3x/sapt), magneziu (legume verzi). Inlocuiesc AINS-urile toxice.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">7&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Exercitii de respiratie</strong>Scad tensiunea cu 20 puncte. Temporar initial, dar cu practica devine permanent. Reduce stresul cronic (dauneaza rinichilor).</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">8&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Monitorizare: HOMA-IR anual</strong>Glucoza x Insulina / 405. Ideal 0.5-1.5. Prinde rezistenta la insulina cu 15-20 ani inainte de diabet complet.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">9&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>A1C sub 5.4, glicemie post-masa sub 110</strong>Monitorizeaza cu glucometru sau CGM. Spike-urile glicemice dauneaza microvaselor renale chiar si fara diabet.</div></div>
+        <div class="cheat-item"><span class="ci-icon" style="color:var(--green)">10&#xFE0F;&#x20E3;</span><div class="ci-text"><strong>Somn + reducere stres</strong>Stresul cronic creste cortizolul, tensiunea, inflamatia, rezistenta la insulina - toate dauneaza rinichilor. Prioritizeaza somnul.</div></div>
       </div>
     </div>
   </div>
@@ -833,7 +893,7 @@ const recipes = [
   {id:200,name:"Somon cu lamaie si marar (fara sare)",emoji:"\u{1F41F}",cat:"Recomandate",temp:175,time:"10-12",flip:"Nu",difficulty:2,
    tip:"Omega-3 excelent pt inima si creier. FARA sare - foloseste lamaie, marar si usturoi.",
    steps:["Tamponeaza fileul uscat","Condimenteaza cu zeama de lamaie, marar proaspat, usturoi praf","Strop de ulei de masline extravirgin","Asaza cu pielea in jos","Gateste la 175°C, 10-12 min"],
-   notes:"Omega-3 reduce inflamatia si colesterolul. Ideal 2-3 portii/saptamana. Portie: 120-130g (proteine moderate pt CKD)."},
+   notes:"Omega-3 reduce inflamatia si colesterolul. Ideal 2-3 portii/saptamana. Portie: 120g (~25g proteine). Dr. Ekberg: pestele gras e una din cele mai bune surse de proteine pt CKD - calitate inalta = mai putin azot rezidual."},
   {id:201,name:"Pastrav cu ierburi",emoji:"\u{1F41F}",cat:"Recomandate",temp:175,time:"12-14",flip:"Nu",difficulty:2,
    tip:"Peste bogat in omega-3, sarac in sodiu natural. Ierburi proaspete in loc de sare.",
    steps:["Curata pastravul, tamponeaza uscat","Umple cu felii de lamaie, cimbru si rozmarin","Unge cu ulei de masline","Gateste la 175°C, 12-14 min"],
@@ -841,7 +901,7 @@ const recipes = [
   {id:202,name:"Macrou cu turmeric",emoji:"\u{1F41F}",cat:"Recomandate",temp:180,time:"10-12",flip:"Da, cu grija la 6 min",difficulty:2,
    tip:"Macrou = cel mai bogat peste in omega-3. Turmeric = antiinflamator puternic.",
    steps:["Fileuri de macrou, tamponate uscat","Amestec: turmeric, piper negru (activeaza curcumina), usturoi praf","Unge cu ulei de masline","Gateste la 180°C, 10-12 min"],
-   notes:"Combinatia turmeric+piper creste absorbtia de 2000%. Excelent anti-inflamator post-AVC."},
+   notes:"Combinatia turmeric+piper creste absorbtia curcuminei de 2000%. Dr. Ekberg: usturoiul, ghimbirul si turmericul sunt 'medicinale' - antiinflamatoare, antibacteriene, in cantitati mici au nivele nesemnificative de K/Na/P."},
   {id:203,name:"Cod cu crusta de ierburi",emoji:"\u{1F41F}",cat:"Recomandate",temp:180,time:"10-12",flip:"Nu",difficulty:2,
    tip:"Peste alb slab, usor de digerat. Fosfor mai scazut decat pestele gras.",
    steps:["Fileuri de cod, tamponate uscat","Amestec: pesmet integral + patrunjel + usturoi + zeama lamaie","Presara pe fileu, apasa usor","Strop ulei masline","Gateste la 180°C, 10-12 min"],
@@ -851,7 +911,7 @@ const recipes = [
   {id:210,name:"Broccoli cu usturoi (fara sare)",emoji:"\u{1F966}",cat:"Recomandate",temp:180,time:"8-10",flip:"Da, la 5 min",difficulty:1,
    tip:"Bogat in vitamina C si fibre, potasiu moderat. Usturoi in loc de sare!",
    steps:["Buchete mici, egale","Amesteca cu 1 lingurita ulei masline si usturoi pisat","Optional: fulgi de ardei iute","Gateste la 180°C, 8-10 min"],
-   notes:"Broccoli are potasiu moderat (OK pt CKD G3a). Fibrele ajuta la colesterol."},
+   notes:"Broccoli are potasiu moderat (OK pt CKD G3a). Dr. Ekberg: legumele non-amidonoase sunt baza dietei kidney-friendly - fibre, vitamine, fara spike glicemic."},
   {id:211,name:"Dovlecei cu oregano si lamaie",emoji:"\u{1F952}",cat:"Recomandate",temp:185,time:"10-12",flip:"Da, la 6 min",difficulty:1,
    tip:"Dovleceii au potasiu scazut si sunt excelenti pentru rinichi.",
    steps:["Taie rondele de 1.5cm","Unge cu ulei masline, oregano uscat, zeama lamaie","Piper negru dupa gust","Gateste la 185°C, 10-12 min"],
@@ -859,15 +919,15 @@ const recipes = [
   {id:212,name:"Ardei grasi cu busuioc",emoji:"\u{1F336}\uFE0F",cat:"Recomandate",temp:185,time:"8-10",flip:"Da, la 5 min",difficulty:1,
    tip:"Vitamina C bogata, potasiu moderat, antiinflamator. Coloreaza farfuria!",
    steps:["Taie in fasii late","Unge cu ulei masline","Presara busuioc uscat si usturoi granulat","Gateste la 185°C, 8-10 min","Zeama de lamaie la servire"],
-   notes:"Ardeii rosii au cel mai mult vitamina C. Ajuta absorbtia fierului si imunitatea."},
+   notes:"Dr. Ekberg: ardeii gras au aceleasi niveluri scazute de K/Na/P ca merele, dar FARA zahar - alternativa perfecta pt CKD cu rezistenta la insulina. Vitamina C bogata."},
   {id:213,name:"Conopida cu turmeric si chimion",emoji:"\u{1F33D}",cat:"Recomandate",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:1,
    tip:"Conopida = potasiu scazut, fibre bune, versatila. Turmeric = antiinflamator.",
    steps:["Buchete medii, egale","Amestec: ulei masline, turmeric, chimion, piper negru","Amesteca bine sa acopere uniform","Gateste la 190°C, 12-15 min"],
-   notes:"Conopida are doar ~175mg potasiu/100g - excelenta pt CKD. Turmeric-ul protejeaza vasele."},
+   notes:"Dr. Ekberg: conopida e pe lista alimentelor recomandate pt rinichi - potasiu scazut (~175mg/100g), fosfor scazut, versatila. Turmeric-ul protejeaza vasele."},
   {id:214,name:"Varza rosie caramelizata",emoji:"\u{1F96C}",cat:"Recomandate",temp:185,time:"12-15",flip:"Scutura la 7 min",difficulty:1,
    tip:"Fibre excelente pt colesterol. Antocianine = antioxidanti puternici pt vase.",
    steps:["Taie fasii subtiri","Amesteca cu 1 lingurita ulei masline si otet balsamic","Optional: putin miere (1/2 lingurita)","Gateste la 185°C, 12-15 min","Scutura de 2 ori"],
-   notes:"Antocianinele din varza rosie protejeaza vasele de sange. Fibrele reduc colesterolul LDL."},
+   notes:"Dr. Ekberg: varza e un aliment excelent pt rinichi - potasiu/fosfor/sodiu toate scazute, multe moduri de preparare (inclusiv varza murata = probiotice). Antocianinele protejeaza vasele."},
   {id:215,name:"Vinete cu usturoi si cimbru",emoji:"\u{1F346}",cat:"Recomandate",temp:190,time:"12-15",flip:"Da, la 7 min",difficulty:1,
    tip:"Antioxidanti (nasunina) protectori vasculari. Fara sare - cimbru si usturoi dau gust.",
    steps:["Taie rondele de 1cm","NU sara - doar tamponeaza cu prosop","Unge cu ulei masline, usturoi pisat, cimbru","Gateste la 190°C, 12-15 min"],
@@ -885,7 +945,7 @@ const recipes = [
   {id:220,name:"Piept pui cu ierburi provensale",emoji:"\u{1F357}",cat:"Recomandate",temp:175,time:"18-22",flip:"Da, la 10 min",difficulty:2,
    tip:"Proteine slabe, fara sare. Ierburi provensale dau gust extraordinar.",
    steps:["Bate pieptul la 2cm grosime uniforma","Marinare: ulei masline, ierburi provensale, usturoi, lamaie","Lasa sa se marineze 30 min","Gateste la 175°C, 18-22 min","Temp interna: 74°C. Odihna 5 min"],
-   notes:"Portie 120-130g (proteine moderate pt CKD). ZERO sare - ierburile dau tot gustul necesar."},
+   notes:"Portie 120g (= ~30g proteine din totalul de 60-80g/zi pt CKD G3a). Dr. Ekberg: mananca proteina cu grasime (nu slaba) - se utilizeaza mai bine, mai putin azot rezidual. ZERO sare."},
   {id:221,name:"Piept pui tandoori (fara sare)",emoji:"\u{1F357}",cat:"Recomandate",temp:180,time:"18-22",flip:"Da, la 10 min",difficulty:2,
    tip:"Iaurt + condimente = marinada perfecta fara sare. Turmeric antiinflamator.",
    steps:["Bate pieptul, taie incizii adanci","Marinada: 2 linguri iaurt, turmeric, chimion, boia, ghimbir, usturoi","Marina min 2h (ideal peste noapte)","Gateste la 180°C, 18-22 min"],
@@ -893,7 +953,7 @@ const recipes = [
   {id:222,name:"Chiftele de pui cu dovlecei",emoji:"\u{1F357}",cat:"Recomandate",temp:185,time:"12-15",flip:"Da, la 7 min",difficulty:2,
    tip:"Dovleceii ras fac chiftelele moi fara paine (reduce fosforul). Fara sare.",
    steps:["Toca pieptul de pui sau foloseste carne tocata slaba","Amesteca cu dovlecei rasi (stoarsi bine), usturoi, patrunjel","Formeaza chiftele mici (4cm)","Unge cu ulei masline","Gateste la 185°C, 12-15 min"],
-   notes:"Dovlecei in loc de paine = mai putin fosfor (important pt CKD). Proteine moderate."},
+   notes:"Dr. Ekberg: inlocuieste painea cu legume - reduci fosforul SI carbohidratii (dublu beneficiu pt CKD + rezistenta la insulina). Proteine moderate."},
   {id:223,name:"Curcan cu rozmarin si lamaie",emoji:"\u{1F983}",cat:"Recomandate",temp:175,time:"18-22",flip:"Da, la 10 min",difficulty:2,
    tip:"Mai slab decat puiul, excelent pt colesterol. Rozmarin = antiinflamator.",
    steps:["Fileuri de curcan, batute la 2cm","Marinare: ulei masline, rozmarin proaspat, zeama lamaie, usturoi","Lasa 30 min sa se marineze","Gateste la 175°C, 18-22 min","Temp interna: 74°C"],
@@ -953,7 +1013,7 @@ const recipes = [
   {id:303,name:"Supa crema de linte rosie",emoji:"\u{1F35C}",cat:"Supe",temp:"Mediu",time:"25-30",flip:"Amesteca des",difficulty:1,method:"Aragaz",
    tip:"Lintea rosie se dizolva singura - nu trebuie mixer. Fibre excelente pt colesterol.",
    steps:["Caleste 1 ceapa + 2 catei usturoi in ulei masline","Adauga 150g linte rosie spalata, 1 morcov ras, 1 lingurita turmeric","700ml apa, aduce la fierbere","Reduce la foc mic, fierbe 20-25 min (lintea se dizolva)","Adauga chimion, piper negru, zeama de lamaie","Serveste cu patrunjel proaspat"],
-   notes:"Lintea rosie: fibre solubile reduc LDL. Turmeric = antiinflamator. Atentie: potasiu moderat - portie 250ml. Proteine vegetale bune."},
+   notes:"Lintea rosie: fibre solubile reduc LDL. Turmeric = antiinflamator. Atentie: potasiu moderat - portie 250ml. Dr. Ekberg: leguminoasele sunt whole food OK, dar au carbohidrati - monitorizeaza glicemia post-masa (sub 110 mg/dL)."},
   {id:304,name:"Ciorba de legume (fara sare)",emoji:"\u{1F372}",cat:"Supe",temp:"Mediu",time:"35-40",flip:"Amesteca ocazional",difficulty:1,method:"Aragaz",
    tip:"Legume cu potasiu controlat. Acrita cu lamaie, nu cu borș (care are sodiu).",
    steps:["Caleste 1 ceapa in ulei masline","Adauga: dovlecei, fasole verde, ardei gras, 1 morcov - toate cuburi","1.2L apa, aduce la fierbere","Fierbe 25-30 min pe foc mediu","Adauga: leustean, marar, patrunjel, piper","Acreala: zeama de 1 lamaie mare (in loc de bors)"],
