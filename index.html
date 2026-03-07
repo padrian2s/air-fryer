@@ -387,22 +387,22 @@
     </div>
   </div>
   <div class="health-banner" id="healthBanner" style="display:none">
-    <h3>&#x1F49A; Retete personalizate - Profil medical</h3>
-    <p>Aceste retete sunt adaptate pentru urmatorul profil:</p>
+    <h3>&#x1F49A; Retete personalizate - Profil medical + Analize sept. 2025</h3>
+    <p>Adaptate pe baza analizelor tale de sange si medicatiei curente:</p>
     <ul>
-      <li><strong>Balanta Na:K conteaza mai mult decat Na singur</strong> - Dr. Ekberg: sarea pe mancare reala (bogata in K) e OK cu moderatie; pericolul e sodiul din procesate FARA potasiu. La HTA grad III: moderat cu sarea, compensezi cu alimente bogate in K.</li>
-      <li><strong>Grasimi saturate minime</strong> - hipercolesterolemie (ulei masline, peste, carne slaba)</li>
-      <li><strong>Proteine moderate (60-80g/zi)</strong> - CKD G3a: eGFR 45-60 ml/min (Dr. Ekberg: nu elimina, dar nu exagera - proteina de calitate inalta produce mai putine deseuri azotate)</li>
-      <li><strong>Potasiu: inca se filtreaza OK in G3a</strong> - nu trebuie restrictionat drastic inca (doar daca analizele arata acumulare); se restrictioneaza sub 3000mg in G3b</li>
-      <li><strong>Fosfor sub 1000mg/zi</strong> - CKD (fara alimente procesate, fara mezeluri, fara fosfati anorganici care se absorb 90%)</li>
-      <li><strong>Omega-3 si antiinflamatoare naturale</strong> - post-AVC, ateromatoza (peste gras, turmeric, ghimbir, usturoi)</li>
-      <li><strong>Fara fructoza/zahar</strong> - fructoza produce acid uric care deterioreaza rinichii; fara sucuri, dulciuri, agave, sirop porumb</li>
-      <li><strong>Low-carb, whole food</strong> - rezistenta la insulina = cauza #1 a bolii renale; carbohidrati din legume non-amidonoase, nu cereale</li>
-      <li><strong>Hidratare inteligenta</strong> - apa + electroliti echilibrati (nu doar sodiu), evita deshidratarea cronica</li>
-      <li><strong>Evita</strong>: AINS (ibuprofen, naproxen), uleiuri de seminte (canola, soia, porumb), indulcitori artificiali (aspartam, sucraloza)</li>
-      <li><strong>Compatibil cu:</strong> Eliquis, Sortis, Carvedilol, Furosemid, Spironolactona</li>
+      <li style="background:rgba(239,68,68,.1);padding:4px 8px;border-radius:6px;margin-bottom:4px"><strong>&#x1F534; K+ = 3.1 mmol/L [SCAZUT] &rarr; Ai nevoie de MAI MULT potasiu!</strong> Noliprel (indapamida zilnic) + Furosemid (luni) elimina K mai mult decat retine Spironolactona (doar miercurea). Prioritate: alimente bogate in K (avocado, leguminoase, patate dulci, spanac).</li>
+      <li style="background:rgba(251,146,60,.1);padding:4px 8px;border-radius:6px;margin-bottom:4px"><strong>&#x26A0;&#xFE0F; Acid uric = 8.6 mg/dL [BORDERLINE] &rarr; Zero fructoza!</strong> Fructoza &rarr; acid uric &rarr; cristale &rarr; daune renale. Citrat (lamaie) ajuta la excretia acidului uric. Zero sucuri, dulciuri, miere exces, agave.</li>
+      <li style="background:rgba(251,146,60,.1);padding:4px 8px;border-radius:6px;margin-bottom:4px"><strong>&#x26A0;&#xFE0F; HDL = 44 mg/dL [SCAZUT] &rarr; Creste cu omega-3, nuci, avocado</strong> LDL=61 si total=119 sunt excelent controlate de Sortis. HDL se creste cu: peste gras, nuci, ulei masline, avocado, exercitiu.</li>
+      <li><strong>Proteine moderate (60-80g/zi)</strong> - Creatinina 1.49 [HIGH] confirma CKD G3a. Proteina de calitate (ou, peste, carne cu grasime) = mai putin azot rezidual.</li>
+      <li><strong>Na:K balanta pe whole food</strong> - Na=142 [NORMAL]. Cu K+ scazut, ai nevoie de K din alimente reale. Sare moderata OK pe mancare bogata in K.</li>
+      <li><strong>Fosfor sub 1000mg/zi</strong> - CKD G3a. Fara procesate, fara fosfati anorganici.</li>
+      <li><strong>Omega-3 + antiinflamatoare naturale</strong> - post-AVC (oct 2022), ateromatoza carotidiana bilaterala, HDL scazut. Somon/macrou 3x/sapt, turmeric, ghimbir.</li>
+      <li><strong>Fara fructoza/zahar</strong> - acid uric 8.6 borderline! Fructoza produce acid uric direct. Lamaie (citrat) ajuta excretia.</li>
+      <li><strong>Low-carb, whole food</strong> - reduce rezistenta la insulina (cauza #1 CKD). Carbohidrati din legume, nu cereale.</li>
+      <li><strong>Evita</strong>: AINS, uleiuri seminte, indulcitori artificiali, alcool (creste acid uric).</li>
+      <li><strong>Medicamente:</strong> Eliquis (OK cu K2), Sortis 20mg (LDL=61 excelent), Carvedilol 25mgx2, Noliprel ARG forte (pierde K zilnic!), Furosemid (luni), Spironolactona (miercuri)</li>
     </ul>
-    <p style="margin-top:.5rem;font-size:.75rem;color:var(--text3)">* Bazat pe recomandarile Dr. Sten Ekberg pentru CKD stadiu 3a. Consulta medicul nefrologul si nutritionistul pentru recomandari personalizate.</p>
+    <p style="margin-top:.5rem;font-size:.75rem;color:var(--text3)">* Bazat pe analizele sept. 2025 + Dr. Ekberg CKD G3a. Monitorizare K+ si acid uric lunar. Consulta nefrologul.</p>
   </div>
   <div class="grid" id="recipeGrid"></div>
   <div class="empty-state" id="emptyState" style="display:none">
@@ -822,18 +822,18 @@
     <!-- ADAPTARE profil medical -->
     <div class="bp-adapt">
       <h3>&#x2695;&#xFE0F; Adaptare Blueprint pentru profilul tau CKD G3a</h3>
-      <p style="font-size:.82rem;color:var(--text2);margin-bottom:.75rem;line-height:1.5">Blueprint original are proteine si potasiu PREA MARI pt CKD G3a, mai ales cu Spironolactona + Noliprel (ambele retin potasiu). Mai jos: versiunea sigura.</p>
+      <p style="font-size:.82rem;color:var(--text2);margin-bottom:.75rem;line-height:1.5"><strong>ACTUALIZAT pe baza analizelor sept. 2025:</strong> K+=3.1 [SCAZUT], acid uric=8.6 [BORDERLINE], HDL=44 [SCAZUT], creatinina=1.49 [HIGH]. Noliprel (indapamida zilnic) + Furosemid (luni) pierd K &gt; Spironolactona (doar miercurea) retine K = NET PIERDERE K.</p>
       <div class="bp-adapt-grid">
-        <div class="bp-adapt-item">&#x1F534; <strong>Proteine: 130g &rarr; 60-80g/zi</strong> Excesul = azot toxic pt rinichi. Eliminat shake-ul proteic, redus leguminoasele.</div>
-        <div class="bp-adapt-item">&#x1F534; <strong>Potasiu: ~3600mg &rarr; ~2200mg/zi</strong> Spironolactona + Noliprel (ACE inhibitor) RETIN potasiul. Risc hiperkaliemie = aritmii. Eliminat patate dulci, redus avocado si fasole.</div>
-        <div class="bp-adapt-item">&#x1F534; <strong>Magneziu: fara supliment extra</strong> Ai deja Magnerot + CKD filtreaza mai greu Mg. Blueprint Mg (L-Threonate) = eliminat.</div>
-        <div class="bp-adapt-item">&#x1F534; <strong>Creatina: eliminata</strong> Creste creatinina serica = falsifica eGFR. Nefrologul nu poate interpreta corect analizele.</div>
-        <div class="bp-adapt-item">&#x2705; <strong>IF 19:5: pastrat</strong> Excelent pt rezistenta la insulina (Dr. Ekberg: cauza #1 CKD). Blueprint si Ekberg de acord.</div>
-        <div class="bp-adapt-item">&#x2705; <strong>Zero zahar: pastrat</strong> Protejeaza rinichii de acid uric (fructoza). Perfect pt profilul tau.</div>
-        <div class="bp-adapt-item">&#x2705; <strong>Na:K balanta pe whole food</strong> Chiar cu K redus, raportul K:Na ramane bun pe mancare reala. Sare moderata OK.</div>
-        <div class="bp-adapt-item">&#x2705; <strong>Omega-3: pastrat + somon</strong> ALA din nuci/seminte + EPA/DHA din somon 2-3x/sapt (nu strict vegan). Excelent pt ateromatoza + post-AVC.</div>
-        <div class="bp-adapt-item">&#x26A0;&#xFE0F; <strong>Vitamina K2: OK cu Eliquis</strong> Eliquis (apixaban) actioneaza pe Factor Xa, NU pe vitamina K. Nu e warfarina. K2 = sigur.</div>
-        <div class="bp-adapt-item">&#x26A0;&#xFE0F; <strong>Analize lunare obligatorii</strong> K seric, eGFR, creatinina, fosfor, magneziu, albumina. Adapteaza portiile dupa rezultate.</div>
+        <div class="bp-adapt-item" style="border-color:rgba(239,68,68,.3)">&#x1F534; <strong>K+ = 3.1 [SCAZUT] &rarr; CRESTE potasiul!</strong> Noliprel (indapamida ZILNIC) pierde K. Spironolactona doar miercurea = efect K-sparing minim. Hipokaliemia e PERICULOASA pt inima (aritmii). Ai nevoie de alimente bogate in K: avocado, patate dulci, leguminoase, spanac.</div>
+        <div class="bp-adapt-item" style="border-color:rgba(239,68,68,.3)">&#x1F534; <strong>Proteine: 130g &rarr; 60-80g/zi</strong> Creatinina 1.49 confirma CKD G3a. Excesul de proteine = azot toxic. Eliminat shake-ul proteic, adaugat somon/peste (calitate inalta, omega-3).</div>
+        <div class="bp-adapt-item" style="border-color:rgba(251,146,60,.3)">&#x26A0;&#xFE0F; <strong>Acid uric 8.6 borderline &rarr; ZERO fructoza</strong> Blueprint e deja zero zahar = perfect. Adaugat lamaie (citrat ajuta excretia acidului uric). Zero alcool. Evita organe, sardine in exces (purine).</div>
+        <div class="bp-adapt-item" style="border-color:rgba(251,146,60,.3)">&#x26A0;&#xFE0F; <strong>HDL 44 scazut &rarr; Creste cu grasimi bune</strong> Avocado, nuci, ulei masline, somon/macrou 3x/sapt. Blueprint original e deja excelent pt HDL. Exercitiu zilnic creste HDL.</div>
+        <div class="bp-adapt-item">&#x1F534; <strong>Creatina: eliminata</strong> Creste creatinina serica = falsifica eGFR. Cu creatinina deja 1.49, nefrologul nu ar putea interpreta.</div>
+        <div class="bp-adapt-item">&#x1F534; <strong>Magneziu extra: eliminat</strong> Ai Magnerot + CKD filtreaza Mg mai greu. Monitorizare Mg seric.</div>
+        <div class="bp-adapt-item">&#x2705; <strong>IF 19:5: excelent</strong> Reduce rezistenta la insulina (Dr. Ekberg: cauza #1 CKD). Blueprint si Ekberg de acord.</div>
+        <div class="bp-adapt-item">&#x2705; <strong>Zero zahar: CRITIC</strong> Cu acid uric 8.6, fructoza e cel mai mare pericol. Citrat (lamaie) in fiecare masa.</div>
+        <div class="bp-adapt-item">&#x2705; <strong>Omega-3 + somon: PRIORITATE</strong> HDL=44 scazut + ateromatoza + post-AVC. Somon/macrou 3x/sapt + nuci + ulei masline.</div>
+        <div class="bp-adapt-item">&#x2705; <strong>Vitamina K2: OK cu Eliquis</strong> Eliquis = Factor Xa, nu vitamina K. K2 = sigur. Ai deja D3+K2.</div>
       </div>
     </div>
 
@@ -842,14 +842,14 @@
     <!-- ═══════════════════════════════════ -->
     <div style="margin-top:2rem">
       <div class="bp-hero" style="background:linear-gradient(135deg,#0a2818,#1a3a2a);border-color:rgba(34,197,94,.3)">
-        <h2 style="color:var(--green)">&#x1F9EC; Blueprint CKD-Safe</h2>
-        <p>Protocolul Blueprint adaptat pentru CKD G3a + HTA III + Spironolactona + Noliprel. Potasiu controlat, proteine moderate, zero suplimente riscante.</p>
+        <h2 style="color:var(--green)">&#x1F9EC; Blueprint CKD-Safe (sept. 2025)</h2>
+        <p>Adaptat pe analizele tale: K+=3.1 [SCAZUT] &rarr; mai mult K! Acid uric 8.6 &rarr; zero fructoza. HDL=44 &rarr; mai multe grasimi bune. Proteine moderate pt CKD G3a.</p>
         <div class="bp-stats">
-          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~1,600</div><div class="bp-stat-label">kcal/zi</div></div>
+          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~1,750</div><div class="bp-stat-label">kcal/zi</div></div>
           <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~70g</div><div class="bp-stat-label">proteine</div></div>
-          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~75g</div><div class="bp-stat-label">grasimi</div></div>
-          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~155g</div><div class="bp-stat-label">carbohidrati</div></div>
-          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~2200mg</div><div class="bp-stat-label">potasiu/zi</div></div>
+          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~85g</div><div class="bp-stat-label">grasimi (HDL!)</div></div>
+          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">~160g</div><div class="bp-stat-label">carbohidrati</div></div>
+          <div class="bp-stat"><div class="bp-stat-val" style="color:var(--red)">~3200mg</div><div class="bp-stat-label">potasiu/zi &#x2191;</div></div>
           <div class="bp-stat"><div class="bp-stat-val" style="color:var(--green)">&lt;800mg</div><div class="bp-stat-label">fosfor/zi</div></div>
         </div>
       </div>
@@ -859,30 +859,30 @@
         <div class="bp-meal-header">
           <span class="bp-meal-time" style="background:rgba(34,197,94,.1);color:var(--green)">06:00</span>
           <span class="bp-meal-title">&#x1F96C; Super Veggie CKD-Safe</span>
-          <span class="bp-meal-kcal">~380 kcal &middot; K: ~650mg</span>
+          <span class="bp-meal-kcal">~480 kcal &middot; K: ~1000mg &#x2191;</span>
           <span class="bp-meal-toggle">&#x25BC;</span>
         </div>
         <div class="bp-meal-body">
-          <div class="bp-section-title" style="color:var(--green)">&#x1F957; Ingrediente adaptate</div>
+          <div class="bp-section-title" style="color:var(--green)">&#x1F957; Ingrediente (K+ CRESCUT - analize sept.2025: K=3.1 scazut)</div>
           <ul class="bp-ing-list">
-            <li>Conopida (air fryer 190&deg;C, 12 min) <span class="bp-ing-qty">200g (K: ~175mg)</span></li>
-            <li>Dovlecei (air fryer 185&deg;C, 10 min) <span class="bp-ing-qty">150g (K: ~175mg)</span></li>
-            <li>Ardei gras rosu (air fryer, cu conopida) <span class="bp-ing-qty">100g (K: ~105mg)</span></li>
-            <li>Usturoi (2 catei) <span class="bp-ing-qty">6g (K: neglijabil)</span></li>
-            <li>Ghimbir proaspat ras <span class="bp-ing-qty">3g (K: neglijabil)</span></li>
-            <li><s style="color:var(--text3)">Broccoli 250g</s> &rarr; redus, inlocuit cu conopida (K mai scazut) <span class="bp-ing-qty"></span></li>
-            <li><s style="color:var(--text3)">Linte 45g</s> &rarr; redusa la 25g (proteina si K mai mici) <span class="bp-ing-qty">25g (K: ~90mg)</span></li>
-            <li>Ulei de masline extravirgin <span class="bp-ing-qty">1 lingura (15ml)</span></li>
-            <li>Zeama de lamaie (citrat = protejeaza de pietre) <span class="bp-ing-qty">1 lingura</span></li>
+            <li>Broccoli (air fryer 180&deg;C, 8-10 min) <span class="bp-ing-qty">200g (K: ~300mg) &#x2705; pastrat!</span></li>
+            <li>Conopida (air fryer 190&deg;C, 12 min) <span class="bp-ing-qty">150g (K: ~160mg)</span></li>
+            <li>Spanac proaspat (adaugat la final, raw) <span class="bp-ing-qty">50g (K: ~280mg) &#x1F195; sursa K!</span></li>
+            <li>Usturoi (2 catei) <span class="bp-ing-qty">6g</span></li>
+            <li>Ghimbir proaspat ras <span class="bp-ing-qty">3g</span></li>
+            <li>Linte neagra/verde <span class="bp-ing-qty">40g uscata (K: ~150mg)</span></li>
+            <li>Ulei de masline extravirgin <span class="bp-ing-qty">1.5 linguri (pt HDL!)</span></li>
+            <li>Zeama de lamaie (citrat = excretie acid uric) <span class="bp-ing-qty">1 lingura</span></li>
             <li>Seminte de in macinate <span class="bp-ing-qty">1 lingura</span></li>
             <li>Turmeric + piper negru <span class="bp-ing-qty">1 lingurita</span></li>
-            <li>Drojdie nutritionala <span class="bp-ing-qty">1 lingurita (redusa)</span></li>
+            <li>Drojdie nutritionala <span class="bp-ing-qty">1 lingura</span></li>
           </ul>
-          <div class="bp-note"><strong>Preparare:</strong> Conopida + dovlecei + ardei in air fryer la 185-190&deg;C, 10-12 min cu turmeric si ulei masline. Lintea fiarta separat 20 min. Combina, adauga usturoi, ghimbir, seminte de in, zeama lamaie.<br><br><strong>De ce aceste schimbari:</strong> Conopida are ~175mg K/100g vs broccoli ~300mg K/100g. Dovleceii au cel mai scazut K din legume (~175mg/150g). Ardeii: K scazut + vitamina C bogata. Lintea redusa la jumatate = mai putine proteine si K.</div>
+          <div class="bp-note"><strong>Preparare:</strong> Broccoli + conopida in air fryer la 180-190&deg;C, 10-12 min cu turmeric si ulei masline. Lintea fiarta separat 20 min. Combina, adauga spanac raw (se ofileste usor de la caldura), usturoi, ghimbir, seminte de in, zeama lamaie.<br><br><strong>&#x1F195; De ce K+ crescut:</strong> Analizele arata K=3.1 [SCAZUT]. Noliprel (indapamida zilnic) pierde K. Broccoli PASTRAT (300mg K), spanac ADAUGAT (280mg K/50g). Hipokaliemia e periculoasa pt inima (aritmii) - mai periculoasa decat un K usor crescut.</div>
           <div class="bp-note" style="margin-top:6px;border-left:3px solid var(--green);padding-left:14px">
-            <strong>Na:K:</strong> ~40mg Na / ~650mg K (raport 16:1, excelent)<br>
-            <strong>Proteine:</strong> ~15g (din 70g total zilnic)<br>
-            <strong>Fosfor:</strong> ~180mg (din plante, absorbtie 30-40%)
+            <strong>Na:K:</strong> ~45mg Na / ~1000mg K (raport 22:1, excelent)<br>
+            <strong>Proteine:</strong> ~18g (din 70g total zilnic)<br>
+            <strong>Fosfor:</strong> ~200mg (din plante, absorbtie 30-40%)<br>
+            <strong>&#x1F4A1; Lamaie:</strong> citratul ajuta la excretia acidului uric (8.6 borderline)
           </div>
         </div>
       </div>
@@ -892,28 +892,29 @@
         <div class="bp-meal-header">
           <span class="bp-meal-time" style="background:rgba(34,197,94,.1);color:var(--green)">07:00</span>
           <span class="bp-meal-title">&#x1F95C; Nutty Pudding CKD-Safe</span>
-          <span class="bp-meal-kcal">~420 kcal &middot; K: ~350mg</span>
+          <span class="bp-meal-kcal">~480 kcal &middot; K: ~500mg &#x2191;</span>
           <span class="bp-meal-toggle">&#x25BC;</span>
         </div>
         <div class="bp-meal-body">
-          <div class="bp-section-title" style="color:var(--green)">&#x1F957; Ingrediente adaptate</div>
+          <div class="bp-section-title" style="color:var(--green)">&#x1F957; Ingrediente (nuci crescute pt HDL=44, K pastrat)</div>
           <ul class="bp-ing-list">
             <li>Nuci macadamia <span class="bp-ing-qty">6 buc (~15g) (K: ~55mg)</span></li>
-            <li>Nuci pecan <span class="bp-ing-qty">6 jumatati (~12g) (K: ~50mg)</span></li>
-            <li>Nuci comune <span class="bp-ing-qty">4 jumatati (~8g) (K: ~35mg)</span></li>
-            <li><s style="color:var(--text3)">Pudra cacao raw</s> &rarr; redusa (oxalati) <span class="bp-ing-qty">1 lingurita (K: ~25mg)</span></li>
+            <li>Nuci pecan <span class="bp-ing-qty">8 jumatati (~16g) (K: ~65mg) &#x2191; pt HDL</span></li>
+            <li>Nuci comune <span class="bp-ing-qty">6 jumatati (~12g) (K: ~55mg) &#x2191; omega-3</span></li>
+            <li>Cacao raw <span class="bp-ing-qty">1 lingura (K: ~50mg)</span></li>
             <li>Seminte de in macinate <span class="bp-ing-qty">1 lingura</span></li>
             <li>Seminte de chia <span class="bp-ing-qty">1 lingura</span></li>
-            <li>Zmeura (low glycemic, K scazut) <span class="bp-ing-qty">50g (K: ~75mg)</span></li>
-            <li>Afine <span class="bp-ing-qty">30g (K: ~25mg)</span></li>
-            <li><s style="color:var(--text3)">Lapte migdale</s> &rarr; lapte orez (K mai scazut) <span class="bp-ing-qty">60ml</span></li>
-            <li><s style="color:var(--text3)">Suc rodie</s> &rarr; eliminat (K foarte ridicat) <span class="bp-ing-qty"></span></li>
+            <li>Zmeura (low glycemic, antioxidanti) <span class="bp-ing-qty">50g (K: ~75mg)</span></li>
+            <li>Afine <span class="bp-ing-qty">40g (K: ~35mg)</span></li>
+            <li>Lapte migdale (fara zahar) <span class="bp-ing-qty">60ml (K: ~35mg)</span></li>
+            <li>Suc rodie pur (optional, cantitate mica) <span class="bp-ing-qty">20ml (K: ~50mg) &#x1F195; readaugat</span></li>
           </ul>
-          <div class="bp-note"><strong>Preparare:</strong> Identic cu originalul: combina nucile si semintele, adauga laptele de orez, pune fructele deasupra. Consistenta groasa.<br><br><strong>De ce aceste schimbari:</strong> Cacao redusa (oxalati = risc pietre renale). Laptele de orez are ~25mg K/100ml vs migdale ~60mg. Sucul de rodie eliminat: ~250mg K/100ml! Zmeura = Dr. Ekberg: K scazut, zahar minim (5g/100g), antioxidanti maximi.</div>
+          <div class="bp-note"><strong>Preparare:</strong> Combina nucile si semintele, adauga laptele de migdale si cacao. Pune fructele deasupra. Consistenta groasa, nu lichida.<br><br><strong>&#x1F195; De ce mai multe nuci:</strong> HDL=44 [SCAZUT]. Nucile (mai ales pecan si comune) cresc HDL prin grasimi mono/poli-nesaturate. Omega-3 din nuci comune = excelent pt ateromatoza. Suc rodie readaugat in cantitate mica - antioxidanti puternici, K acceptabil (20ml = doar 50mg K).</div>
           <div class="bp-note" style="margin-top:6px;border-left:3px solid var(--green);padding-left:14px">
-            <strong>Na:K:</strong> ~10mg Na / ~350mg K (raport 35:1)<br>
-            <strong>Proteine:</strong> ~10g<br>
-            <strong>Fosfor:</strong> ~160mg (din nuci = absorbtie scazuta)
+            <strong>Na:K:</strong> ~12mg Na / ~500mg K (raport 42:1)<br>
+            <strong>Proteine:</strong> ~12g<br>
+            <strong>Fosfor:</strong> ~180mg (din nuci = absorbtie scazuta)<br>
+            <strong>&#x1F4A1; Grasimi bune:</strong> ~35g (nuci + seminte) = cresc HDL, scad inflamatia
           </div>
         </div>
       </div>
@@ -923,44 +924,43 @@
         <div class="bp-meal-header">
           <span class="bp-meal-time" style="background:rgba(34,197,94,.1);color:var(--green)">10:30</span>
           <span class="bp-meal-title">&#x1F371; Masa principala CKD-Safe</span>
-          <span class="bp-meal-kcal">~800 kcal &middot; K: ~1200mg</span>
+          <span class="bp-meal-kcal">~790 kcal &middot; K: ~1700mg &#x2191;</span>
           <span class="bp-meal-toggle">&#x25BC;</span>
         </div>
         <div class="bp-meal-body">
-          <div class="bp-section-title" style="color:var(--green)">&#x1F957; Ingrediente adaptate</div>
+          <div class="bp-section-title" style="color:var(--green)">&#x1F957; Ingrediente (K crescut, HDL crescut, proteine moderate)</div>
           <ul class="bp-ing-list">
-            <li><s style="color:var(--text3)">Patate dulci 300g</s> &rarr; inlocuite partial <span class="bp-ing-qty"></span></li>
-            <li>Dovlecei (air fryer 185&deg;C, 10 min) <span class="bp-ing-qty">150g (K: ~175mg)</span></li>
-            <li>Conopida (air fryer 190&deg;C, 12 min) <span class="bp-ing-qty">150g (K: ~155mg)</span></li>
-            <li>Cartof normal (air fryer 200&deg;C, 20 min) <span class="bp-ing-qty">100g (K: ~420mg) &#x26A0;&#xFE0F;</span></li>
+            <li>Patate dulci (air fryer 190&deg;C, 20 min) <span class="bp-ing-qty">200g (K: ~360mg) &#x1F195; readaugate pt K!</span></li>
+            <li>Dovlecei (air fryer 185&deg;C, 10 min) <span class="bp-ing-qty">100g (K: ~115mg)</span></li>
             <li>Varza (air fryer sau raw) <span class="bp-ing-qty">100g (K: ~170mg)</span></li>
-            <li><s style="color:var(--text3)">Fasole neagra 150g</s> &rarr; redusa <span class="bp-ing-qty"></span></li>
-            <li>Naut fiert (air fryer 190&deg;C, 12 min) <span class="bp-ing-qty">80g (K: ~145mg)</span></li>
-            <li><s style="color:var(--text3)">Avocado 1/2</s> &rarr; redus <span class="bp-ing-qty"></span></li>
-            <li>Avocado <span class="bp-ing-qty">1/4 (40g) (K: ~120mg)</span></li>
-            <li>Ulei de masline extravirgin <span class="bp-ing-qty">1.5 linguri</span></li>
-            <li>Somon / pastrav (air fryer 175&deg;C, 10-12 min) <span class="bp-ing-qty">100g (K: ~300mg) - 2-3x/sapt</span></li>
+            <li>Naut fiert (air fryer 190&deg;C, 12 min = crocant) <span class="bp-ing-qty">100g (K: ~180mg)</span></li>
+            <li>Avocado <span class="bp-ing-qty">1/2 (75g) (K: ~360mg) &#x1F195; readaugat pt K + HDL!</span></li>
+            <li>Ulei de masline extravirgin <span class="bp-ing-qty">1.5 linguri (pt HDL)</span></li>
+            <li>Somon / macrou (air fryer 175&deg;C, 10-12 min) <span class="bp-ing-qty">100g (K: ~300mg) - 3x/sapt</span></li>
+            <li>Zeama de lamaie (citrat = excretie acid uric) <span class="bp-ing-qty">1 lingura</span></li>
             <li>Turmeric + piper + usturoi + ghimbir <span class="bp-ing-qty">condimente</span></li>
             <li>Ciocolata neagra 85%+ <span class="bp-ing-qty">10g (1 patratel)</span></li>
           </ul>
           <div class="bp-section-title" style="color:var(--green)">&#x1F4A1; Variante rotatie (alege una pe zi)</div>
           <ul class="bp-ing-list">
-            <li><strong>Zi peste:</strong> 100g somon/pastrav + legume air fryer + 1/4 avocado + naut crocant <span class="bp-ing-qty">~45g proteine</span></li>
-            <li><strong>Zi vegana:</strong> Naut 80g + linte 30g + legume air fryer + 1/4 avocado + nuci 20g <span class="bp-ing-qty">~25g proteine</span></li>
-            <li><strong>Zi ou:</strong> 2 oua intregi (air fryer 130&deg;C, 12 min) + legume + naut + ulei masline <span class="bp-ing-qty">~28g proteine</span></li>
+            <li><strong>Zi peste (3x/sapt):</strong> 100g somon/macrou + patate dulci + 1/2 avocado + naut crocant <span class="bp-ing-qty">~40g prot &middot; K: ~1700mg</span></li>
+            <li><strong>Zi vegana (3x/sapt):</strong> Naut 100g + linte 30g + legume air fryer + 1/2 avocado + nuci 20g <span class="bp-ing-qty">~22g prot &middot; K: ~1500mg</span></li>
+            <li><strong>Zi ou (1x/sapt):</strong> 2 oua intregi (air fryer 130&deg;C, 12 min) + legume + naut + 1/2 avocado <span class="bp-ing-qty">~26g prot &middot; K: ~1400mg</span></li>
           </ul>
 
-          <div class="bp-note"><strong>De ce aceste schimbari:</strong><br>
-            &#x1F534; <strong>Patate dulci eliminate:</strong> 300g = ~540mg K. Inlocuite cu dovlecei (~175mg K/150g) + conopida (~155mg K/150g). Doar 100g cartof normal pastrat pt textura.<br>
-            &#x1F534; <strong>Fasole neagra 150g &rarr; naut 80g:</strong> Fasole neagra = ~610mg K/150g. Nautul are K mai moderat si se face crocant in air fryer.<br>
-            &#x1F534; <strong>Avocado 1/2 &rarr; 1/4:</strong> Reduce K cu ~180mg. Tot ai grasimi bune, dar cantitate controlata.<br>
-            &#x1F534; <strong>Shake proteic eliminat:</strong> ~24g proteine in minus = incadrare in limita 60-80g/zi.<br>
-            &#x2705; <strong>Somon adaugat:</strong> Dr. Ekberg: pestele gras = cea mai buna sursa de proteine pt CKD (calitate inalta, omega-3, azot minim). Excelent pt ateromatoza si post-AVC. Alternezi cu zile vegane.
+          <div class="bp-note"><strong>&#x1F195; De ce K crescut (vs versiunea anterioara):</strong><br>
+            &#x2705; <strong>Patate dulci readaugate (200g):</strong> K+=3.1 SCAZUT = ai nevoie de surse bogate de K. Patate dulci = 360mg K + beta-caroten + fibre. Excelente in air fryer.<br>
+            &#x2705; <strong>Avocado readaugat 1/2:</strong> 360mg K + grasimi mono-nesaturate care cresc HDL (44 scazut!). Dublu beneficiu.<br>
+            &#x2705; <strong>Naut crescut la 100g:</strong> Mai mult K + fibre care reduc LDL (deja bine, dar mentin).<br>
+            &#x1F534; <strong>Shake proteic ramas eliminat:</strong> Proteine 60-80g/zi pt CKD G3a (creatinina 1.49).<br>
+            &#x2705; <strong>Somon/macrou 3x/sapt:</strong> Omega-3 cresc HDL + protejeaza vasele (ateromatoza). Dr. Ekberg: cea mai buna proteina pt CKD.<br>
+            &#x2705; <strong>Lamaie la fiecare masa:</strong> Citratul ajuta excretia acidului uric (8.6 borderline). Previne si pietre renale.
           </div>
           <div class="bp-note" style="margin-top:6px;border-left:3px solid var(--green);padding-left:14px">
-            <strong>Na:K (zi peste):</strong> ~100mg Na / ~1200mg K (raport 12:1)<br>
-            <strong>Proteine (zi peste):</strong> ~45g (+ 15g Super Veggie + 10g Nutty = ~70g total &#x2705;)<br>
-            <strong>Fosfor:</strong> ~350mg (sub limita de 1000mg)
+            <strong>Na:K (zi peste):</strong> ~105mg Na / ~1700mg K (raport 16:1)<br>
+            <strong>Proteine (zi peste):</strong> ~40g (+ 18g Super Veggie + 12g Nutty = ~70g total &#x2705;)<br>
+            <strong>Fosfor:</strong> ~380mg (sub limita de 1000mg)<br>
+            <strong>&#x1F4A1; Total K zilnic:</strong> ~1000 + ~500 + ~1700 = ~3200mg (vs 3.1 mmol/L scazut!)
           </div>
         </div>
       </div>
@@ -976,25 +976,25 @@
         <div class="bp-meal-body">
           <div class="bp-section-title" style="color:var(--green)">&#x2705; Pastrate din Blueprint (sigure cu medicatia ta)</div>
           <div class="bp-supp-grid">
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Vitamina D3 (ai deja)</span>
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Vitamina K2 MK-7 (ai deja, OK cu Eliquis)</span>
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Omega-3 EPA/DHA (excelent pt ateromatoza)</span>
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Turmeric/Curcumin (antiinflamator natural)</span>
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Probiotice (sanatate intestinala)</span>
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">B Complex (energie, nervi)</span>
-            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">CoQ10 100mg (complementeaza Sortis/statine)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Vitamina D3+K2 (ai deja 2000U+75mcg, OK cu Eliquis)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Omega-3 EPA/DHA (HDL=44 LOW + ateromatoza)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">CoQ10 100mg (ESENTIAL cu Sortis/atorvastatin)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Turmeric/Curcumin (antiinflamator, post-AVC)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Probiotice (oxalobacter pt oxalati - Dr. Ekberg)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">B Complex (B12=707 OK, dar homocisteina 8.97)</span>
+            <span class="bp-supp" style="border-color:rgba(34,197,94,.3);color:var(--green)">Citrat (lamaie) zilnic (acid uric 8.6!)</span>
           </div>
           <div class="bp-section-title" style="color:var(--red);margin-top:1rem">&#x1F6D1; Eliminate / Necesita aprobarea nefrologului</div>
           <div class="bp-supp-grid">
-            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; Creatina (falsifica eGFR)</span>
-            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; Magneziu extra (ai Magnerot + CKD)</span>
-            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; Lithium micro (nefrotoxic potential)</span>
-            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; NAC 600mg (interactiune renala, intreaba nefrologul)</span>
+            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; Creatina (falsifica eGFR, creatinina deja 1.49)</span>
+            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; Magneziu extra (ai Magnerot zilnic + CKD)</span>
+            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; Lithium micro (nefrotoxic, creatinina crescuta)</span>
+            <span class="bp-supp" style="border-color:rgba(239,68,68,.3);color:var(--red)">&#x274C; NAC 600mg (interactiune renala)</span>
             <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; Zinc 15mg (verificare Cu/Zn ratio)</span>
-            <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; Glucosamina (date limitate pt CKD)</span>
-            <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; Collagen 10g (proteina extra = azot)</span>
+            <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; Collagen 10g (proteina extra = azot, limita 70g/zi)</span>
             <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; NR/NMN (date insuficiente pt CKD)</span>
             <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; Ashwagandha (poate afecta tiroida)</span>
+            <span class="bp-supp" style="border-color:rgba(251,146,60,.3);color:#fb923c">&#x26A0;&#xFE0F; K supliment oral (intreaba nefrolog - K+=3.1 LOW)</span>
           </div>
           <div class="bp-note" style="margin-top:1rem"><strong>CoQ10 + Sortis:</strong> Statinele (atorvastatin/Sortis) reduc CoQ10 natural. Suplimentarea cu CoQ10 100mg compenseaza acest deficit - recomandat de multi cardiologi. Nu interactioneaza cu Eliquis.</div>
           <div class="bp-note" style="margin-top:6px"><strong>Interactiuni medicamente:</strong> Eliquis NU depinde de vitamina K (nu e warfarina). Furosemid elimina K, dar Spironolactona + Noliprel il retin = net retentie K. De aceea potasiul alimentar trebuie controlat strict.</div>
@@ -1012,11 +1012,13 @@
         <div class="bp-meal-body">
           <div class="bp-section-title" style="color:var(--green)">&#x1FA78; Analize sange - prioritate</div>
           <ul class="bp-ing-list">
-            <li><strong>Potasiu seric (K+)</strong> - CRITIC cu Spironolactona+Noliprel <span class="bp-ing-qty">target: 3.5-5.0 mEq/L</span></li>
-            <li><strong>eGFR + Creatinina</strong> - monitorizare functie renala <span class="bp-ing-qty">target: &gt;45 ml/min</span></li>
+            <li><strong>Potasiu seric (K+)</strong> - CRITIC: actual 3.1 LOW! Noliprel zilnic = K-wasting <span class="bp-ing-qty">actual: 3.1 &#x2192; target: 3.5-5.0 mEq/L</span></li>
+            <li><strong>eGFR + Creatinina</strong> - actual creatinina 1.49 (CKD G3a) <span class="bp-ing-qty">actual: ~50 &#x2192; target: &gt;45 ml/min</span></li>
+            <li><strong>Acid uric</strong> - actual 8.6 borderline! Zero fructoza + citrat <span class="bp-ing-qty">actual: 8.6 &#x2192; target: &lt;7.0 mg/dL</span></li>
+            <li><strong>HDL colesterol</strong> - actual 44 LOW! Omega-3, nuci, avocado <span class="bp-ing-qty">actual: 44 &#x2192; target: &gt;50 mg/dL</span></li>
             <li><strong>Fosfor seric</strong> - CKD G3a <span class="bp-ing-qty">target: 2.5-4.5 mg/dL</span></li>
             <li><strong>Magneziu seric</strong> - cu Magnerot + Furosemid <span class="bp-ing-qty">target: 1.7-2.2 mg/dL</span></li>
-            <li><strong>Albumina</strong> - proteina sangvina (scade in CKD avansat) <span class="bp-ing-qty">target: &gt;3.5 g/dL</span></li>
+            <li><strong>Sodiu seric</strong> - actual 142 normal <span class="bp-ing-qty">actual: 142 &#x2192; target: 136-145 mEq/L</span></li>
             <li><strong>BUN (azot ureic)</strong> - deseuri azotate din proteine <span class="bp-ing-qty">target: 7-20 mg/dL</span></li>
           </ul>
           <div class="bp-section-title" style="color:var(--green)">&#x1F3AF; Markeri metabolici (Dr. Ekberg)</div>
@@ -1029,7 +1031,7 @@
             <li><strong>hs-CRP</strong> - inflamatie (post-AVC, ateromatoza) <span class="bp-ing-qty">target: &lt;1.0 mg/L</span></li>
             <li><strong>Glicemie post-prandiala (60-90 min)</strong> <span class="bp-ing-qty">target: &lt;110 mg/dL</span></li>
           </ul>
-          <div class="bp-note"><strong>Regula de aur:</strong> Daca K seric &gt; 5.0 mEq/L, reduce imediat portiile de leguminoase, avocado si cartof. Daca eGFR scade sub 45, treci la restrictii G3b (K sub 3000mg/zi, proteine sub 60g). Comunica ORICE schimbare de dieta nefrologului.</div>
+          <div class="bp-note"><strong>Situatie actuala (sept. 2025):</strong> K+=3.1 [LOW] &#x2192; PRIORITATE: creste potasiu alimentar! Noliprel (indapamida zilnic) pierde K, Spironolactona doar miercuri = net K-wasting. Daca K seric &gt; 5.0, reduce leguminoase/avocado/cartof. Daca eGFR scade sub 45, treci la restrictii G3b. Acid uric 8.6 = ZERO fructoza, lamaie in apa zilnic. HDL 44 = mai multe grasimi bune (omega-3, nuci, ulei masline).</div>
         </div>
       </div>
 
@@ -1053,7 +1055,7 @@
               <tr style="border-bottom:1px solid var(--surface2)">
                 <td style="padding:8px">Calorii</td>
                 <td style="text-align:center;padding:8px">~1,950</td>
-                <td style="text-align:center;padding:8px;color:var(--green)">~1,600</td>
+                <td style="text-align:center;padding:8px;color:var(--green)">~1,750</td>
                 <td style="text-align:center;padding:8px;color:var(--text3)">individual</td>
               </tr>
               <tr style="border-bottom:1px solid var(--surface2)">
@@ -1064,9 +1066,9 @@
               </tr>
               <tr style="border-bottom:1px solid var(--surface2)">
                 <td style="padding:8px"><strong>Potasiu</strong></td>
-                <td style="text-align:center;padding:8px;color:var(--red)">~3,600mg &#x274C;</td>
-                <td style="text-align:center;padding:8px;color:var(--green)">~2,200mg &#x2705;</td>
-                <td style="text-align:center;padding:8px">monitor (&lt;3000 G3b)</td>
+                <td style="text-align:center;padding:8px;color:var(--red)">~3,600mg &#x26A0;&#xFE0F;</td>
+                <td style="text-align:center;padding:8px;color:var(--green)">~3,200mg &#x2705;</td>
+                <td style="text-align:center;padding:8px">K+=3.1 LOW &#x2191; necesar</td>
               </tr>
               <tr style="border-bottom:1px solid var(--surface2)">
                 <td style="padding:8px"><strong>Fosfor</strong></td>
