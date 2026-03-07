@@ -291,6 +291,43 @@
   /* Greseli embed */
   .greseli-frame{width:100%;border:none;border-radius:var(--radius);min-height:calc(100vh - 140px)}
 
+  /* Blueprint tab */
+  .bp-container{max-width:900px;margin:0 auto}
+  .bp-hero{background:linear-gradient(135deg,#0a1628,#1a2744);border:1px solid rgba(59,130,246,.25);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;text-align:center}
+  .bp-hero h2{font-size:1.4rem;color:#60a5fa;margin-bottom:.5rem}
+  .bp-hero p{font-size:.85rem;color:var(--text2);line-height:1.6}
+  .bp-hero .bp-stats{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+  .bp-hero .bp-stat{text-align:center}
+  .bp-hero .bp-stat-val{font-size:1.5rem;font-weight:700;color:#60a5fa}
+  .bp-hero .bp-stat-label{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+  .bp-meal{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;transition:border-color .2s}
+  .bp-meal:hover{border-color:#60a5fa}
+  .bp-meal-header{padding:1.25rem;cursor:pointer;display:flex;align-items:center;gap:12px}
+  .bp-meal-time{font-size:.7rem;color:#60a5fa;background:rgba(59,130,246,.1);padding:3px 10px;border-radius:50px;font-weight:600;white-space:nowrap}
+  .bp-meal-title{font-size:1rem;font-weight:600;flex:1}
+  .bp-meal-kcal{font-size:.8rem;color:var(--text3)}
+  .bp-meal-toggle{color:var(--text3);transition:transform .2s;font-size:.8rem}
+  .bp-meal.open .bp-meal-toggle{transform:rotate(180deg)}
+  .bp-meal-body{display:none;padding:0 1.25rem 1.25rem;border-top:1px solid var(--surface3)}
+  .bp-meal.open .bp-meal-body{display:block}
+  .bp-ing-list{list-style:none;padding:0;margin:.75rem 0}
+  .bp-ing-list li{padding:6px 0;border-bottom:1px solid var(--surface2);font-size:.85rem;display:flex;justify-content:space-between;align-items:center}
+  .bp-ing-list li:last-child{border-bottom:none}
+  .bp-ing-qty{color:var(--text3);font-size:.8rem;white-space:nowrap;margin-left:8px}
+  .bp-note{font-size:.8rem;color:var(--text2);margin-top:.75rem;padding:10px 14px;background:var(--surface2);border-radius:var(--radius-sm);line-height:1.5}
+  .bp-note strong{color:#60a5fa}
+  .bp-supps{margin-top:.75rem}
+  .bp-supp-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .bp-supp{font-size:.72rem;padding:3px 10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:50px;color:#60a5fa}
+  .bp-section-title{font-size:.9rem;font-weight:600;color:#60a5fa;margin:1.25rem 0 .5rem;display:flex;align-items:center;gap:8px}
+  .bp-adapt{background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(59,130,246,.08));border:1px solid rgba(34,197,94,.2);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem}
+  .bp-adapt h3{font-size:1rem;color:var(--green);margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+  .bp-adapt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+  .bp-adapt-item{font-size:.82rem;padding:8px 12px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--surface3);line-height:1.5}
+  .bp-adapt-item strong{color:var(--green)}
+  .filter-btn[data-cat="Blueprint"]{border-color:rgba(96,165,250,.4)}
+  .filter-btn[data-cat="Blueprint"].active{background:#60a5fa;border-color:#60a5fa}
+
   /* Animations */
   .card{animation:fadeUp .4s ease both}
   @keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
@@ -329,6 +366,7 @@
   <button class="tab-btn" data-tab="ingredients">Ingrediente</button>
   <button class="tab-btn" data-tab="simulator">Simulator</button>
   <button class="tab-btn" data-tab="greseli">Greseli</button>
+  <button class="tab-btn" data-tab="blueprint">Blueprint</button>
   <button class="tab-btn" data-tab="tips">Sfaturi</button>
 </nav>
 
@@ -599,6 +637,203 @@
   <div style="max-width:900px;margin:0 auto">
     <p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem">Infografic interactiv: cele 12 greseli frecvente cu air fryer-ul si cum sa le eviti.</p>
     <iframe src="air-fryer-greseli.html" class="greseli-frame" id="greseliFrame" loading="lazy" title="12 Greseli cu Air Fryer-ul"></iframe>
+  </div>
+</div>
+
+<!-- TAB: BLUEPRINT -->
+<div id="tab-blueprint" class="tab-content">
+  <div class="bp-container">
+
+    <div class="bp-hero">
+      <h2>&#x1F9EC; Blueprint Protocol - Bryan Johnson</h2>
+      <p>Protocolul anti-aging bazat pe date, conceput de Bryan Johnson. Mese strict controlate, suplimente si masuratori zilnice. Obiectiv: sa inverseze imbatranirea biologica.</p>
+      <div class="bp-stats">
+        <div class="bp-stat"><div class="bp-stat-val">~1,950</div><div class="bp-stat-label">kcal/zi</div></div>
+        <div class="bp-stat"><div class="bp-stat-val">~130g</div><div class="bp-stat-label">proteine</div></div>
+        <div class="bp-stat"><div class="bp-stat-val">~85g</div><div class="bp-stat-label">grasimi</div></div>
+        <div class="bp-stat"><div class="bp-stat-val">~200g</div><div class="bp-stat-label">carbohidrati</div></div>
+        <div class="bp-stat"><div class="bp-stat-val">100%</div><div class="bp-stat-label">vegan</div></div>
+      </div>
+    </div>
+
+    <!-- MEAL 1: Super Veggie -->
+    <div class="bp-meal" onclick="this.classList.toggle('open')">
+      <div class="bp-meal-header">
+        <span class="bp-meal-time">06:00</span>
+        <span class="bp-meal-title">&#x1F96C; Super Veggie (Green Giant)</span>
+        <span class="bp-meal-kcal">~450 kcal</span>
+        <span class="bp-meal-toggle">&#x25BC;</span>
+      </div>
+      <div class="bp-meal-body">
+        <div class="bp-section-title">&#x1F957; Ingrediente</div>
+        <ul class="bp-ing-list">
+          <li>Broccoli (steam/air fryer) <span class="bp-ing-qty">250g</span></li>
+          <li>Conopida (steam/air fryer) <span class="bp-ing-qty">150g</span></li>
+          <li>Ciuperci shiitake sau champignon <span class="bp-ing-qty">50g</span></li>
+          <li>Usturoi (2 catei) <span class="bp-ing-qty">6g</span></li>
+          <li>Ghimbir proaspat ras <span class="bp-ing-qty">3g</span></li>
+          <li>Linte neagra (beluga) sau linte verde <span class="bp-ing-qty">45g uscata</span></li>
+          <li>Ulei de masline extravirgin <span class="bp-ing-qty">1 lingura (15ml)</span></li>
+          <li>Otet balsamic / zeama lamaie <span class="bp-ing-qty">1 lingurita</span></li>
+          <li>Seminte de in (macinata proaspat) <span class="bp-ing-qty">1 lingura</span></li>
+          <li>Seminte de canepa <span class="bp-ing-qty">1 lingura</span></li>
+          <li>Drojdie nutritionala (nooch) <span class="bp-ing-qty">1 lingura</span></li>
+        </ul>
+        <div class="bp-note"><strong>Preparare:</strong> Fierbe lintea 20-25 min. Broccoli + conopida in air fryer la 180&deg;C, 8-10 min (sau steam). Caleste ciupercile cu usturoiul si ghimbirul. Combina totul, adauga ulei masline, otet, seminte. Presara drojdie nutritionala deasupra.</div>
+        <div class="bp-note" style="margin-top:6px"><strong>Na:K estimat:</strong> ~70mg Na / ~1200mg K (raport excelent ~17:1). Legumele crude au potasiu foarte bogat.</div>
+      </div>
+    </div>
+
+    <!-- MEAL 2: Nutty Pudding -->
+    <div class="bp-meal" onclick="this.classList.toggle('open')">
+      <div class="bp-meal-header">
+        <span class="bp-meal-time">07:00</span>
+        <span class="bp-meal-title">&#x1F95C; Nutty Pudding</span>
+        <span class="bp-meal-kcal">~500 kcal</span>
+        <span class="bp-meal-toggle">&#x25BC;</span>
+      </div>
+      <div class="bp-meal-body">
+        <div class="bp-section-title">&#x1F957; Ingrediente</div>
+        <ul class="bp-ing-list">
+          <li>Nuci macadamia <span class="bp-ing-qty">6 buc (~15g)</span></li>
+          <li>Nuci pecan <span class="bp-ing-qty">6 jumatati (~12g)</span></li>
+          <li>Nuci comune <span class="bp-ing-qty">6 jumatati (~12g)</span></li>
+          <li>Pudra de cacao raw <span class="bp-ing-qty">1 lingura</span></li>
+          <li>Seminte de in (macinate) <span class="bp-ing-qty">1 lingura</span></li>
+          <li>Seminte de chia <span class="bp-ing-qty">1 lingura</span></li>
+          <li>Sunflower lecithin <span class="bp-ing-qty">1 lingurita</span></li>
+          <li>Afine (proaspete sau congelate) <span class="bp-ing-qty">50g</span></li>
+          <li>Zmeura / capsuni <span class="bp-ing-qty">30g</span></li>
+          <li>Lapte de migdale (fara zahar) <span class="bp-ing-qty">60ml</span></li>
+          <li>Pomegranate juice (optional) <span class="bp-ing-qty">30ml</span></li>
+        </ul>
+        <div class="bp-note"><strong>Preparare:</strong> Combina nucile, semintele si cacao intr-un castron. Adauga laptele de migdale si amesteca. Adauga fructele de padure deasupra. Se mananca ca un pudding / granola fara cereale. Consistenta trebuie sa fie groasa, nu lichida.</div>
+        <div class="bp-note" style="margin-top:6px"><strong>Na:K estimat:</strong> ~15mg Na / ~450mg K. Fructele de padure = zahar minim, antioxidanti maximi. Nucile = grasimi bune omega-3.</div>
+      </div>
+    </div>
+
+    <!-- MEAL 3: Third meal / Veggies + protein -->
+    <div class="bp-meal" onclick="this.classList.toggle('open')">
+      <div class="bp-meal-header">
+        <span class="bp-meal-time">11:00</span>
+        <span class="bp-meal-title">&#x1F372; Ultima masa (inainte de 11AM)</span>
+        <span class="bp-meal-kcal">~1000 kcal</span>
+        <span class="bp-meal-toggle">&#x25BC;</span>
+      </div>
+      <div class="bp-meal-body">
+        <div class="bp-section-title">&#x1F957; Componente principale</div>
+        <ul class="bp-ing-list">
+          <li>Patate dulci (air fryer 190&deg;C, 20 min) <span class="bp-ing-qty">300g</span></li>
+          <li>Legume mixte (ardei, sparanghel, kale) <span class="bp-ing-qty">200g</span></li>
+          <li>Fasole neagra sau naut (fierte) <span class="bp-ing-qty">150g</span></li>
+          <li>Avocado <span class="bp-ing-qty">1/2 (75g)</span></li>
+          <li>Ulei de masline extravirgin <span class="bp-ing-qty">1 lingura</span></li>
+          <li>Nuci / seminte (mix) <span class="bp-ing-qty">30g</span></li>
+          <li>Turmeric + piper negru <span class="bp-ing-qty">1 lingurita</span></li>
+          <li>Ciocolata neagra 85%+ <span class="bp-ing-qty">15g (2 patratele)</span></li>
+        </ul>
+        <div class="bp-section-title">&#x1F964; Blueprint Longevity Mix (shake optional)</div>
+        <ul class="bp-ing-list">
+          <li>Blueprint Longevity Protein (pea protein) <span class="bp-ing-qty">24g</span></li>
+          <li>Creatina monohidrat <span class="bp-ing-qty">2.5g</span></li>
+          <li>Collagen peptides <span class="bp-ing-qty">10g</span></li>
+          <li>Cacao raw <span class="bp-ing-qty">6g</span></li>
+          <li>Lapte migdale nesaturat <span class="bp-ing-qty">250ml</span></li>
+        </ul>
+        <div class="bp-note"><strong>Preparare:</strong> Patate dulci in air fryer 190&deg;C, 20 min. Legume in air fryer 180&deg;C, 10 min. Fasole/naut: din conserva (spalate) sau fierte. Combina totul, adauga avocado felii, ulei masline, nuci. Shake-ul se prepara separat in blender.</div>
+        <div class="bp-note" style="margin-top:6px"><strong>Na:K estimat:</strong> ~90mg Na / ~2000mg K. Bogatia in K de la leguminoase + patate dulci + avocado. Masa cea mai substantiala a zilei.</div>
+      </div>
+    </div>
+
+    <!-- Extra snacks -->
+    <div class="bp-meal" onclick="this.classList.toggle('open')">
+      <div class="bp-meal-header">
+        <span class="bp-meal-time">&#x231A; Zilnic</span>
+        <span class="bp-meal-title">&#x1F48A; Extra Protocol</span>
+        <span class="bp-meal-kcal">diverse</span>
+        <span class="bp-meal-toggle">&#x25BC;</span>
+      </div>
+      <div class="bp-meal-body">
+        <div class="bp-section-title">&#x2615; Bauturi zilnice</div>
+        <ul class="bp-ing-list">
+          <li>Blueprint Longevity Mix (dimineata) <span class="bp-ing-qty">1 portie</span></li>
+          <li>Ceai verde (matcha sau sencha) <span class="bp-ing-qty">1-2 cesti</span></li>
+          <li>Apa cu electroliti <span class="bp-ing-qty">2-3L/zi</span></li>
+        </ul>
+        <div class="bp-section-title">&#x1F48A; Suplimente cheie (protocol complet)</div>
+        <div class="bp-supp-grid">
+          <span class="bp-supp">Vitamina D3 2000 IU</span>
+          <span class="bp-supp">Omega-3 EPA/DHA</span>
+          <span class="bp-supp">Magneziu (L-Threonate)</span>
+          <span class="bp-supp">Vitamina K2 MK-7</span>
+          <span class="bp-supp">Vitamina C 500mg</span>
+          <span class="bp-supp">Zinc 15mg</span>
+          <span class="bp-supp">B Complex</span>
+          <span class="bp-supp">CoQ10 100mg</span>
+          <span class="bp-supp">Creatina 2.5g</span>
+          <span class="bp-supp">Collagen 10g</span>
+          <span class="bp-supp">Turmeric/Curcumin</span>
+          <span class="bp-supp">Ashwagandha</span>
+          <span class="bp-supp">NR/NMN</span>
+          <span class="bp-supp">Lithium (micro)</span>
+          <span class="bp-supp">NAC 600mg</span>
+          <span class="bp-supp">Glucosamina</span>
+          <span class="bp-supp">Hyaluronic acid</span>
+          <span class="bp-supp">Garlic 1.2g</span>
+          <span class="bp-supp">Ginger 1g</span>
+          <span class="bp-supp">Probiotice</span>
+        </div>
+        <div class="bp-section-title" style="margin-top:1rem">&#x1F3CB;&#xFE0F; Stil de viata</div>
+        <ul class="bp-ing-list">
+          <li>Somn: 20:30 - 05:00 (strict, monitorizat WHOOP/Oura) <span class="bp-ing-qty">8.5h</span></li>
+          <li>Exercitiu: 1h/zi (HIIT + rezistenta + flexibilitate) <span class="bp-ing-qty">7x/sapt</span></li>
+          <li>Fereastra alimentara: 06:00 - 11:00 <span class="bp-ing-qty">~5h</span></li>
+          <li>Ultima masa inainte de 11:00 AM <span class="bp-ing-qty">IF 19:5</span></li>
+          <li>Lumina rosie seara, zero ecrane dupa 20:00 <span class="bp-ing-qty">circadian</span></li>
+          <li>Monitorizare: analize sange lunar, varsta biologica <span class="bp-ing-qty">data-driven</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Principii -->
+    <div class="bp-meal" onclick="this.classList.toggle('open')">
+      <div class="bp-meal-header">
+        <span class="bp-meal-time">&#x1F4D6;</span>
+        <span class="bp-meal-title">&#x1F9E0; Principii Blueprint</span>
+        <span class="bp-meal-kcal">filosofie</span>
+        <span class="bp-meal-toggle">&#x25BC;</span>
+      </div>
+      <div class="bp-meal-body">
+        <ul class="bp-ing-list">
+          <li><strong>Don't Die</strong> - filozofia centrala: maximizeaza durata de viata sanatoasa</li>
+          <li><strong>Data-driven</strong> - fiecare decizie bazata pe masuratori (sange, organe, biomarkeri)</li>
+          <li><strong>Calorii controlate</strong> - ~1950 kcal/zi, nicio calorie irosita pe alimente fara valoare</li>
+          <li><strong>100% plant-based</strong> - vegan strict, whole food, zero procesate</li>
+          <li><strong>Consistent peste perfect</strong> - aceleasi mese zilnic, zero variatie</li>
+          <li><strong>Fereastra alimentara scurta</strong> - intermittent fasting 19:5 (mese 06-11 AM)</li>
+          <li><strong>Somn = #1 prioritate</strong> - performanta zilei urmatoare se decide seara asta</li>
+          <li><strong>Zero alcool, zero zahar</strong> - nici macar ocazional</li>
+          <li><strong>Exercitiu zilnic</strong> - nu optional, parte din protocol ca si mancarea</li>
+          <li><strong>Anti-inflammatory</strong> - totul orientat spre reducerea inflamatiei cronice</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ADAPTARE profil medical -->
+    <div class="bp-adapt">
+      <h3>&#x2695;&#xFE0F; Adaptare Blueprint pentru profilul tau CKD G3a</h3>
+      <div class="bp-adapt-grid">
+        <div class="bp-adapt-item"><strong>Proteine: reduce la 60-80g/zi</strong> (Blueprint are ~130g). Cu CKD G3a, excesul de proteine = azot toxic. Reduce portia de protein shake si leguminoase.</div>
+        <div class="bp-adapt-item"><strong>Potasiu: monitorizeaza</strong> Blueprint e FOARTE bogat in K (patate dulci, avocado, leguminoase). In G3a inca OK, dar verifica analizele regulat. In G3b: reduce portiile.</div>
+        <div class="bp-adapt-item"><strong>Fosfor din leguminoase: OK</strong> Fosforul din plante (fitic) se absoarbe doar 30-40% vs 90% din procesate. Fasole, naut, linte = surse sigure.</div>
+        <div class="bp-adapt-item"><strong>Fereastra alimentara: excelenta pt insulina</strong> IF 19:5 reduce dramatic rezistenta la insulina (Dr. Ekberg: cauza #1 CKD). Blueprint si Ekberg sunt de acord aici.</div>
+        <div class="bp-adapt-item"><strong>Zero zahar: perfect pt rinichi</strong> Blueprint elimina complet zaharul si fructoza - exact ce recomanda Dr. Ekberg pt protejarea rinichilor de acid uric.</div>
+        <div class="bp-adapt-item"><strong>Suplimente: verifica cu nefrologul</strong> Unele suplimente Blueprint pot fi problematice pt CKD (magneziu in exces, potasiu din suplimente). Adapteaza dozele cu medicul.</div>
+        <div class="bp-adapt-item"><strong>Na:K natural excelent</strong> Mancarea Blueprint whole-food are raport K:Na de 15-20:1 natural. Un strop de sare pe whole food ramane in balanta perfecta.</div>
+        <div class="bp-adapt-item"><strong>Omega-3 din nuci si seminte</strong> Semintele de in, chia, nuci = surse vegetale ALA. Complementeaza cu capsule EPA/DHA sau adauga somon 2x/sapt (nu strict vegan).</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
