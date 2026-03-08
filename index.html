@@ -213,6 +213,8 @@
   .card[data-cat="Sosuri"]{border-color:rgba(251,146,60,.2)}
   .card[data-cat="Sosuri"]:hover{border-color:var(--yellow);box-shadow:0 8px 30px rgba(251,146,60,.12)}
   .badge-sos{display:inline-block;background:linear-gradient(135deg,#fb923c,#f59e0b);color:#fff;font-size:.6rem;font-weight:700;padding:2px 7px;border-radius:50px;vertical-align:middle;margin-left:6px;letter-spacing:.3px}
+  .badge-ckd{display:inline-block;background:linear-gradient(135deg,#22c55e,#10b981);color:#fff;font-size:.55rem;font-weight:700;padding:2px 6px;border-radius:50px;vertical-align:middle;margin-left:4px;letter-spacing:.3px}
+  .ckd-note{margin-top:.5rem;padding:8px 12px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:8px;font-size:.8rem;color:var(--green)}
   .filter-btn[data-cat="Sosuri"]{border-color:rgba(251,146,60,.4)}
   .filter-btn[data-cat="Sosuri"].active{background:linear-gradient(135deg,#fb923c,#f59e0b);border-color:#fb923c}
   .sos-pairs{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
@@ -1663,53 +1665,63 @@ const recipes = [
    notes:"Raportul clasic 3:1 (ulei:acid). Uleiul de masline e baza dietei mediteraneene - protector cardiovascular dovedit."},
 
   // ── SOSURI PENTRU LEGUME ──
-  {id:417,name:"Sos de usturoi prajit si lamaie",emoji:"🧄",cat:"Sosuri",temp:180,time:"15-20",flip:"-",difficulty:1,method:"Air Fryer",
+  {id:417,name:"Sos de usturoi prajit si lamaie",emoji:"🧄",cat:"Sosuri",temp:180,time:"15-20",flip:"-",difficulty:1,method:"Air Fryer",ckd:true,
    tip:"Usturoiul prajit in air fryer devine dulce si cremos. Sosul perfect pentru orice leguma.",
+   ckdNote:"Zero sare, zero fosfor adaugat. Usturoiul protejeaza vasele renale (alicina). Lamaie = citrat pt excretia acidului uric.",
    pairs:["Broccoli","Conopida","Dovlecei","Ciuperci","Sparanghel","Vinete","Cartofi prajiti"],
    steps:["1 cap intreg de usturoi - taie varful si unge cu ulei masline","Air Fryer 180°C, 15-20 min pana devine moale si auriu","Stoarce usturoiul prajit intr-un bol","Adauga: 2 linguri ulei masline, zeama de 1/2 lamaie, piper negru","1 lingurita cimbru proaspat (sau uscat)","Amesteca pana devine cremos, ajusteaza cu putina apa calda"],
    notes:"Usturoiul prajit pierde iuteala dar pastreaza alicina - compound antiinflamator si protector cardiac. Zero sare necesara."},
-  {id:418,name:"Sos romesco (ardei si rosii)",emoji:"🫕",cat:"Sosuri",temp:190,time:"20",flip:"La 10 min",difficulty:2,method:"Air Fryer",
+  {id:418,name:"Sos romesco (ardei si rosii)",emoji:"🫕",cat:"Sosuri",temp:190,time:"20",flip:"La 10 min",difficulty:2,method:"Air Fryer",ckd:true,
    tip:"Sos catalan bogat, cu ardei copti si migdale. Transforma legumele simple in ceva special.",
+   ckdNote:"Fara sare, fosfor scazut. Vit C din ardei copti ajuta absorbtia fierului. Migdalele = Mg natural (alternativa suplimente).",
    pairs:["Conopida","Broccoli","Dovlecei","Sparanghel","Vinete","Cartofi wedges","Ardei grasi"],
    steps:["2 ardei kapia + 2 rosii - Air Fryer 190°C, 20 min, intoarce la jumatate","Curata ardeii de coaja, pune in blender","Adauga: 20g migdale prajite, 1 catel usturoi, 1 lingura ulei masline","1 lingurita boia afumata, piper negru, 1 lingurita otet de vin rosu","Mixeaza pana la consistenta dorita (mai gros sau mai fin)","Ajusteaza cu putina apa daca e prea gros"],
    notes:"Migdalele adauga vitamina E si grasimi sanatoase. Ardeii copti = vitamina C concentrata. Sos traditional fara sare."},
-  {id:419,name:"Sos balsamic cu miere si rozmarin",emoji:"🌿",cat:"Sosuri",temp:"Foc mic",time:"8-10",flip:"Amesteca constant",difficulty:1,method:"Aragaz",
+  {id:419,name:"Sos balsamic cu miere si rozmarin",emoji:"🌿",cat:"Sosuri",temp:"Foc mic",time:"8-10",flip:"Amesteca constant",difficulty:1,method:"Aragaz",ckd:true,
    tip:"Glazura dulce-acrisoara care caramelizeaza perfect pe legume calde din air fryer.",
+   ckdNote:"Zero sare, portie mica de miere (OK acid uric in cantitate minima). Rozmarinul = antiinflamator natural dovedit.",
    pairs:["Morcovi","Cartofi dulci","Dovlecei","Conopida","Ciuperci","Rosii cherry","Sfecla coapta"],
    steps:["3 linguri otet balsamic","1 lingura miere de albine","1 lingurita ulei masline","1 ramura rozmarin proaspat (sau 1/2 lingurita uscat)","Piper negru","Fierbe la foc mic 8-10 min pana se reduce la jumatate","Scoate rozmarinul si toarna peste legumele calde"],
    notes:"Otetul balsamic contine polifenoli antioxidanti. Reducerea concentreaza aromele - ai nevoie de foarte putina cantitate."},
-  {id:420,name:"Sos de patrunjel si nuci (gremolata)",emoji:"🥜",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+  {id:420,name:"Sos de patrunjel si nuci (gremolata)",emoji:"🥜",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,ckd:true,
    tip:"Prospetime pura! Gremolata crocanta ridica orice leguma simpla la alt nivel.",
+   ckdNote:"Patrunjelul ajuta la detoxifiere renala. Lamaie = citrat (previne pietre renale). Nucile = omega-3 antiinflamator.",
    pairs:["Conopida","Broccoli","Cartofi prajiti","Dovlecei","Vinete","Ciuperci","Sparanghel"],
    steps:["1 legatura mare patrunjel, tocat fin","20g nuci caju (sau nuci obisnuite), tocate grosier","Coaja rasa de la 1 lamaie + zeama de 1/2 lamaie","1 catel usturoi ras fin","2 linguri ulei masline extravirgin","Piper negru, optional fulgi de ardei iute","Amesteca totul, presara peste legumele calde"],
    notes:"Nucile adauga textura crocanta si omega-3. Patrunjelul e bogat in vitamina K si fier. Coaja de lamaie = uleiuri esentiale aromate."},
-  {id:421,name:"Sos de iaurt cu curry si menta",emoji:"🍛",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+  {id:421,name:"Sos de iaurt cu curry si menta",emoji:"🍛",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,ckd:true,
    tip:"Inspiratie indiana - raita reinventata. Racoritor si aromat, perfect cu legume picante.",
+   ckdNote:"Iaurt = calciu + probiotice (protejeaza microbiomul renal). Turmeric/curcumina = antiinflamator #1 pt CKD. Zero sare.",
    pairs:["Conopida","Cartofi dulci","Morcovi","Dovlecei","Vinete","Broccoli","Ardei grasi"],
    steps:["150g iaurt grecesc","1 lingurita curry pudra (sau garam masala)","6-8 frunze menta proaspata, tocate fin","1/2 lingurita chimion macinat","Zeama de 1/2 lime","1 catel usturoi ras","Piper negru, optional 1 varf cutit turmeric"],
    notes:"Curry-ul contine turmeric cu curcumina - puternic antiinflamator. Menta ajuta digestia. Iaurtul tempereaza iuteala."},
-  {id:422,name:"Sos verde de dovlecei (din air fryer)",emoji:"🥒",cat:"Sosuri",temp:185,time:"10-12",flip:"La 6 min",difficulty:2,method:"Air Fryer",
+  {id:422,name:"Sos verde de dovlecei (din air fryer)",emoji:"🥒",cat:"Sosuri",temp:185,time:"10-12",flip:"La 6 min",difficulty:2,method:"Air Fryer",ckd:true,
    tip:"Dovleceii din air fryer mixati devin un sos cremos surprinzator. Legume ascunse in sos!",
+   ckdNote:"Dovleceii = potasiu SCAZUT (~260mg/150g), ideali pt CKD G3a. Mod creativ de a creste aportul de legume fara a incarca rinichii.",
    pairs:["Cartofi prajiti","Cartofi wedges","Conopida","Broccoli","Ciuperci","Paste"],
    steps:["2 dovlecei medii taiati in rondele groase - Air Fryer 185°C, 10-12 min","2 catei usturoi (pusi in air fryer ultimele 5 min)","Pune in blender cu: 2 linguri ulei masline, zeama de 1/2 lamaie","1 lingura busuioc proaspat (sau 1 lingurita uscat)","Piper negru, nucsoara","Mixeaza pana devine cremos, ajusteaza consistenta cu putina apa"],
    notes:"Mod creativ de a consuma mai multe legume. Dovleceii sunt foarte saraci in calorii dar bogati in potasiu moderat si vitamina C."},
-  {id:423,name:"Sos de susan si ghimbir (asian style)",emoji:"🥢",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+  {id:423,name:"Sos de susan si ghimbir (asian style)",emoji:"🥢",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,ckd:true,
    tip:"Arome asiatice intense - perfect cu legume crocante din air fryer. Dependenta garantata!",
+   ckdNote:"Ghimbirul = anti-greata + antiinflamator (gingerol). Susan = calciu + Mg fara fosfor anorganic. Sos soia redus = sodiu minim.",
    pairs:["Broccoli","Conopida","Morcovi","Ciuperci","Dovlecei","Ardei grasi","Sparanghel"],
    steps:["2 linguri tahini (pasta de susan)","1 lingurita ulei de susan (sau masline)","1 lingurita ghimbir proaspat ras","1 lingurita otet de orez","1/2 lingurita sos soia cu sodiu redus","1 catel usturoi ras","Piper negru, seminte de susan pentru presarat","Amesteca bine, ajusteaza cu 1-2 linguri apa calda"],
    notes:"Ghimbirul are proprietati anti-greata si antiinflamatorii (gingerol). Susanul = calciu si magneziu. Sos soia in cantitate mica."},
-  {id:424,name:"Sos de sfecla si hrean (roz)",emoji:"🩷",cat:"Sosuri",temp:200,time:"30-35",flip:"La 15 min",difficulty:2,method:"Air Fryer",
+  {id:424,name:"Sos de sfecla si hrean (roz)",emoji:"🩷",cat:"Sosuri",temp:200,time:"30-35",flip:"La 15 min",difficulty:2,method:"Air Fryer",ckd:"atentie",
    tip:"Sosul roz spectaculos! Sfecla coapta in air fryer + hrean = combinatie clasica romaneasca.",
+   ckdNote:"ATENTIE: Sfecla = potasiu RIDICAT. Portie mica (2-3 linguri). Nitratii imbunatatesc circulatia, dar monitorizare K+ necesara.",
    pairs:["Cartofi prajiti","Conopida","Broccoli","Ciuperci","Dovlecei","Cartofi wedges"],
    steps:["1 sfecla medie, curatata, taiata in sferturi - Air Fryer 200°C, 30-35 min","Lasa sa se raceasca putin, pune in blender","Adauga: 1 lingura hrean proaspat ras, 2 linguri iaurt grecesc","1 lingurita otet de mere, piper negru","Mixeaza pana devine cremos si omogen","Ajusteaza iuteala cu mai mult/putin hrean"],
    notes:"Sfecla e bogata in nitrati naturali care imbunatatesc circulatia. Hreanul adauga iuteala fara sare. Atentie: potasiu mai ridicat."},
-  {id:425,name:"Sos de rosii uscate si busuioc",emoji:"🌞",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,
+  {id:425,name:"Sos de rosii uscate si busuioc",emoji:"🌞",cat:"Sosuri",temp:"-",time:"5",flip:"-",difficulty:1,ckd:true,
    tip:"Aromat, mediteranean, concentrat. Rosiile uscate dau un umami natural incredibil.",
+   ckdNote:"Licopenul concentrat = protector cardiovascular puternic. Alege rosii uscate FARA sare si FARA conservanti (verifica eticheta!).",
    pairs:["Dovlecei","Vinete","Conopida","Ciuperci","Ardei grasi","Broccoli","Cartofi wedges"],
    steps:["6-8 rosii uscate (nu cele in ulei cu sare), inmuiate 10 min in apa calda","Pune in blender cu: 1 catel usturoi, 10 frunze busuioc proaspat","2 linguri ulei masline extravirgin","1 lingurita otet balsamic, piper negru","Optional: 5-6 masline negre (fara sare)","Mixeaza la consistenta de pesto gros"],
    notes:"Rosiile uscate concentreaza licopenul de 10x. Verifica eticheta - alege varianta fara sare adaugata si fara conservanti."},
-  {id:426,name:"Sos de ceapa caramelizata",emoji:"🧅",cat:"Sosuri",temp:"Foc mic",time:"25-30",flip:"Amesteca la 5 min",difficulty:2,method:"Aragaz",
+  {id:426,name:"Sos de ceapa caramelizata",emoji:"🧅",cat:"Sosuri",temp:"Foc mic",time:"25-30",flip:"Amesteca la 5 min",difficulty:2,method:"Aragaz",ckd:true,
    tip:"Rabdarea e secretul! Ceapa gatita lent devine dulce natural - sos incredibil fara pic de sare.",
+   ckdNote:"Zero sare, zero zahar adaugat. Ceapa = quercetina (flavonoid antiinflamator). Caramelizarea naturala inlocuieste nevoia de sare.",
    pairs:["Ciuperci","Cartofi prajiti","Cartofi wedges","Conopida","Broccoli","Dovlecei","Vinete"],
    steps:["3 cepe mari, taiate in semiinele subtiri","1 lingura ulei masline + 1 lingurita unt","Gateste la foc mic 25-30 min, amestecand la fiecare 5 min","Cand devin maro-auriu, adauga: 1 lingura otet balsamic","1 lingurita cimbru, piper negru","Optional: 1 lingurita mustar dupa ce se raceste putin","Serveste cald peste legumele din air fryer"],
    notes:"Caramelizarea transforma zaharurile naturale din ceapa - zero zahar adaugat necesar. Ceapa contine quercetina - flavonoid antiinflamator."},
@@ -1794,7 +1806,7 @@ function renderRecipes(query = "") {
       <div class="card-header">
         <div class="card-emoji">${r.emoji}</div>
         <div>
-          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}${r.cat === "Sosuri" ? '<span class="badge-sos">SOS</span>' : ''}${methodBadge}</div>
+          <div class="card-title">${r.name}${r.cat === "Recomandate" ? '<span class="badge-rec">RECOMANDAT</span>' : ''}${r.cat === "Sosuri" ? '<span class="badge-sos">SOS</span>' : ''}${r.ckd ? `<span class="badge-ckd" style="${r.ckd === 'atentie' ? 'background:linear-gradient(135deg,#f59e0b,#ef4444)' : ''}">${r.ckd === 'atentie' ? 'CKD ⚠' : 'CKD ✓'}</span>` : ''}${methodBadge}</div>
           <div class="card-cat">${r.cat}${renderDifficulty(r.difficulty)}</div>
         </div>
       </div>
@@ -1858,6 +1870,8 @@ function openModal(recipe) {
     </div>
 
     ${r.notes ? `<div class="modal-section"><h3>&#x1F4DD; Note</h3><p>${r.notes}</p></div>` : ""}
+
+    ${r.ckdNote ? `<div class="modal-section"><h3 style="color:${r.ckd === 'atentie' ? '#f59e0b' : 'var(--green)'}">&#x2695;&#xFE0F; Recomandare medicala CKD G3a</h3><div class="ckd-note" style="${r.ckd === 'atentie' ? 'background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2);color:#f59e0b' : ''}">${r.ckdNote}</div></div>` : ""}
 
     ${r.cat !== 'Sosuri' ? getSauceSuggestions(r.name) : ''}
 
