@@ -7,25 +7,25 @@
   <meta name="description" content="Infografic interactiv: cele 12 greseli frecvente la folosirea air fryer-ului si cum sa le eviti. Bazat pe ghidul Fabulously Frugal." />
   <style>
     :root{
-      --bg0:#0A0806;
-      --bg1:#12100B;
-      --panel:#1A1610cc;
-      --card:#1A1610;
-      --card2:#141008;
-      --ink:#FFF5E6;
-      --muted:#C4B8A0;
-      --muted2:#9A8E78;
-      --line:#2E2818;
-      --glow:#FF9F43;
-      --glow2:#FFD93D;
-      --ok:#6EE7B7;
-      --warn:#FDE68A;
-      --bad:#FDA4AF;
-      --teal:#5EEAD4;
-      --coral:#FF7A5C;
+      --bg0:#f5f3f0;
+      --bg1:#eae7e2;
+      --panel:rgba(255,255,255,.85);
+      --card:#ffffff;
+      --card2:#f8f6f3;
+      --ink:#1a1a2e;
+      --muted:#5a5245;
+      --muted2:#7a7268;
+      --line:#e0dbd4;
+      --glow:#e8772e;
+      --glow2:#d4a017;
+      --ok:#16a34a;
+      --warn:#ca8a04;
+      --bad:#dc2626;
+      --teal:#0d9488;
+      --coral:#e8552e;
 
-      --shadow: 0 12px 40px rgba(0,0,0,.55);
-      --shadow2: 0 16px 60px rgba(0,0,0,.65);
+      --shadow: 0 12px 40px rgba(0,0,0,.06);
+      --shadow2: 0 16px 60px rgba(0,0,0,.08);
       --radius: 18px;
       --radius2: 26px;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -39,9 +39,9 @@
       font-family:var(--sans);
       color:var(--ink);
       background:
-        radial-gradient(1200px 800px at 18% 10%, rgba(255,159,67,.10), transparent 65%),
-        radial-gradient(900px 700px at 70% 20%, rgba(255,217,61,.08), transparent 60%),
-        radial-gradient(1200px 900px at 40% 80%, rgba(255,122,92,.07), transparent 65%),
+        radial-gradient(1200px 800px at 18% 10%, rgba(232,119,46,.05), transparent 65%),
+        radial-gradient(900px 700px at 70% 20%, rgba(212,160,23,.04), transparent 60%),
+        radial-gradient(1200px 900px at 40% 80%, rgba(232,85,46,.03), transparent 65%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
@@ -59,8 +59,8 @@
     .hero{
       grid-column: 1 / -1;
       position:relative;
-      border:1px solid rgba(255,159,67,.22);
-      background: linear-gradient(180deg, rgba(26,22,16,.76), rgba(18,16,11,.72));
+      border:1px solid rgba(232,119,46,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.8));
       border-radius: var(--radius2);
       box-shadow: var(--shadow2);
       overflow:hidden;
@@ -70,9 +70,9 @@
       content:"";
       position:absolute; inset:-1px;
       background:
-        radial-gradient(800px 280px at 20% 15%, rgba(255,159,67,.14), transparent 70%),
-        radial-gradient(700px 300px at 80% 35%, rgba(255,217,61,.10), transparent 68%),
-        radial-gradient(500px 260px at 40% 85%, rgba(255,122,92,.08), transparent 66%);
+        radial-gradient(800px 280px at 20% 15%, rgba(232,119,46,.06), transparent 70%),
+        radial-gradient(700px 300px at 80% 35%, rgba(212,160,23,.05), transparent 68%),
+        radial-gradient(500px 260px at 40% 85%, rgba(232,85,46,.04), transparent 66%);
       pointer-events:none;
       opacity:.9;
     }
@@ -109,8 +109,8 @@
       margin-top:2px;
     }
     .chip{
-      border:1px solid rgba(255,245,230,.14);
-      background: rgba(10,8,6,.45);
+      border:1px solid rgba(0,0,0,.08);
+      background: rgba(0,0,0,.03);
       padding:6px 10px;
       border-radius: 999px;
       font-size:12.5px;
@@ -133,9 +133,9 @@
 
     .heroViz{
       position:relative;
-      border:1px solid rgba(255,245,230,.14);
+      border:1px solid rgba(0,0,0,.08);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(10,8,6,.35), rgba(10,8,6,.65));
+      background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(248,246,243,.8));
       overflow:hidden;
       padding: 14px;
       min-height: 190px;
@@ -183,8 +183,8 @@
     }
 
     .card{
-      border:1px solid rgba(255,245,230,.13);
-      background: linear-gradient(180deg, rgba(26,22,16,.76), rgba(20,16,8,.72));
+      border:1px solid rgba(0,0,0,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75));
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
       overflow:hidden;
@@ -195,8 +195,8 @@
       align-items:flex-start;
       gap:12px;
       padding: 16px 16px 10px 16px;
-      border-bottom:1px solid rgba(255,245,230,.08);
-      background: linear-gradient(180deg, rgba(10,8,6,.18), transparent);
+      border-bottom:1px solid rgba(0,0,0,.04);
+      background: linear-gradient(180deg, rgba(0,0,0,.02), transparent);
     }
     .cardHeader h2{
       margin:0;
@@ -223,8 +223,8 @@
       gap:12px;
     }
     .mini{
-      border:1px solid rgba(255,245,230,.12);
-      background: linear-gradient(180deg, rgba(10,8,6,.30), rgba(10,8,6,.58));
+      border:1px solid rgba(0,0,0,.06);
+      background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(248,246,243,.6));
       border-radius: 16px;
       padding: 12px;
       min-height: 110px;
@@ -250,8 +250,8 @@
       font-size: 11px;
       padding: 4px 8px;
       border-radius: 999px;
-      border:1px solid rgba(255,245,230,.14);
-      color: rgba(255,245,230,.9);
+      border:1px solid rgba(0,0,0,.08);
+      color: rgba(26,26,46,.85);
       background: rgba(0,0,0,.25);
       white-space:nowrap;
     }
@@ -280,8 +280,8 @@
       margin-top:12px;
     }
     .stat{
-      border:1px solid rgba(255,245,230,.12);
-      background: rgba(10,8,6,.40);
+      border:1px solid rgba(0,0,0,.06);
+      background: rgba(0,0,0,.03);
       border-radius:16px;
       padding:12px;
       text-align:center;
@@ -382,7 +382,7 @@
     /* Commentary panel */
     .comPanel{
       border:1px solid rgba(255,159,67,.22);
-      background: linear-gradient(180deg, rgba(26,22,16,.80), rgba(18,16,11,.76));
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75));
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
       overflow:hidden;
@@ -415,10 +415,10 @@
     }
     .comBody.hidden{ display:none; }
     .comNote{
-      border:1px solid rgba(255,245,230,.10);
+      border:1px solid rgba(0,0,0,.05);
       border-radius:14px;
       padding:10px 12px;
-      background: rgba(10,8,6,.30);
+      background: rgba(0,0,0,.02);
     }
     .comNote h4{
       margin:0;
@@ -436,15 +436,15 @@
 
     /* Quick ref */
     .quickRef{
-      border:1px solid rgba(255,245,230,.13);
-      background: linear-gradient(180deg, rgba(26,22,16,.76), rgba(20,16,8,.72));
+      border:1px solid rgba(0,0,0,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75));
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
     .quickRef .qHead{
       padding:14px 16px;
-      border-bottom:1px solid rgba(255,245,230,.08);
+      border-bottom:1px solid rgba(0,0,0,.04);
     }
     .quickRef .qHead h2{ margin:0; font-size:15px; }
     .quickRef .qBody{
@@ -457,10 +457,10 @@
       display:flex;
       gap:10px;
       align-items:flex-start;
-      border:1px solid rgba(255,245,230,.08);
+      border:1px solid rgba(0,0,0,.04);
       border-radius:12px;
       padding:8px 10px;
-      background: rgba(10,8,6,.22);
+      background: rgba(0,0,0,.02);
     }
     .qItem .qNum{
       display:inline-flex;
@@ -485,15 +485,15 @@
 
     /* Temperature guide */
     .tempGuide{
-      border:1px solid rgba(255,245,230,.13);
-      background: linear-gradient(180deg, rgba(26,22,16,.76), rgba(20,16,8,.72));
+      border:1px solid rgba(0,0,0,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75));
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
     .tempGuide .tHead{
       padding:14px 16px;
-      border-bottom:1px solid rgba(255,245,230,.08);
+      border-bottom:1px solid rgba(0,0,0,.04);
     }
     .tempGuide .tHead h2{ margin:0; font-size:15px; }
     .tempGuide .tBody{
@@ -507,9 +507,9 @@
       justify-content:space-between;
       align-items:center;
       padding:6px 10px;
-      border:1px solid rgba(255,245,230,.08);
+      border:1px solid rgba(0,0,0,.04);
       border-radius:10px;
-      background: rgba(10,8,6,.22);
+      background: rgba(0,0,0,.02);
       font-size:12.5px;
     }
     .tRow .tFood{ color:var(--muted); }
