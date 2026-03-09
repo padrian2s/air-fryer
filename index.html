@@ -7,19 +7,19 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --bg:#0f1117;--surface:#1a1d27;--surface2:#242836;--surface3:#2e3344;
-    --accent:#ff6b35;--accent2:#ff8c5a;--accent-glow:rgba(255,107,53,.15);
-    --green:#22c55e;--green-glow:rgba(34,197,94,.15);
-    --blue:#3b82f6;--blue-glow:rgba(59,130,246,.15);
-    --yellow:#eab308;--yellow-glow:rgba(234,179,8,.15);
-    --red:#ef4444;--purple:#a855f7;
-    --text:#e8eaed;--text2:#9ca3af;--text3:#6b7280;
+    --bg:#f8f9fa;--surface:#ffffff;--surface2:#f0f1f3;--surface3:#e0e2e6;
+    --accent:#e85d2a;--accent2:#d44f1e;--accent-glow:rgba(232,93,42,.1);
+    --green:#16a34a;--green-glow:rgba(22,163,74,.1);
+    --blue:#2563eb;--blue-glow:rgba(37,99,235,.1);
+    --yellow:#ca8a04;--yellow-glow:rgba(202,138,4,.1);
+    --red:#dc2626;--purple:#9333ea;
+    --text:#1a1a2e;--text2:#4a5568;--text3:#718096;
     --radius:12px;--radius-sm:8px;
   }
   body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
   /* Header */
-  .header{background:linear-gradient(135deg,#1a1d27 0%,#242836 100%);border-bottom:1px solid var(--surface3);padding:1.5rem 2rem;text-align:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+  .header{background:rgba(255,255,255,.85);border-bottom:1px solid var(--surface3);padding:1.5rem 2rem;text-align:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
   .header h1{font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.3rem}
   .header p{color:var(--text2);font-size:.9rem}
 
@@ -54,7 +54,7 @@
 
   /* Cards */
   .card{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .3s}
-  .card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,.08)}
   .card-header{display:flex;align-items:center;gap:12px;padding:16px 18px 12px}
   .card-emoji{font-size:2rem;min-width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border-radius:var(--radius-sm)}
   .card-title{font-weight:600;font-size:1.05rem}
@@ -83,7 +83,7 @@
   .list-view .card-tip{display:none}
 
   /* Modal */
-  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
   .modal-overlay.show{opacity:1;pointer-events:all}
   .modal{background:var(--surface);border:1px solid var(--surface3);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.95);transition:transform .3s}
   .modal-overlay.show .modal{transform:scale(1)}
@@ -175,7 +175,7 @@
   .scroll-top.show{opacity:1;pointer-events:all}
 
   /* Responsive */
-  @media(max-width:640px){
+  @media(max-width:768px){
     .header h1{font-size:1.4rem}
     .grid{grid-template-columns:1fr}
     .compare-slots{grid-template-columns:1fr}
@@ -295,17 +295,17 @@
 
   /* Blueprint tab */
   .bp-container{max-width:900px;margin:0 auto}
-  .bp-hero{background:linear-gradient(135deg,#0a1628,#1a2744);border:1px solid rgba(59,130,246,.25);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;text-align:center}
-  .bp-hero h2{font-size:1.4rem;color:#60a5fa;margin-bottom:.5rem}
+  .bp-hero{background:linear-gradient(135deg,#eef2ff,#dbeafe);border:1px solid rgba(59,130,246,.25);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;text-align:center}
+  .bp-hero h2{font-size:1.4rem;color:#2563eb;margin-bottom:.5rem}
   .bp-hero p{font-size:.85rem;color:var(--text2);line-height:1.6}
   .bp-hero .bp-stats{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
   .bp-hero .bp-stat{text-align:center}
-  .bp-hero .bp-stat-val{font-size:1.5rem;font-weight:700;color:#60a5fa}
+  .bp-hero .bp-stat-val{font-size:1.5rem;font-weight:700;color:#2563eb}
   .bp-hero .bp-stat-label{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
   .bp-meal{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);margin-bottom:1rem;overflow:hidden;transition:border-color .2s}
-  .bp-meal:hover{border-color:#60a5fa}
+  .bp-meal:hover{border-color:#2563eb}
   .bp-meal-header{padding:1.25rem;cursor:pointer;display:flex;align-items:center;gap:12px}
-  .bp-meal-time{font-size:.7rem;color:#60a5fa;background:rgba(59,130,246,.1);padding:3px 10px;border-radius:50px;font-weight:600;white-space:nowrap}
+  .bp-meal-time{font-size:.7rem;color:#2563eb;background:rgba(59,130,246,.1);padding:3px 10px;border-radius:50px;font-weight:600;white-space:nowrap}
   .bp-meal-title{font-size:1rem;font-weight:600;flex:1}
   .bp-meal-kcal{font-size:.8rem;color:var(--text3)}
   .bp-meal-toggle{color:var(--text3);transition:transform .2s;font-size:.8rem}
@@ -317,18 +317,18 @@
   .bp-ing-list li:last-child{border-bottom:none}
   .bp-ing-qty{color:var(--text3);font-size:.8rem;white-space:nowrap;margin-left:8px}
   .bp-note{font-size:.8rem;color:var(--text2);margin-top:.75rem;padding:10px 14px;background:var(--surface2);border-radius:var(--radius-sm);line-height:1.5}
-  .bp-note strong{color:#60a5fa}
+  .bp-note strong{color:#2563eb}
   .bp-supps{margin-top:.75rem}
   .bp-supp-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-  .bp-supp{font-size:.72rem;padding:3px 10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:50px;color:#60a5fa}
-  .bp-section-title{font-size:.9rem;font-weight:600;color:#60a5fa;margin:1.25rem 0 .5rem;display:flex;align-items:center;gap:8px}
+  .bp-supp{font-size:.72rem;padding:3px 10px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:50px;color:#2563eb}
+  .bp-section-title{font-size:.9rem;font-weight:600;color:#2563eb;margin:1.25rem 0 .5rem;display:flex;align-items:center;gap:8px}
   .bp-adapt{background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(59,130,246,.08));border:1px solid rgba(34,197,94,.2);border-radius:var(--radius);padding:1.25rem;margin-top:1.5rem}
   .bp-adapt h3{font-size:1rem;color:var(--green);margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
   .bp-adapt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
   .bp-adapt-item{font-size:.82rem;padding:8px 12px;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--surface3);line-height:1.5}
   .bp-adapt-item strong{color:var(--green)}
   .filter-btn[data-cat="Blueprint"]{border-color:rgba(96,165,250,.4)}
-  .filter-btn[data-cat="Blueprint"].active{background:#60a5fa;border-color:#60a5fa}
+  .filter-btn[data-cat="Blueprint"].active{background:#2563eb;border-color:#2563eb}
 
   /* Animations */
   .card{animation:fadeUp .4s ease both}
@@ -344,13 +344,25 @@
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
   /* Tab nav */
-  .tab-nav{display:flex;gap:0;max-width:1200px;margin:1.5rem auto .5rem;padding:0 1.5rem}
-  .tab-btn{padding:10px 20px;border:1.5px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.85rem;transition:all .25s;border-bottom:none}
+  .tab-nav{display:flex;gap:0;max-width:1200px;margin:1.5rem auto .5rem;padding:0 1.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .tab-nav::-webkit-scrollbar{display:none}
+  .tab-btn{padding:10px 20px;border:1.5px solid var(--surface3);background:var(--surface);color:var(--text2);cursor:pointer;font-size:.85rem;transition:all .25s;border-bottom:none;white-space:nowrap;flex-shrink:0}
   .tab-btn:first-child{border-radius:var(--radius-sm) 0 0 0}
   .tab-btn:last-child{border-radius:0 var(--radius-sm) 0 0}
+  .tab-btn:hover{border-color:var(--accent);color:var(--text)}
   .tab-btn.active{background:var(--surface2);color:var(--accent);border-color:var(--accent);border-bottom-color:var(--surface2);font-weight:600}
   .tab-content{display:none;max-width:1200px;margin:0 auto;padding:0 1.5rem 2rem}
   .tab-content.active{display:block}
+
+  /* Mobile: select dropdown replaces tabs */
+  .mobile-tab-select{display:none;max-width:1200px;margin:1rem auto .5rem;padding:0 1.5rem}
+  .mobile-tab-select select{width:100%;padding:12px 16px;background:var(--surface);border:2px solid var(--surface3);border-radius:var(--radius-sm);color:var(--text);font-size:1rem;font-weight:600;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+  .mobile-tab-select select:focus{outline:none;border-color:var(--accent)}
+
+  @media(max-width:768px){
+    .tab-nav{display:none}
+    .mobile-tab-select{display:block}
+  }
 </style>
 </head>
 <body>
@@ -371,6 +383,20 @@
   <button class="tab-btn" data-tab="blueprint">Blueprint</button>
   <button class="tab-btn" data-tab="tips">Sfaturi</button>
 </nav>
+
+<!-- Mobile Tab Select -->
+<div class="mobile-tab-select">
+  <select id="mobileTabSelect">
+    <option value="recipes">Retete</option>
+    <option value="tools">Instrumente</option>
+    <option value="compare">Compara</option>
+    <option value="ingredients">Ingrediente</option>
+    <option value="simulator">Simulator</option>
+    <option value="greseli">Greseli</option>
+    <option value="blueprint">Blueprint</option>
+    <option value="tips">Sfaturi</option>
+  </select>
+</div>
 
 <!-- TAB: RECIPES -->
 <div id="tab-recipes" class="tab-content active">
@@ -1050,7 +1076,7 @@
             <table style="width:100%;border-collapse:collapse;font-size:.82rem">
               <tr style="border-bottom:2px solid var(--surface3)">
                 <th style="text-align:left;padding:8px;color:var(--text3)">Parametru</th>
-                <th style="text-align:center;padding:8px;color:#60a5fa">Original</th>
+                <th style="text-align:center;padding:8px;color:#2563eb">Original</th>
                 <th style="text-align:center;padding:8px;color:var(--green)">CKD-Safe</th>
                 <th style="text-align:center;padding:8px;color:var(--text3)">Limita CKD G3a</th>
               </tr>
@@ -2164,14 +2190,29 @@ function setupEvents() {
   });
 
   // Tab nav
+  window.switchTab = function(tabId) {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+    const btn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+    if (btn) btn.classList.add("active");
+    document.getElementById(`tab-${tabId}`).classList.add("active");
+    const sel = document.getElementById("mobileTabSelect");
+    if (sel) sel.value = tabId;
+    // Trigger tab-specific init
+    if (tabId === 'ingredients') {
+      setTimeout(() => { if (typeof renderIngredients === 'function') renderIngredients(document.getElementById('ingredientSearch')?.value || ''); }, 50);
+    }
+    if (tabId === 'simulator') {
+      setTimeout(() => { if (typeof initSimulators === 'function') initSimulators(); }, 50);
+    }
+  }
   document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-      document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById(`tab-${btn.dataset.tab}`).classList.add("active");
-    });
+    btn.addEventListener("click", () => switchTab(btn.dataset.tab));
   });
+  const mobileTabSel = document.getElementById("mobileTabSelect");
+  if (mobileTabSel) {
+    mobileTabSel.addEventListener("change", (e) => switchTab(e.target.value));
+  }
 
   // Convertor
   document.getElementById("convTemp").addEventListener("input", updateConversion);
